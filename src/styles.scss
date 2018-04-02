@@ -1,4 +1,6 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css');
+@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+@import url('./fontello.css');
 
 /* reset */
 html, body, div, span, applet, object, iframe,
@@ -26,12 +28,16 @@ time, mark, audio, video {
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+}
+
 html {
   font-size: 10px;
 }
 
 body {
-  font-family: 'Apple SD Gothic Neo', '맑은 고딕', 'Malgun Gothic', '돋움', dotum, '굴림', sans-serif;
+  font-family: 'Apple SD Gothic Neo', 'Nanum Gothic', '맑은 고딕', 'Malgun Gothic', '돋움', dotum, '굴림', sans-serif;
   font-size: 1.3rem;
   background: #e5e5e5;
   color: #666;
