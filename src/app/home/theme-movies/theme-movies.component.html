@@ -4,15 +4,16 @@
     <div class="outer">
       <div class="inner">
         <ul class="list-movie">
-          <li>
-            <div style="background-image:url('http://via.placeholder.com/220x150');">드라마</div>
+          <li class="list-movie-item"
+            *ngFor="let themeMovie of themeMovies">
+          <div style="background-image:url('http://via.placeholder.com/220x150');">{{ themeMovie.content }}</div>
           </li>
-          <li>
+          <!-- <li>
             <div>다큐멘터리</div>
           </li>
           <li>
             <div>코미디</div>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
