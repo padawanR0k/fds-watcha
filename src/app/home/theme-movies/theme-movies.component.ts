@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { ThemeMovies } from '../shared/theme-movies.interface';
 
 @Component({
   selector: 'theme-movies',
@@ -6,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./theme-movies.component.scss']
 })
 export class ThemeMoviesComponent implements OnInit {
+
+  @Input() themeMovies: ThemeMovies[];
+
 
   constructor() { }
 
