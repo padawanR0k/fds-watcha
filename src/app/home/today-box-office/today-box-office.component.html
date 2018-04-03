@@ -1,47 +1,25 @@
+
 <ul class="list-movie">
-  <li>
-    <div>1</div>
-  </li>
-  <li>
-    <div>2</div>
-  </li>
-  <li>
-    <div>3</div>
-  </li>
-  <li>
-    <div>4</div>
-  </li>
-  <li>
-    <div>5</div>
-  </li>
-  <li>
-    <div>6</div>
-  </li>
-  <li>
-    <div>7</div>
-  </li>
-  <li>
-    <div>8</div>
-  </li>
-  <li>
-    <div>9</div>
-  </li>
-  <li>
-    <div>10</div>
-  </li>
-  <li>
-    <div>11</div>
-  </li>
-  <li>
-    <div>12</div>
-  </li>
-  <li>
-    <div>13</div>
-  </li>
-  <li>
-    <div>14</div>
-  </li>
-  <li>
-    <div>15</div>
+    <!-- boxOffice객체의 정보로 DOM을 그림 -->
+  <li class="card" *ngFor="let movie of boxOffice; let i = index">
+    <div class="card-type01 poster-type">
+      <div class="movie-poster" class="movie-poster">
+        <img src="{{ movie.posterUrl }}"
+          alt="">
+      </div>
+      <div class="hidden-layer" [class.rated]="movie.rate > 0">
+        <cite class="movie-name">{{ movie.movieNm }}</cite>
+        <div class="rating-star">
+
+          <button *ngFor="let item of [1,2,3,4,5,6,7,8,9,10]" data-value="{{ item }}" class="star" [class.star-on]="item <= movie.rate" (click)="rateFilm($event.target, i)"></button>
+
+        </div>
+        <div class="movie-poster-button">
+          <a href="" class="add-button want2see-movie">보고싶어요</a>
+          <a href="" class="add-button comment">코멘트남기기</a>
+        </div>
+      </div>
+    </div>
   </li>
 </ul>
+
