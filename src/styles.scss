@@ -28,16 +28,12 @@ time, mark, audio, video {
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-}
-
 html {
   font-size: 10px;
 }
 
 body {
-  font-family: 'Apple SD Gothic Neo', 'Nanum Gothic', '맑은 고딕', 'Malgun Gothic', '돋움', dotum, '굴림', sans-serif;
+  font-family: 'Apple SD Gothic Neo', '맑은 고딕', 'Malgun Gothic', '돋움', dotum, '굴림', sans-serif;
   font-size: 1.3rem;
   background: #e5e5e5;
   color: #666;
@@ -226,11 +222,11 @@ ul {
     padding: 14px 15px;
     border-bottom: 1px solid #eee;
   }
-  
+
   .head h3 {
     font-size: 1.6rem;
   }
-  
+
   .head .bbtn {
     position: absolute;
     right: 15px;
@@ -239,7 +235,7 @@ ul {
     transform: translateY(-50%);
     border: 1px solid #ccc;
   }
-  
+
   .head button {
     width: 23px;
     height: 23px;
@@ -247,38 +243,38 @@ ul {
     border: 0;
     color: #ccc;
   }
-  
+
   .head button.prev {
     border-right: 1px solid #ccc;
   }
-  
+
   .body {
     padding: 35px 15px;
   }
-  
+
   .body ul {
     overflow: hidden;
     height: 510px;
     list-style: none;
   }
-  
+
   .body li {
     position: relative;
   }
-  
+
   .body li+li {
     margin-top: 30px;
   }
-  
+
   .body dl {
     margin-left: 110px;
   }
-  
+
   .body dt {
     margin-bottom: 5px;
     font-size: 1.4rem;
   }
-  
+
   .body dd {
     overflow: hidden;
     display: -webkit-box;
@@ -286,7 +282,7 @@ ul {
     -webkit-line-clamp: 3;
     max-height: 4.5em;
   }
-  
+
   .body .thumb {
     position: absolute;
     left: 0;
@@ -294,7 +290,7 @@ ul {
     width: 100px;
     height: 80px;
   }
-  
+
   .body .thumb img {
     max-width: 100%;
   }
