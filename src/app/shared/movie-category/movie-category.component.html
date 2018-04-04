@@ -1,0 +1,16 @@
+<section class="theme-area">
+  <h4 class="skip">테마별 영화</h4>
+  <ul>
+    <li *ngFor="let movieCategoryList of movieCategoryLists">
+      <a href="#" class="current">
+        <span>{{ movieCategoryList.category }}</span>
+      </a>
+    </li>
+    <!-- <li>
+      <a href="#">
+        <span>왓챠 평균별점 TOP 영화</span>
+      </a>
+    </li> -->
+  </ul>
+  <a href="#" class="view-all">모두보기</a>
+</section>

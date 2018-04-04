@@ -1,13 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { BoxOfficeRankingComponent } from './box-office-ranking/box-office-ranking.component';
 import { HeaderComponent } from './header/header.component';
+import { BoxOfficeRankingComponent } from './box-office-ranking/box-office-ranking.component';
+import { MovieCategoryComponent } from './movie-category/movie-category.component';
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [BoxOfficeRankingComponent, HeaderComponent],
+  declarations: [
+    HeaderComponent,
+    BoxOfficeRankingComponent,
+    MovieCategoryComponent
+  ],
   providers: [],
-  exports: [BoxOfficeRankingComponent, HeaderComponent]
+  exports: [
+     HeaderComponent,
+     BoxOfficeRankingComponent,
+     MovieCategoryComponent
+    ]
 })
 export class SharedModule { }
