@@ -80,6 +80,8 @@ ul {
   overflow: hidden;
 }
 
+$global-color: #f83938;
+
 /* layout */
 .inner-guide {
   position: relative;
@@ -168,7 +170,7 @@ ul {
 
 .ranking-area {
   height: 100%;
-  background: #f83938;
+  background: $global-color;
 }
 
 .list-movie {
