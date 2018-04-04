@@ -24,7 +24,7 @@ export class MovieCategoryComponent implements OnInit {
 
   constructor() {
     this.movieCategoryLists = [
-      { id: 1, category: '역대 100만 관객 돌파 영화', active: false},
+      { id: 1, category: '역대 100만 관객 돌파 영화', active: true},
       { id: 2, category: '왓챠 평균 별점 TOP 영화', active: false },
       { id: 3, category: '전세계 흥행 TOP 영화', active: false  },
       { id: 4, category: '국내 누적관객수 TOP 영화', active: false  },
