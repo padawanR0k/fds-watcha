@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ThemeMovies } from './shared/theme-movies.interface';
-import { HttpClient } from 'selenium-webdriver/http';
-import { environment } from '../../environments/environment';
+
+
+// import { HttpClient } from 'selenium-webdriver/http';
+// import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'home',
@@ -12,7 +14,6 @@ import { environment } from '../../environments/environment';
 export class HomeComponent implements OnInit {
 
   themeMovieList: ThemeMovies[];
-
   // url = environment.url;
 
   constructor() {

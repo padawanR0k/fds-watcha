@@ -11,7 +11,6 @@ export class ThemeMoviesComponent implements OnInit {
 
   @Input() themeMovies: ThemeMovies[];
 
-
   constructor() { }
 
   ngOnInit() {
