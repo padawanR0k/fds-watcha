@@ -35,8 +35,6 @@ export class BoxOfficeRankingComponent implements OnInit {
     ];
   }
 
-  ngOnInit() {
-    console.log(this.boxOfficeRankingLists);
-  }
+  ngOnInit() { }
 
 }
