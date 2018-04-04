@@ -14,21 +14,24 @@ export class BoxOfficeRankingComponent implements OnInit {
 
   constructor() {
     this.boxOfficeRankingLists = [
-      { id: 20, title: '레디 플레이어 원', link: '#'},
-      { id: 19, title: '바람 바람 바람', link: '#'},
-      { id: 18, title: '곤지암', link: '#'},
-      { id: 17, title: '지금 만나러 갑니다', link: '#'},
-      { id: 16, title: '레이디 버드' , link: '#'},
-      { id: 15, title: '7년의 밤', link: '#'},
-      { id: 14, title: '덕구' , link: '#'},
-      { id: 13, title: '콜미 바이 유어 네임' , link: '#'},
-      { id: 12, title: '펜텀 스레드' , link: '#'},
-      { id: 11, title: '머니백' , link: '#'},
-      { id: 10, title: '양의 나무' , link: '#'},
-      { id: 9, title: '50가지 그림자: 해방' , link: '#'},
-      { id: 8, title: '문호 스트레이독스' , link: '#'},
-      { id: 7, title: '오늘밤, 로멘스 극장에서 ' , link: '#'},
-      { id: 6, title: '퍼시픽 림: 업라이징' , link: '#'}
+      { ranking: 1, title: '레디 플레이어 원', link: '#'},
+      { ranking: 2, title: '바람 바람 바람', link: '#'},
+      { ranking: 3, title: '곤지암', link: '#'},
+      { ranking: 4, title: '지금 만나러 갑니다', link: '#'},
+      { ranking: 5, title: '레이디 버드' , link: '#'},
+      { ranking: 6, title: '7년의 밤', link: '#'},
+      { ranking: 7, title: '덕구' , link: '#'},
+      { ranking: 8, title: '콜미 바이 유어 네임' , link: '#'},
+      { ranking: 9, title: '펜텀 스레드' , link: '#'},
+      { ranking: 10, title: '머니백' , link: '#'},
+      { ranking: 11, title: '양의 나무' , link: '#'},
+      { ranking: 12, title: '50가지 그림자: 해방' , link: '#'},
+      { ranking: 13, title: '문호 스트레이독스' , link: '#'},
+      { ranking: 14, title: '오늘밤, 로멘스 극장에서 ' , link: '#'},
+      { ranking: 16, title: '퍼시픽 림: 업라이징' , link: '#'},
+      { ranking: 17, title: '퍼시픽 림: 업라이징' , link: '#'},
+      { ranking: 18, title: '퍼시픽 림: 업라이징' , link: '#'},
+      { ranking: 19, title: '퍼시픽 림: 업라이징' , link: '#'}
     ];
   }
 
