@@ -1,5 +1,5 @@
 export interface BoxofficeRanking {
-    id: number;
+    ranking: number;
     title: string;
     link: string;
 }
