@@ -2,14 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import {
-  HomeComponent,
+  HomeComponent
+} from '../pages';
+
+import {
   VisualComponent,
   TodayBoxOfficeComponent,
   MyMoviesComponent,
   NewMoviesComponent,
   ThemeMoviesComponent,
   NewMoviesPostComponent
-} from '../pages';
+} from './';
 
 @NgModule({
   imports: [
