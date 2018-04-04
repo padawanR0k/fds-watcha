@@ -2,9 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 
-import {
-  HomeComponent
-} from '../pages';
+import { HomeComponent } from '../pages';
 
 import {
   VisualComponent,
@@ -14,8 +12,6 @@ import {
   ThemeMoviesComponent,
   NewMoviesPostComponent
 } from './';
-
-// import { BoxOfficeRankingComponent } from '../shared/box-office-ranking/box-office-ranking.component';
 
 @NgModule({
   imports: [
@@ -29,7 +25,11 @@ import {
     MyMoviesComponent,
     NewMoviesComponent,
     ThemeMoviesComponent,
+<<<<<<< HEAD
     NewMoviesPostComponent,
+=======
+    NewMoviesPostComponent
+>>>>>>> feature/movie-category
   ],
   exports: [
     HomeComponent,
