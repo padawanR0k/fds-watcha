@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from '../shared/shared.module';
 
 import {
   HomeComponent,
@@ -13,7 +14,8 @@ import {
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule
   ],
   declarations: [
     HomeComponent,
@@ -22,7 +24,7 @@ import {
     MyMoviesComponent,
     NewMoviesComponent,
     ThemeMoviesComponent,
-    NewMoviesPostComponent
+    NewMoviesPostComponent,
   ],
   exports: [
     HomeComponent,

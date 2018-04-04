@@ -11,7 +11,7 @@
         <cite class="movie-name">{{ movie.movieNm }}</cite>
         <div class="rating-star">
 
-          <button *ngFor="let item of [1,2,3,4,5,6,7,8,9,10]" data-value="{{ item }}" class="star" [class.star-on]="item <= movie.rate" (click)="rateFilm($event.target, i)"></button>
+          <button *ngFor="let item of rateScore" data-value="{{ item }}" class="star" [class.star-on]="item <= movie.rate" (click)="rateFilm($event.target, i)"></button>
 
         </div>
         <div class="movie-poster-button">
