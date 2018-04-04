@@ -30,7 +30,6 @@ import {
     NewMoviesComponent,
     ThemeMoviesComponent,
     NewMoviesPostComponent,
-    // BoxOfficeRankingComponent
   ],
   exports: [
     HomeComponent,
