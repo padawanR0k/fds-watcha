@@ -25,11 +25,7 @@ import {
     MyMoviesComponent,
     NewMoviesComponent,
     ThemeMoviesComponent,
-<<<<<<< HEAD
     NewMoviesPostComponent,
-=======
-    NewMoviesPostComponent
->>>>>>> feature/movie-category
   ],
   exports: [
     HomeComponent,

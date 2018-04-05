@@ -4,8 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {
   HomeComponent,
   IntroComponent,
-  LoginComponent,
-  JoinComponent
+  LoginComponent
 } from './pages';
 
 const routes: Routes = [
@@ -13,7 +12,6 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'intro', component: IntroComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'join', component: JoinComponent }
   // { path: '**', component: NotFoundComponent }
 ];
 

@@ -7,15 +7,15 @@ import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  userForm: FormGroup;
+  loginForm: FormGroup;
 
   constructor() { }
 
   ngOnInit() {
-    this.userForm = new FormGroup({
-      username: new FormControl('', [
+    this.loginForm = new FormGroup({
+      userid: new FormControl('', [
         Validators.required,
-        Validators.pattern('[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}')
+        Validators.pattern('[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}')
       ]),
       password: new FormControl('', [
         Validators.required
@@ -23,16 +23,16 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  get username() {
-    return this.userForm.get('username');
+  get userid() {
+    return this.loginForm.get('userid');
   }
 
   get password() {
-    return this.userForm.get('password');
+    return this.loginForm.get('password');
   }
 
   onSubmit() {
-    console.log(this.userForm);
+    console.log(this.loginForm);
     // this.loginForm.reset();
   }
 }
