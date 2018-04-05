@@ -2,10 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { ThemeMovies } from './shared/theme-movies.interface';
 
-
-// import { HttpClient } from 'selenium-webdriver/http';
-// import { environment } from '../../environments/environment';
-
 @Component({
   selector: 'home',
   templateUrl: './home.component.html',
@@ -14,7 +10,6 @@ import { ThemeMovies } from './shared/theme-movies.interface';
 export class HomeComponent implements OnInit {
 
   themeMovieList: ThemeMovies[];
-  // url = environment.url;
 
   constructor() {
     this.themeMovieList = [
@@ -34,8 +29,4 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  // getTodos() {
-  //   this.http.get<ThemeMovies[]>(this.url)
-  //     .subscribe(movies => this.themeMovieList = themeMovieList);
-  // }
 }
