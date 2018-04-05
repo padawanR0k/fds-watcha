@@ -5,6 +5,7 @@ import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
 import { JoinModule } from './join/join.module';
 import { IntroModule } from './intro/intro.module';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -20,7 +21,8 @@ import { AppComponent } from './app.component';
     HomeModule,
     LoginModule,
     JoinModule,
-    IntroModule
+    IntroModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

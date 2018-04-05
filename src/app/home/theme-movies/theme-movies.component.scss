@@ -1,0 +1,29 @@
+.theme-recommend {
+  .inner {
+    height: 340px;
+  }
+  .list-movie {
+    li {
+      width: 20%;
+    }
+  }
+  .transparent {
+    &:hover{
+        background-color:rgba(255, 131, 98, 0.5);
+        & > a {
+            opacity: 0.5;
+        }
+    }
+    > a {
+        display: block;
+        opacity: 0.8;
+        height: 150px;
+        background-size: cover;
+        text-align: center;
+        font-size: 1.8rem;
+        color: white;
+        text-shadow: 2px 2px #696969;
+        line-height: 150px;
+    }
+  }
+}
