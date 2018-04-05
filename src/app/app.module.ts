@@ -30,15 +30,12 @@ import { AuthGuard } from './guards/auth.guard';
     JoinModule,
     IntroModule,
     HttpClientModule
-<<<<<<< HEAD
   ],
   providers: [
     AuthService,
     UserService,
     AuthGuard,
     JwtHelper
-=======
->>>>>>> f1775def6d9b7d146ef4b82c7f2fffe9383e55b7
   ],
   bootstrap: [AppComponent]
 })
