@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
+import { FormGroup, FormControl, FormArray, Validators, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { User } from '../models/user';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,8 +12,13 @@ import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  userForm: FormGroup;
+  message: string;
 
-  constructor() { }
+  constructor(
+    private fb: FormBuilder,
+    private auth: AuthService,
+    private router: Router) { }
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -34,5 +43,19 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     console.log(this.loginForm);
     // this.loginForm.reset();
+  signin() {
+    console.log('[payload]', this.userForm.value);
+    this.auth.signin(this.userForm.value)
+      .subscribe(
+        () => this.router.navigate(['home']),
+        ({ error }) => {
+          console.log(error.message);
+          this.message = error.message;
+        }
+      );
+  }
+
+  gotoJoin() {
+    this.router.navigate(['join']);
   }
 }

@@ -5,7 +5,7 @@
   <div class="inner">
     <div class="box top">
       <h2>로그인</h2>
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+      <form [formGroup]="userForm" (ngSubmit)="signin()" novalidate>
         <fieldset>
           <legend>이메일과 비밀번호로 로그인</legend>
           <div class="wrap">
@@ -31,7 +31,7 @@
             <button class="submit">로그인</button>
             <div class="links">
               <button>비밀번호 찾기 /</button>
-              <a href="/join">회원 가입하기</a>
+              <a (click)="gotoJoin()">회원 가입하기</a>
             </div>
           </div>
         </fieldset>
