@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-join',
@@ -9,7 +10,7 @@ import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 export class JoinComponent implements OnInit {
   userForm: FormGroup;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.userForm = new FormGroup({
@@ -49,5 +50,9 @@ export class JoinComponent implements OnInit {
   onSubmit() {
     console.log(this.userForm);
     // this.loginForm.reset();
+  }
+
+  gotoLogin() {
+    this.router.navigate(['/login']);
   }
 }
