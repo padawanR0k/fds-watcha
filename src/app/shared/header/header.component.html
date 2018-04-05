@@ -1,0 +1,70 @@
+<header class="main-header">
+  <ul class="gnb">
+    <li>
+      <a href="" class="home">
+        <img src="../../../assets/images/main-logo.png" alt="홈으로">
+      </a>
+    </li>
+    <li>
+      <a href="" class="boxoffice">박스오피스</a>
+    </li>
+    <li>
+      <a href="" class="recommend">추천영화</a>
+    </li>
+    <li>
+      <a href="" class="add-archive">평가늘리기</a>
+    </li>
+  </ul>
+  <div class="search-area">
+    <input type="text" class="search-bar" [(ngModel)]="searchString" (focusin)="resultState=true" (focusout)="resultState=false">
+    <div class="search-result" *ngIf="resultState">
+      <ul class="search-result-list">
+        <li>영화</li>
+        <li>
+          <a href="">인셉션
+            <span class="w100 movie-poster">
+              <img src="../../../assets/images/user-avatar-100.jpg" alt="">
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="">인셉션
+            <span class="w100 movie-poster">
+              <img src="../../../assets/images/user-avatar-100.jpg" alt="">
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="">인셉션
+            <span class="w100 movie-poster">
+              <img src="../../../assets/images/user-avatar-100.jpg" alt="">
+            </span>
+          </a>
+        </li>
+        <li><a href="" class="more-result">"{{ searchString }}"결과 더보기</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="user-menu">
+    <a href="" class="name">
+      홍길동
+      <span class="user-avator w100">
+        <img src="../../../assets/images/user-avatar-100.jpg" alt="">
+      </span>
+      <ul class="menu-list">
+        <li>
+          <a href="">영화보관함
+            <span class="count-archive">1</span>
+          </a>
+        </li>
+        <li>
+          <a href="">설정</a>
+        </li>
+        <li>
+          <a href="">로그아웃</a>
+        </li>
+      </ul>
+    </a>
+  </div>
+</header>
