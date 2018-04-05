@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
+import { FormGroup, FormControl, FormArray, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+
+import { User } from '../models/user';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,8 +12,12 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   userForm: FormGroup;
+  message: string;
 
-  constructor(private router: Router) { }
+  constructor(
+    private fb: FormBuilder,
+    private auth: AuthService,
+    private router: Router) { }
 
   ngOnInit() {
     this.userForm = new FormGroup({
@@ -32,12 +39,19 @@ export class LoginComponent implements OnInit {
     return this.userForm.get('password');
   }
 
-  onSubmit() {
-    console.log(this.userForm);
-    // this.loginForm.reset();
+  signin() {
+    console.log('[payload]', this.userForm.value);
+    this.auth.signin(this.userForm.value)
+      .subscribe(
+        () => this.router.navigate(['home']),
+        ({ error }) => {
+          console.log(error.message);
+          this.message = error.message;
+        }
+      );
   }
 
   gotoJoin() {
-    this.router.navigate(['/join']);
+    this.router.navigate(['join']);
   }
 }
