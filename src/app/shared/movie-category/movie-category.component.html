@@ -1,11 +1,14 @@
 <section class="theme-area">
   <h4 class="skip">테마별 영화</h4>
   <ul>
-    <li *ngFor="let movieCategoryList of movieCategoryLists" 
+    <li *ngFor="let movieCategoryList of movieCategoryLists"
       [class.active]="movieCategoryList.active"
-      (click)="changeCategory(movieCategoryList.id)">
-      <a  class="current">
-        <span>{{ movieCategoryList.category }}</span>
+      (click)="changeCategory(movieCategoryList.id)"
+      class="category-list">
+      <a href="javascript:;" class="current">
+        <span class="category">{{ movieCategoryList.category }}
+          <span class="highright-border"></span>
+        </span>
       </a>
     </li>
     <!-- <li>

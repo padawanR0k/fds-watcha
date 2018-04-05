@@ -1,0 +1,35 @@
+@import "../../../variables.scss";
+.theme-area {
+  .category-list {
+    height: 44px;
+    border-bottom: 1px solid #eee;
+    .category {
+      position: relative;
+      display: inline-block;
+    }
+    &:hover .category, &.active .category{
+      color: $global-color;
+    }
+    .current {
+      display: block;
+      height: 100%;
+      padding-left: 10px;
+      line-height: 44px;
+    }
+    &:hover .highright-border,
+    &.active .highright-border{
+      position: absolute;
+      width: 100%;
+      bottom: 0px;
+      border-bottom: 3px solid $global-color;
+    }
+
+  }
+  .view-all {
+    display: block;
+    height: 58px;
+    text-align: center;
+    line-height: 58px;
+    color: $global-color;
+  }
+}
