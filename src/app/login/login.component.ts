@@ -40,9 +40,6 @@ export class LoginComponent implements OnInit {
     return this.loginForm.get('password');
   }
 
-  onSubmit() {
-    console.log(this.loginForm);
-    // this.loginForm.reset();
   signin() {
     console.log('[payload]', this.userForm.value);
     this.auth.signin(this.userForm.value)

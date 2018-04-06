@@ -1,4 +1,5 @@
-<div class="login-area">
+
+<div class="user-area">
   <div class="logo">
     <h1><img src="/assets/images/logo-watcha.png" alt="watcha"></h1>
   </div>
@@ -11,13 +12,13 @@
           <div class="wrap">
             <div class="input">
               <label>이메일 주소</label>
-              <input type="email" name="userid" value="" placeholder="이메일 주소"
-                formControlName="userid">
-              <em *ngIf="userid.errors?.required && userid.touched" class="invalid-msg">
+              <input type="email" name="username" value="" placeholder="이메일 주소"
+                formControlName="username">
+              <em *ngIf="username.errors?.required && username.touched" class="invalid-msg">
                 필수 입력 항목입니다!
               </em>
-              <em *ngIf="userid.errors?.pattern && userid.touched" class="invalid-msg">
-                올바른 형식이 아닙니다!
+              <em *ngIf="username.errors?.pattern && username.touched" class="invalid-msg">
+                이메일 형식으로 입력해 주세요!
               </em>
             </div>
             <div class="input">
@@ -28,7 +29,7 @@
                 비밀번호를 입력해주세요!
               </em>
             </div>
-            <button class="submit">로그인</button>
+            <button class="submit" [disabled]="userForm.invalid">로그인</button>
             <div class="links">
               <button>비밀번호 찾기 /</button>
               <a (click)="gotoJoin()">회원 가입하기</a>
@@ -40,7 +41,7 @@
     <div class="box bottom">
       <div class="wrap">
        <span class="notice">이미 페이스북으로 가입하셨다면</span>
-       <a href="#"><span class="icon"><i class="icon-facebook"></i></span><span class="text"> facebook으로 로그인</span></a>
+       <a href="#" class="icon-btn fb"><span class="icon"><i class="icon-facebook"></i></span><span class="text"> facebook으로 로그인</span></a>
       </div>
     </div>
   </div>
