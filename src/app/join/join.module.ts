@@ -5,15 +5,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { JoinComponent } from './join.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ReactiveFormsModule
-  ],
-  declarations: [
-    JoinComponent
-  ],
-  exports: [
-    JoinComponent
-  ]
+  imports: [CommonModule, ReactiveFormsModule],
+  declarations: [JoinComponent],
+  exports: [JoinComponent]
 })
-export class JoinModule { }
+export class JoinModule {}
