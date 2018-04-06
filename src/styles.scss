@@ -523,3 +523,80 @@ ul {
   }
   transition: opacity 1s ease-in-out;
 }
+
+/* 영화 포스터 카드 */
+.poster-type {
+  position: relative;
+  overflow: hidden;
+  width: 220px;
+  &:hover .hidden-layer, .hidden-layer.rated {
+    display: block;
+  }
+  &:hover .movie-poster::before {
+      display: block;
+      content: "";
+      position: absolute;
+      height: 100%;
+      background: rgba(39, 39, 39, 0.38);
+      top: 0px;
+      width: 100%;
+  }
+}
+.hidden-layer {
+  display: none;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  background: white;
+  text-align: center;
+}
+.movie-name {
+  display:block;
+  padding: 10px 0px;
+}
+.rating-star {
+  margin: 15px 0px;
+}
+.star {
+  width: 14px;
+  height: 28px;
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Five-pointed_star.svg/255px-Five-pointed_star.svg.png);
+  outline: none;
+  &:nth-of-type(odd) {
+    background-position: 0px 0px;
+  }
+  &:nth-of-type(even) {
+    background-position: -14px 0px;
+  }
+  background-size: cover;
+  &.star-on{
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gold_Star.svg/240px-Gold_Star.svg.png);
+  }
+}
+
+.movie-poster-button{
+  margin-bottom: 20px;
+  .add-button {
+    width: 80px;
+    padding-left:5px;
+    &:hover {
+      color: #f83938;
+      &.want2see-movie::before {
+        content: "\E803";
+      }
+      &.comment::before {
+        content: "\E805";
+      }
+    }
+    &::before {
+      padding-right:5px;
+      font-family: "fontello"
+    }
+    &.want2see-movie::before {
+      content: "\E804";
+    }
+    &.comment::before {
+      content: "\F0E5";
+    }
+  }
+}
