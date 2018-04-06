@@ -5,7 +5,8 @@ import {
   HomeComponent,
   IntroComponent,
   LoginComponent,
-  JoinComponent
+  JoinComponent,
+  MypageComponent
 } from './pages';
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'intro', component: IntroComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'join', component: JoinComponent }
+  { path: 'join', component: JoinComponent },
+  { path: 'mypage', component: MypageComponent }
   // { path: '**', component: NotFoundComponent }
 ];
 
