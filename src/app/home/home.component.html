@@ -2,10 +2,12 @@
   <app-header></app-header>
 
   <main class="layout-container">
+    <visual></visual>
+
     <div class="inner-guide">
       <div class="main-content">
-        <section class="box-office">
-          <h3>오늘의 BOX OFFICE</h3>
+        <section class="main-section box-office">
+          <h3 class="main-title">오늘의 BOX OFFICE</h3>
           <div class="body">
             <div class="outer">
               <div class="inner">
@@ -35,8 +37,8 @@
           </div>
         </section>
 
-        <section class="enum-movies">
-          <h3>여태 살면서 나는 영화를 몇편이나 봤을까?</h3>
+        <section class="main-section enum-movies">
+          <h3 class="main-title">여태 살면서 나는 영화를 몇편이나 봤을까?</h3>
           <div class="body">
             <div class="outer">
               <div class="inner">
@@ -70,8 +72,8 @@
           </div>
         </section>
 
-        <section class="new-movies">
-          <h3>왓챠플레이 신작 &amp; 박스오피스 신작</h3>
+        <!-- <section class="main-section new-movies">
+          <h3 class="main-title">왓챠플레이 신작 &amp; 박스오피스 신작</h3>
           <div class="body">
             <div class="outer">
               <div class="inner">
@@ -88,7 +90,7 @@
               <button class="next">다음</button>
             </div>
           </div>
-        </section>
+        </section> -->
 
         <theme-movies [themeMovies]="themeMovieList"></theme-movies>
       </div>
