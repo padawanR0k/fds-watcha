@@ -5,6 +5,7 @@ import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
 import { JoinModule } from './join/join.module';
 import { IntroModule } from './intro/intro.module';
+import { SearchModule } from './search/search.module';
 import { MypageModule } from './mypage/mypage.module';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -31,6 +32,7 @@ import { AuthGuard } from './guards/auth.guard';
     LoginModule,
     JoinModule,
     IntroModule,
+    SearchModule,
     MypageModule,
     HttpClientModule
   ],
