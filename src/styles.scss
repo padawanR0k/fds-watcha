@@ -1,7 +1,6 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css');
-@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
 @import url('./fontello.css');
-
 
 /* reset */
 html, body, div, span, applet, object, iframe,
@@ -110,6 +109,18 @@ ul {
 }
 
 .main-content {
+  .main-section {
+    margin: 30px 0 0;
+  }
+  .box-office {
+    margin-top: 0;
+  }
+  .main-title {
+    margin: 0 0 5px 10px;
+    font-weight: 800;
+    font-size: 2rem;
+    color: #333;
+  }
   .body {
     position: relative;
   }
