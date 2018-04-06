@@ -1,8 +1,8 @@
 {
    "boxoffice": [
     { "ranking": 1, "title": "레디 플레이어 ", "link": "#"},
-    { "ranking": 3, "title": "지암", "link": "#"},
-    { "ranking": 2, "title": "바람 바람 바람", "link": "#"},
+    { "ranking": 2, "title": "지암", "link": "#"},
+    { "ranking": 3, "title": "바람 바람 바람", "link": "#"},
     { "ranking": 4, "title": "지금 만나러 니다", "link": "#"},
     { "ranking": 5, "title": "레이디 버드" , "link": "#"},
     { "ranking": 6, "title": "7년의 밤", "link": "#"},
@@ -29,9 +29,9 @@
     { "id": 7, "category": "고전 영화", "active": false  },
     { "id": 8, "category": "느와르 영화", "active": false  },
     { "id": 9, "category": "슈퍼 히어로 영화", "active": false  },
-    { "id": 10, "category":"스포츠 영화", "active": false  },
-    { "id": 11, "category":"범죄", "active": false  },
-    { "id": 12, "category":"드라마", "active": false  },
-    { "id": 13, "category":"코미디", "active": false  }
+    { "id": 10, "category": "스포츠 영화", "active": false  },
+    { "id": 11, "category": "범죄", "active": false  },
+    { "id": 12, "category": "드라마", "active": false  },
+    { "id": 13, "category": "코미디", "active": false  }
    ],
 }
