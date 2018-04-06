@@ -1,5 +1,31 @@
 @import '../../../variables';
 $header-box-shadow: 0px 0px 5px rgba(98, 98, 98, 0.4);
+:host {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 100;
+
+}
+.layout-header {
+  background: #fff;
+  box-shadow: $header-box-shadow;
+  transition: all .5s ease;
+  &.transparent {
+    background: transparent;
+    box-shadow: none;
+    .search-bar {
+      background-color: rgba(72, 72, 72, 0.364);
+    }
+    .gnb li>a, .user-menu >.name {
+      color: #fff;
+    }
+    .menu-list a {
+      color: rgb(152, 152, 152);
+    }
+  }
+}
+
 
 .main-header {
   position: relative;
@@ -85,7 +111,7 @@ $header-box-shadow: 0px 0px 5px rgba(98, 98, 98, 0.4);
       line-height: 30px;
       font-size: 12px;
       color: rgb(152, 152, 152);
-      &:hover {
+      &:hover, &:focus {
         color: #fff;
         background: $global-color;
       }
@@ -93,6 +119,11 @@ $header-box-shadow: 0px 0px 5px rgba(98, 98, 98, 0.4);
     .movie-poster {
       float: right;
       margin-top: 2px;
+    }
+    .more-result {
+      font-size: 14px;
+      text-align: center;
+      color: rgb(123, 0, 92);
     }
   }
 }

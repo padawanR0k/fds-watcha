@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
+import { JoinModule } from './join/join.module';
 import { IntroModule } from './intro/intro.module';
 
 import { JwtHelper } from 'angular2-jwt';
@@ -26,7 +27,6 @@ import { AuthGuard } from './guards/auth.guard';
     AppRoutingModule,
     HomeModule,
     LoginModule,
-    IntroModule
     JoinModule,
     IntroModule,
     HttpClientModule
