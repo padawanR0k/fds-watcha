@@ -11,7 +11,6 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  loginForm: FormGroup;
   userForm: FormGroup;
   message: string;
 
@@ -21,10 +20,10 @@ export class LoginComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.loginForm = new FormGroup({
-      userid: new FormControl('', [
+    this.userForm = new FormGroup({
+      username: new FormControl('', [
         Validators.required,
-        Validators.pattern('[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}')
+        Validators.pattern('[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}')
       ]),
       password: new FormControl('', [
         Validators.required
@@ -32,12 +31,12 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  get userid() {
-    return this.loginForm.get('userid');
+  get username() {
+    return this.userForm.get('username');
   }
 
   get password() {
-    return this.loginForm.get('password');
+    return this.userForm.get('password');
   }
 
   signin() {
