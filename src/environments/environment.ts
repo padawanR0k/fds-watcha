@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:4500/todos'
+  apiUrl: 'https://justdo2t.com/api',
+  tokenName: 'email-auth-token'
 };
