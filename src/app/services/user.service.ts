@@ -18,7 +18,7 @@ export class UserService {
       .set('Authorization', this.auth.getToken());
       // .set('Authorization', `Bearer ${this.auth.getToken()}`);
 
-    return this.http.get<User[]>(`${this.appUrl}/users`, { headers })
+    return this.http.get<User[]>(`${this.appUrl}/members`, { headers })
       .shareReplay();
   }
 

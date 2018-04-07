@@ -15,14 +15,14 @@ import { Token } from '../models/token';
 @Injectable()
 export class AuthService {
   appUrl = environment.apiUrl;
-  TOKEN_NAME = 'jwt_token';
+  TOKEN_NAME = environment.tokenName;
 
   constructor(private http: HttpClient, private jwtHelper: JwtHelper) {
     console.log('[appUrl] ', this.appUrl);
   }
 
   signin(credential: User): Observable<Token> {
-    return this.http.post<Token>(`${this.appUrl}/auth/signin`, credential)
+    return this.http.post<Token>(`${this.appUrl}/members/email-auth-token/`, credential)
       .do(res => this.setToken(res.token))
       .shareReplay();
   }
