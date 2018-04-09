@@ -105,6 +105,9 @@ ul {
   }
 }
 
+.conRight {
+  overflow: hidden;
+}
 /* 메인 비주얼 */
 .main-slider {
   position: relative;
@@ -160,7 +163,7 @@ ul {
   display: inline-block;
   width: 10px;
   height: 10px;
-  margin: 0 5px;  
+  margin: 0 5px;
   border-radius: 100%;
   background: #fff;
   opacity: .5;
@@ -217,13 +220,21 @@ ul {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 23px;
-      height: 42px;
-      &.prev {
-        left: -40px;
+      &.icon-left-open-big,
+      &.icon-right-open-big {
+        &:hover::before {
+          color: #000;
+        }
+        &::before {
+          font-size: 5rem;
+        }
       }
-      &.next {
-        right: -40px;
+
+      &.icon-left-open-big {
+        left: -60px;
+      }
+      &.icon-right-open-big {
+        right: -60px;
       }
     }
   }
@@ -266,10 +277,13 @@ ul {
 
 .list-movie {
   display: flex;
+  position: relative;
   justify-content: space-between;
   align-content: flex-start;
   flex-flow: column wrap;
   height: 100%;
+  transition: all .6s cubic-bezier(0.39, 0.58, 0.57, 1);
+  transform: translateX(0px);
   li {
     width: 25%;
     height: 50%;
@@ -402,8 +416,26 @@ ul {
       width: 20%;
     }
   }
+  .transparent {
+    &:hover{
+        background-color:rgba(255, 131, 98, 0.5);
+        & > a {
+            opacity: 0.5;
+        }
+    }
+    > a {
+        display: block;
+        opacity: 0.9;
+        height: 150px;
+        background-size: cover;
+        text-align: center;
+        font-size: 1.8rem;
+        color: white;
+        text-shadow: 2px 2px #696969;
+        line-height: 150px;
+    }
+  }
 }
-
 .user-area {
   height: 100%;
   padding: 30px 0;
@@ -605,6 +637,7 @@ ul {
   }
   transition: opacity 1s ease-in-out;
 }
+
 
 /* 영화 포스터 카드 */
 .poster-type {
