@@ -6,5 +6,6 @@
 export const environment = {
   production: false,
   apiUrl: 'https://justdo2t.com/api',
-  tokenName: 'email-auth-token'
+  tokenName: 'access_token',
+  user: 'user'
 };

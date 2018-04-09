@@ -16,14 +16,17 @@ import { Token } from '../models/token';
 export class AuthService {
   appUrl = environment.apiUrl;
   TOKEN_NAME = environment.tokenName;
+  user = environment.user;
 
   constructor(private http: HttpClient, private jwtHelper: JwtHelper) {
     console.log('[appUrl] ', this.appUrl);
   }
 
   signin(credential: User): Observable<Token> {
+    console.log('My', credential);
     return this.http.post<Token>(`${this.appUrl}/members/email-auth-token/`, credential)
       .do(res => this.setToken(res.token))
+      .do(res => this.setUser(res.user))
       .shareReplay();
   }
 
@@ -46,8 +49,12 @@ export class AuthService {
 
   removeToken(): void {
     localStorage.removeItem(this.TOKEN_NAME);
+    localStorage.removeItem(this.user);
   }
-
+  
+  setUser(user) {
+    localStorage.setItem(this.user, user);
+  }
   /*
     token 유효 기간 체크
     The JwtHelper class has several useful methods that can be utilized in your components:

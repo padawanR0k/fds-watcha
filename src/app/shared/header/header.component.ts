@@ -1,5 +1,7 @@
 import {Router} from '@angular/router';
 import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
+  
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -18,7 +20,10 @@ export class HeaderComponent implements OnInit {
       moviePoster: '/assets/images/user-avatar-100.jpg'
     }
   ];
-  constructor(public router: Router) {}
+  constructor(
+    public router: Router,
+    private auth: AuthService
+  ) {}
 
   @ViewChild('searchResult1') results: ElementRef;
 
@@ -51,5 +56,15 @@ export class HeaderComponent implements OnInit {
   }
   ngOnInit() {
     this.searchString = '';
+  }
+
+  signout() {
+    this.auth.signout()
+      // .subscribe(
+      //   () => this.router.navigate(['login']),
+      //   ({ error }) => {
+      //     console.log('ERROR', error.message);
+      //   }
+      // );
   }
 }

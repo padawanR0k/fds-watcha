@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.userForm = new FormGroup({
-      username: new FormControl('', [
+      email: new FormControl('', [
         Validators.required,
         Validators.pattern('[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}')
       ]),
@@ -31,8 +31,8 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  get username() {
-    return this.userForm.get('username');
+  get email() {
+    return this.userForm.get('email');
   }
 
   get password() {
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         () => this.router.navigate(['home']),
         ({ error }) => {
-          console.log(error.message);
+          console.log('ERROR', error.message);
           this.message = error.message;
         }
       );
