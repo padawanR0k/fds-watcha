@@ -109,7 +109,7 @@ $header-box-shadow: 0px 0px 5px rgba(98, 98, 98, 0.4);
       height: 34px;
       padding: 0px 15px;
       line-height: 30px;
-      font-size: 12px;
+      font-size: 1.2rem;
       color: rgb(152, 152, 152);
       &:hover, &:focus {
         color: #fff;
@@ -121,7 +121,7 @@ $header-box-shadow: 0px 0px 5px rgba(98, 98, 98, 0.4);
       margin-top: 2px;
     }
     .more-result {
-      font-size: 14px;
+      font-size: 1.4rem;
       text-align: center;
       color: rgb(123, 0, 92);
     }
@@ -149,7 +149,7 @@ $header-box-shadow: 0px 0px 5px rgba(98, 98, 98, 0.4);
         display: block;
         height: 35px;
         padding: 0px 10px;
-        font-size: 14px;
+        font-size: 1.4rem;
         line-height: 35px;
         &:hover {
           color: $global-color;
