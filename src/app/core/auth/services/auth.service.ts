@@ -7,7 +7,7 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/shareReplay';
 
-import { environment } from '../../environments/environment';
+import { environment } from '../../../../environments/environment';
 
 import { User } from '../models/user';
 import { Token } from '../models/token';
@@ -20,13 +20,20 @@ export class AuthService {
 
   constructor(private http: HttpClient, private jwtHelper: JwtHelper) {
     console.log('[appUrl] ', this.appUrl);
+    console.log('[Token] ', !!this.getToken(), this.getToken());
+  }
+
+  signup(credential: User): Observable<Token> {
+    return this.http.post<Token>(`${this.appUrl}/members/signup/`, credential)
+      .do(res => this.setToken(res.token))
+      // .do(res => this.setUser(res.user))
+      .shareReplay();
   }
 
   signin(credential: User): Observable<Token> {
-    console.log('My', credential);
     return this.http.post<Token>(`${this.appUrl}/members/email-auth-token/`, credential)
       .do(res => this.setToken(res.token))
-      .do(res => this.setUser(res.user))
+      // .do(res => this.setUser(res.user))
       .shareReplay();
   }
 
