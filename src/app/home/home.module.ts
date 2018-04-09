@@ -25,7 +25,7 @@ import {
     MyMoviesComponent,
     NewMoviesComponent,
     ThemeMoviesComponent,
-    NewMoviesPostComponent
+    NewMoviesPostComponent,
   ],
   exports: [
     HomeComponent,

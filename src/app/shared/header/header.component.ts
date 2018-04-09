@@ -29,7 +29,7 @@ export class HeaderComponent implements OnInit {
 
   @HostListener('window:scroll')
   checkScroll() {
-    const componentPosition = document.querySelector('.layout-container').getBoundingClientRect().top;
+    const componentPosition = document.querySelector('.main-section').getBoundingClientRect().top + window.pageYOffset;
     const scrollPosition = window.pageYOffset;
 
     if (scrollPosition >= componentPosition) {
