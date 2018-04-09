@@ -11,6 +11,7 @@ import { environment } from '../../../../environments/environment';
 
 import { User } from '../models/user';
 import { Token } from '../models/token';
+import { SocialAuthService } from './social-auth.service';
 
 @Injectable()
 export class AuthService {
@@ -18,10 +19,34 @@ export class AuthService {
   TOKEN_NAME = environment.tokenName;
   user = environment.user;
 
-  constructor(private http: HttpClient, private jwtHelper: JwtHelper) {
+  constructor(
+    private http: HttpClient, 
+    private jwtHelper: JwtHelper,
+    private socialAuth: SocialAuthService
+  ) {
     console.log('[appUrl] ', this.appUrl);
     console.log('[Token] ', !!this.getToken(), this.getToken());
   }
+
+  socialSignin(provider: string): Observable<Token> {
+    return this.socialAuth.getSocialCredential(provider)
+      .switchMap(credential => this.http.post<Token>(`${this.appUrl}/members/facebook-auth-token/`, credential))
+      .do(res => this.setToken(res.token))
+      .shareReplay();
+  }
+
+  // socialLogin(facebook: string): Observable<Token> {
+  //   return this.socialAuth.getSocialCredential(facebook)
+  //     .switchMap(credential => {
+  //       console.log('credential', credential);
+  //       return this.http.post<Token>(`${this.appUrl}/members/facebook-auth-token/`, credential);
+  //     })
+  //     .do(res => console.log(123213))
+  //     .do(res => this.setToken(res.token))
+  //     .do(res => console.log(res.token))
+  //     .do(res => this.setUser(res.user))
+  //     .shareReplay();
+  // }
 
   signup(credential: User): Observable<Token> {
     return this.http.post<Token>(`${this.appUrl}/members/signup/`, credential)
