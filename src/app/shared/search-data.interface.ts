@@ -1,4 +1,4 @@
-export interface MoviePoster {
+export interface SearchData {
     movieNm: string;
     rate: number;
     posterUrl: string;
