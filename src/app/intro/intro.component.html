@@ -3,10 +3,10 @@
     <section>
       <h1 class="logo"><img src="/assets/images/icon-w.png" alt="왓챠"></h1>
       <p class="text-image"><img src="/assets/images/text-movie-plz.png" alt="오늘 영화도 부탁해!"></p>
-      <p class="text">왓챠는 오늘 영화 뭐 볼까?를 해결하는 서비스입니다.<br> 이미 왓챠 회원이신가요? <a href="#">로그인</a></p>
+      <p class="text">왓챠는 오늘 영화 뭐 볼까?를 해결하는 서비스입니다.<br> 이미 왓챠 회원이신가요? <a (click)="gotoLogin()">로그인</a></p>
       <div class="btn-group">
         <a href="#" class="fb"><i class="icon-facebook"></i> 페이스북으로 1초만에 가입</a>
-        <a href="#" class="mail"><i class="icon-mail"></i> 이메일로 1초만에 가입</a>
+        <a (click)="gotoJoin()" class="mail"><i class="icon-mail"></i> 이메일로 1초만에 가입</a>
       </div>
     </section>
   </div>

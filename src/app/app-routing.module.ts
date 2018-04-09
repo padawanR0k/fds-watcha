@@ -10,14 +10,22 @@ import {
   MypageComponent
 } from './pages';
 
+import { AuthGuard } from './core/auth/guards/auth.guard';
+
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { 
+    path: 'home',
+    component: HomeComponent
+  },
   { path: 'intro', component: IntroComponent },
   { path: 'login', component: LoginComponent },
   { path: 'join', component: JoinComponent },
   { path: 'search', component: SearchComponent },
-  { path: 'mypage', component: MypageComponent }
+  {
+    path: 'mypage',
+    component: MypageComponent
+  }
   // { path: '**', component: NotFoundComponent }
 ];
 
