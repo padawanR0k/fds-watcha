@@ -7,7 +7,11 @@ import {
   LoginComponent,
   JoinComponent,
   SearchComponent,
-  MypageComponent
+  MypageComponent,
+  UserTasteComponent,
+  WishlistComponent,
+  CommentsComponent,
+  WatchedMoviesComponent
 } from './pages';
 
 const routes: Routes = [
@@ -17,7 +21,16 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'join', component: JoinComponent },
   { path: 'search', component: SearchComponent },
-  { path: 'mypage', component: MypageComponent }
+  {
+    path: 'mypage', component: MypageComponent,
+    children: [
+      { path: '', redirectTo: 'wishlist', pathMatch: 'full' },
+      { path: 'userTaste', component: UserTasteComponent },
+      { path: 'wishlist', component: WishlistComponent },
+      { path: 'Watched', component: WatchedMoviesComponent },
+      { path: 'comments', component: CommentsComponent }
+    ]
+  }
   // { path: '**', component: NotFoundComponent }
 ];
 
@@ -25,4 +38,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
