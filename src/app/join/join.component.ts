@@ -57,7 +57,7 @@ export class JoinComponent implements OnInit {
     console.log('[payload]', this.userForm.value);
     this.auth.signup(this.userForm.value)
       .subscribe(
-        () => this.router.navigate(['home']),
+        () => this.router.navigate(['login']),
         ({ error }) => {
           console.log('ERROR', error.message);
           this.message = error.message;
