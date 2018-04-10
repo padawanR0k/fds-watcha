@@ -1,0 +1,9 @@
+@import '../../../variables';
+
+.list-movie {
+    flex-flow: row wrap;
+    justify-content: flex-start; 
+    li {
+    width: 20%;
+    }
+}
