@@ -39,10 +39,10 @@
               </a>
             </li>
             <li>
-              <a href="">설정</a>
+              <a routerLink="/" (click)="openDialog()">설정</a>
             </li>
             <li>
-              <a (click)="signout()">로그아웃</a>
+              <a routerLink="/" (click)="signout()">로그아웃</a>
             </li>
           </ul>
         </a>
@@ -50,3 +50,5 @@
     </header>
   </div>
 </div>
+
+<button (click)="openDialog()">Test</button>

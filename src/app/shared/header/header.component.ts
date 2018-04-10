@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
   
 import { AuthService } from '../../core/auth/services/auth.service';
 
@@ -22,7 +23,8 @@ export class HeaderComponent implements OnInit {
   ];
   constructor(
     public router: Router,
-    private auth: AuthService
+    private auth: AuthService,
+    public dialog: MatDialog
   ) { }
 
   @ViewChild('searchResult1') results: ElementRef;
@@ -67,4 +69,20 @@ export class HeaderComponent implements OnInit {
     //   }
     // );
   }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(ModalEditProfile, {
+      height: '350px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 }
+
+@Component({
+  selector: 'modal-edit-profile',
+  templateUrl: 'modal-edit-profile.html',
+})
+export class ModalEditProfile { }
