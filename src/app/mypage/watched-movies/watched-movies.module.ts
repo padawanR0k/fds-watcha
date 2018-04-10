@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { WishlistComponent } from './wishlist.component';
+import { WatchedMoviesComponent } from '../../pages';
 
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [
-    WishlistComponent
+    WatchedMoviesComponent
   ],
   providers: [],
   exports: [
-    WishlistComponent
+    WatchedMoviesComponent
   ]
 })
-export class WishlistModule { }
+export class WatchedMoviesModule { }
