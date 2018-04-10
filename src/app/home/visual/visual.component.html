@@ -42,10 +42,10 @@
       </li>
     </ul>
     <div class="each">
-      <span *ngFor="let item of movies; let i = index" data-id="i"></span>
+      <span *ngFor="let movie of sliderItem; let i = index" data-id="{{ i }}" [class.current]="i === 0" (click)="selectMovie(i)"></span>
     </div>
     <div class="arrow">
-      <button class="prev"><i class="icon-left-open-big"></i>이전 작품 보기</button>
-      <button class="next"><i class="icon-right-open-big"></i>다음 작품 보기</button>
+      <button class="prev"><i class="icon-left-open-big" (click)="nextMovie('left')"></i>이전 작품 보기</button>
+      <button class="next"><i class="icon-right-open-big" (click)="nextMovie('right')"></i>다음 작품 보기</button>
     </div>
   </div>
