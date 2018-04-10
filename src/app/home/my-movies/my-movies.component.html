@@ -10,7 +10,7 @@
         <div class="rating-star">
 
           <button *ngFor="let item of rateScore" data-value="{{ item }}" class="star" [class.star-on]="item <= movie.rate" (click)="rateFilm($event.target, i)"></button>
-
+              
         </div>
         <div class="movie-poster-button">
           <a href="" class="add-button want2see-movie">보고싶어요</a>
