@@ -30,35 +30,24 @@ export class AuthService {
 
   socialSignin(provider: string): Observable<Token> {
     return this.socialAuth.getSocialCredential(provider)
-      .switchMap(credential => this.http.post<Token>(`${this.appUrl}/members/facebook-auth-token/`, credential))
+      .switchMap(credential => {
+        console.log(provider);
+        console.log('credential', credential);
+        return this.http.post<Token>(`${this.appUrl}/members/facebook-auth-token/`, credential)
+      })
       .do(res => this.setToken(res.token))
       .shareReplay();
   }
 
-  // socialLogin(facebook: string): Observable<Token> {
-  //   return this.socialAuth.getSocialCredential(facebook)
-  //     .switchMap(credential => {
-  //       console.log('credential', credential);
-  //       return this.http.post<Token>(`${this.appUrl}/members/facebook-auth-token/`, credential);
-  //     })
-  //     .do(res => console.log(123213))
-  //     .do(res => this.setToken(res.token))
-  //     .do(res => console.log(res.token))
-  //     .do(res => this.setUser(res.user))
-  //     .shareReplay();
-  // }
-
   signup(credential: User): Observable<Token> {
     return this.http.post<Token>(`${this.appUrl}/members/signup/`, credential)
       .do(res => this.setToken(res.token))
-      // .do(res => this.setUser(res.user))
       .shareReplay();
   }
 
   signin(credential: User): Observable<Token> {
     return this.http.post<Token>(`${this.appUrl}/members/email-auth-token/`, credential)
       .do(res => this.setToken(res.token))
-      // .do(res => this.setUser(res.user))
       .shareReplay();
   }
 
@@ -68,7 +57,8 @@ export class AuthService {
 
   isAuthenticated(): boolean {
     const token = this.getToken();
-    return token ? !this.isTokenExpired(token) : false;
+    // return token ? !this.isTokenExpired(token) : false;
+    return !!token;
   }
 
   getToken(): string {
