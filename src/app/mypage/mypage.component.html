@@ -30,10 +30,10 @@
         <div class="inner-guide">
           <div class="con-left">
             <div class="nav">
-              <a href="#">취향통계분석</a>
-              <a href="#" class="current">보고싶어요 0</a>
-              <a href="#">봤어요 0</a>
-              <a href="#">코멘트 0</a>
+              <a routerLink="/mypage/userTaste" routerLinkActive="current">취향통계분석</a>
+              <a routerLink="/mypage/wishlist"  routerLinkActive="current">보고싶어요 0</a>
+              <a routerLink="/mypage/Watched" routerLinkActive="current">봤어요 0</a>
+              <a routerLink="/mypage/comments" routerLinkActive="current">코멘트 0</a>
             </div>
           </div>
           <div class="con-right">
@@ -46,7 +46,7 @@
       </div>
       <div class="content">
         <div class="inner-guide">
-          없어요
+          <router-outlet></router-outlet>
         </div>
       </div>
     </div>
