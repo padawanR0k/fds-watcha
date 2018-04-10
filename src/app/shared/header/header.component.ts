@@ -61,13 +61,7 @@ export class HeaderComponent implements OnInit {
   }
 
   signout() {
-    this.auth.signout()
-    // .subscribe(
-    //   () => this.router.navigate(['login']),
-    //   ({ error }) => {
-    //     console.log('ERROR', error.message);
-    //   }
-    // );
+    this.auth.signout();
   }
 
   openDialog() {
