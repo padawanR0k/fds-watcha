@@ -16,10 +16,11 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
-import { AuthService } from './services/auth.service';
-import { UserService } from './services/user.service';
+import { AuthService } from './core/auth/services/auth.service';
+import { UserService } from './core/auth/services/user.service';
+import { SocialAuthService } from './core/auth/services/social-auth.service';
 
-import { AuthGuard } from './guards/auth.guard';
+import { AuthGuard } from './core/auth/guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { AuthGuard } from './guards/auth.guard';
   ],
   providers: [
     AuthService,
+    SocialAuthService,
     UserService,
     AuthGuard,
     JwtHelper
