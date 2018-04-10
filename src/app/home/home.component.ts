@@ -10,7 +10,7 @@ import { ThemeMovies } from './shared/theme-movies.interface';
 export class HomeComponent implements OnInit {
   themeMovieList: ThemeMovies[];
   leftPosition = 0;
-  targetEl: HTMLElement;
+  targetEl;
   prevBtnShowBoxOffice = false;
   nextBtnShowBoxOffice = true;
   prevBtnShowMyMovies = false;

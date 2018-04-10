@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
   
 import { AuthService } from '../../core/auth/services/auth.service';
+=======
+import { Router } from '@angular/router';
+import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
+
+import { AuthService } from '../../services/auth.service';
+>>>>>>> dc2b0efe241089491e723eee3e211b76678ffa29
 
 @Component({
   selector: 'app-header',
@@ -23,7 +30,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     public router: Router,
     private auth: AuthService
-  ) {}
+  ) { }
 
   @ViewChild('searchResult1') results: ElementRef;
 
@@ -60,11 +67,11 @@ export class HeaderComponent implements OnInit {
 
   signout() {
     this.auth.signout()
-      // .subscribe(
-      //   () => this.router.navigate(['login']),
-      //   ({ error }) => {
-      //     console.log('ERROR', error.message);
-      //   }
-      // );
+    // .subscribe(
+    //   () => this.router.navigate(['login']),
+    //   ({ error }) => {
+    //     console.log('ERROR', error.message);
+    //   }
+    // );
   }
 }
