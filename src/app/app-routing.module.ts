@@ -7,14 +7,18 @@ import {
   LoginComponent,
   JoinComponent,
   SearchComponent,
-  MypageComponent
+  MypageComponent,
+  UserTasteComponent,
+  WishlistComponent,
+  CommentsComponent,
+  WatchedMoviesComponent
 } from './pages';
 
 import { AuthGuard } from './core/auth/guards/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { 
+  {
     path: 'home',
     component: HomeComponent
     // canActivate: [ AuthGuard ]
@@ -24,8 +28,14 @@ const routes: Routes = [
   { path: 'join', component: JoinComponent },
   { path: 'search', component: SearchComponent },
   {
-    path: 'mypage',
-    component: MypageComponent
+    path: 'mypage', component: MypageComponent,
+    children: [
+      { path: '', redirectTo: 'wishlist', pathMatch: 'full' },
+      { path: 'userTaste', component: UserTasteComponent },
+      { path: 'wishlist', component: WishlistComponent },
+      { path: 'Watched', component: WatchedMoviesComponent },
+      { path: 'comments', component: CommentsComponent }
+    ]
   }
   // { path: '**', component: NotFoundComponent }
 ];
@@ -34,4 +44,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
