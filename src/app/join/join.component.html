@@ -7,17 +7,17 @@
   <div class="inner">
     <div class="box top">
       <h2>회원가입</h2>
-      <form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>
+      <form [formGroup]="userForm" (ngSubmit)="signup()" novalidate>
         <fieldset>
           <legend>이메일과 비밀번호로 로그인</legend>
           <div class="wrap">
             <div class="input">
               <label>이메일 주소</label>
-              <input type="email" name="username" value="" placeholder="이메일 주소" formControlName="username">
-              <em *ngIf="username.errors?.required && username.touched" class="invalid-msg">
+              <input type="email" name="email" value="" placeholder="이메일 주소" formControlName="email">
+              <em *ngIf="email.errors?.required && email.touched" class="invalid-msg">
                 필수 입력 항목입니다!
               </em>
-              <em *ngIf="username.errors?.pattern && username.touched" class="invalid-msg">
+              <em *ngIf="email.errors?.pattern && email.touched" class="invalid-msg">
                 이메일 형식으로 입력해 주세요!
               </em>
             </div>

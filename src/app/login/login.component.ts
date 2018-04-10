@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { User } from '../models/user';
-import { AuthService } from '../services/auth.service';
+// import { User } from '../core/auth/models/user';
+import { AuthService } from '../core/auth/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -43,7 +43,11 @@ export class LoginComponent implements OnInit {
     console.log('[payload]', this.userForm.value);
     this.auth.signin(this.userForm.value)
       .subscribe(
-        () => this.router.navigate(['home']),
+        () => {
+          console.log('LOGIN1');
+          this.router.navigate(['']);
+          console.log(this.router);
+        },
         ({ error }) => {
           console.log('ERROR', error.message);
           this.message = error.message;

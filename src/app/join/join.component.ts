@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { AuthService } from '../core/auth/services/auth.service';
+
 @Component({
   selector: 'app-join',
   templateUrl: './join.component.html',
@@ -9,12 +11,16 @@ import { Router } from '@angular/router';
 })
 export class JoinComponent implements OnInit {
   userForm: FormGroup;
+  message: string;
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private auth: AuthService
+  ) { }
 
   ngOnInit() {
     this.userForm = new FormGroup({
-      username: new FormControl('', [
+      email: new FormControl('', [
         Validators.required,
         Validators.pattern('[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}')
       ]),
@@ -35,8 +41,8 @@ export class JoinComponent implements OnInit {
     console.log(this.userForm);
   }
 
-  get username() {
-    return this.userForm.get('username');
+  get email() {
+    return this.userForm.get('email');
   }
 
   get nickname() {
@@ -47,9 +53,16 @@ export class JoinComponent implements OnInit {
     return this.userForm.get('password');
   }
 
-  onSubmit() {
-    console.log(this.userForm);
-    // this.loginForm.reset();
+  signup() {
+    console.log('[payload]', this.userForm.value);
+    this.auth.signup(this.userForm.value)
+      .subscribe(
+        () => this.router.navigate(['home']),
+        ({ error }) => {
+          console.log('ERROR', error.message);
+          this.message = error.message;
+        }
+      );
   }
 
   gotoLogin() {
