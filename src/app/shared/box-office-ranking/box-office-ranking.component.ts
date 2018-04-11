@@ -17,9 +17,9 @@ export class BoxOfficeRankingComponent implements OnInit {
   // constructor(public http: HttpClient) { }
 
   // ngOnInit() {
-    //   this.http.get<BoxofficeRanking[]>(this.url)
-    //     .subscribe(list => this.boxOfficeRankingLists = list);
-    // }
+  //     this.http.get<BoxofficeRanking[]>(this.url)
+  //       .subscribe(list => this.boxOfficeRankingLists = list);
+  //   }
 
 boxOfficeRankingLists: BoxofficeRanking[];
 
