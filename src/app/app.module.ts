@@ -28,14 +28,14 @@ import { AuthGuard } from './core/auth/guards/auth.guard';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HomeModule,
     LoginModule,
     JoinModule,
     IntroModule,
     SearchModule,
     MypageModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [
     AuthService,

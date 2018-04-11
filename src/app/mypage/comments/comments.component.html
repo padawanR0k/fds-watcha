@@ -1,3 +1,55 @@
-<p>
-  comments works!
-</p>
+<ul class="list-movie" data-position="0">
+  <!-- boxOffice객체의 정보로 DOM을 그림.  -->
+  <li class="card" *ngFor="let movie of data; let i = index">
+    <div class="poster-type">
+      <div class="movie-poster" class="movie-poster">
+        <img src="{{ movie.posterUrl }}" alt="">
+      </div>
+      <div class="hidden-layer" [class.rated]="movie.rate > 0">
+        <cite class="movie-name">{{ movie.movieNm }}</cite>
+        <div class="rating-star">
+
+          <button *ngFor="let item of rateScore" data-value="{{ item }}" class="star" [class.star-on]="item <= movie.rate" (click)="rateFilm($event.target, i)"></button>
+
+        </div>
+        <div class="movie-poster-button">
+          <a href="" class="add-button want2see-movie">보고싶어요</a>
+          <a href="" class="add-button comment">코멘트남기기</a>
+        </div>
+      </div>
+    </div>
+    <div class="comment-box">
+      <a href="">
+        <h3 class="movie-title">{{movie.movieNm}}</h3>
+      </a>
+      <div class="movie-info">
+        <div class="inforamtion">
+          <span class="eng-title">Ready Player One</span><span class="open-year"> {{movie.movieDate}}</span>
+        </div>
+        <div class="inforamtion">
+          <span class="genre">{{movie.genre}}</span> <span class="running-time">{{movie.runtime}}분</span>
+        </div>
+      </div>
+      <div class="rating-star">
+        <button *ngFor="let item of rateScore" data-value="{{ item }}" class="star" [class.star-on]="item <= movie.rate"></button>
+      </div>
+      <p class="user-comment">
+        {{movie.comment}}
+      </p>
+      <p class="date">
+        {{movie.commentDate.year}}년 {{movie.commentDate.month}}월 {{movie.commentDate.day}}일
+      </p>
+      <div class="btn-action">
+        <button class="action-like" title="이 코멘트 추천하기"></button>
+        <span class="like-count">{{movie.likeCnt}}</span>
+        <button class="action-report" title="이 코멘트 신고하기"></button>
+      </div>
+      <i class="comment-more">
+        <ul>
+          <li><a href="" class="edit">수정하기</a></li>
+          <li><a href="" class="delete">삭제하기</a></li>
+        </ul>
+      </i>
+    </div>
+  </li>
+</ul>
