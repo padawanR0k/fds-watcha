@@ -27,7 +27,7 @@
       </div>
 
       <div class="user-menu">
-        <a  routerLink="/mypage" class="name">
+        <div class="name">
           홍길동
           <span class="user-avator w100">
             <img src="../../../assets/images/user-avatar-100.jpg" alt="">
@@ -39,14 +39,16 @@
               </a>
             </li>
             <li>
-              <a href="">설정</a>
+              <a routerLink="/" (click)="openDialog()">설정</a>
             </li>
             <li>
-              <a (click)="signout()">로그아웃</a>
+              <a routerLink="/intro" (click)="signout()">로그아웃</a>
             </li>
           </ul>
-        </a>
+        </div>
       </div>
     </header>
   </div>
 </div>
+
+<button (click)="openDialog()">Test</button>

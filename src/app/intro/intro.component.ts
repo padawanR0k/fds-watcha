@@ -24,19 +24,6 @@ export class IntroComponent implements OnInit {
         () => this.router.navigate(['']),
         ({ error }) => this.message = error.message
     );
-    // console.log('[payload]', this.userForm.value);
-    // this.auth.signin(this.userForm.value)
-    //   .subscribe(
-    //     () => {
-    //       console.log('LOGIN1');
-    //       this.router.navigate(['']);
-    //       console.log(this.router);
-    //     },
-    //     ({ error }) => {
-    //       console.log('ERROR', error.message);
-    //       this.message = error.message;
-    //     }
-    //   );
   }
 
   gotoLogin() {
