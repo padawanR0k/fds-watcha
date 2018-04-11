@@ -66,12 +66,16 @@ export class HeaderComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(ModalEditProfile, {
-      height: '350px'
+      height: '500px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+
+  userEdit() {
+    this.auth.userEdit();
   }
 }
 
