@@ -269,7 +269,7 @@ ul {
     width: 80%;
   }
   .list-movie {
-    li {
+    > li {
       &:first-child {
         width: 50%;
         height: 100%;
@@ -287,7 +287,7 @@ ul {
   height: 100%;
   transition: all .6s cubic-bezier(0.39, 0.58, 0.57, 1);
   transform: translateX(0px);
-  li {
+  > li {
     width: 25%;
     height: 50%;
     padding: 10px;
@@ -659,6 +659,10 @@ ul {
       top: 0px;
       width: 100%;
   }
+
+  .movie-poster img {
+    vertical-align: top;
+  }
 }
 .hidden-layer {
   display: none;
@@ -678,17 +682,18 @@ ul {
 .star {
   width: 14px;
   height: 28px;
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Five-pointed_star.svg/255px-Five-pointed_star.svg.png);
+  background-image: url(/assets/images/star-off.svg);
   outline: none;
   &:nth-of-type(odd) {
     background-position: 0px 0px;
   }
   &:nth-of-type(even) {
     background-position: -14px 0px;
+    margin-right: 5px;
   }
   background-size: cover;
   &.star-on{
-    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gold_Star.svg/240px-Gold_Star.svg.png);
+    background-image: url(/assets/images/star-on.svg);
   }
 }
 
