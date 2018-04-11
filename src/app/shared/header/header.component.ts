@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
+import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 
 import { AuthService } from '../../core/auth/services/auth.service';
 
@@ -64,7 +65,7 @@ export class HeaderComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(ModalEditProfile, {
-      height: '350px'
+      width: '500px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -76,5 +77,18 @@ export class HeaderComponent implements OnInit {
 @Component({
   selector: 'modal-edit-profile',
   templateUrl: 'modal-edit-profile.html',
+  styleUrls: ['./modal-edit-profile.scss']
 })
-export class ModalEditProfile { }
+export class ModalEditProfile {
+  userForm: FormGroup;
+
+  ngOnInit() {
+    this.userForm = new FormGroup({
+
+    });
+  }
+
+  userEdit() {
+    
+  }
+}

@@ -43,6 +43,7 @@ body {
   background: #e5e5e5;
   color: #666;
   letter-spacing: -1px;
+  min-width: 1200px;
 }
 
 a {
@@ -720,5 +721,37 @@ ul {
     &.comment::before {
       content: "\F0E5";
     }
+  }
+}
+
+.private-box {
+  overflow: auto;
+  overflow-x: hidden;
+  width: 700px;
+  height: 500px;
+  padding: 0 15px 0 0;
+  white-space: pre-wrap;
+}
+
+.h3 {
+  margin: 0 0 20px;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.btn-default {
+  display: inline-block;
+  vertical-align: middle;
+  min-width: 60px;
+  height: 32px;
+  padding: 0 5px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  background: linear-gradient(#f9f9f9, #eee);
+  text-align: center;
+  &.btn-orange {
+    border-color: #ff7400;
+    background: linear-gradient(#ff9000, #ff8000);
+    color: #fff;
   }
 }

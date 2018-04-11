@@ -64,8 +64,4 @@ export class JoinComponent implements OnInit {
         }
       );
   }
-
-  gotoLogin() {
-    this.router.navigate(['login']);
-  }
 }

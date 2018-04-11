@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule, MatInputModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { FormGroup } from '@angular/forms';
 
 import { HeaderComponent, ModalEditProfile } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -13,19 +15,21 @@ import { MovieCategoryComponent } from './movie-category/movie-category.componen
 @NgModule({
   imports: [
     CommonModule, 
-    FormsModule, 
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     MatDialogModule,
+    MatInputModule,
     BrowserAnimationsModule
   ],
   entryComponents: [
     ModalEditProfile
   ],
   declarations: [
-    BoxOfficeRankingComponent,
     HeaderComponent,
-    MovieCategoryComponent,
     FooterComponent,
+    BoxOfficeRankingComponent,
+    MovieCategoryComponent,
     ModalEditProfile
   ],
   providers: [],

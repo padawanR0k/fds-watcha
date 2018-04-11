@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
+
 import { AuthService } from '../core/auth/services/auth.service';
 
 @Component({
@@ -12,7 +14,8 @@ export class IntroComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private auth: AuthService
+    private auth: AuthService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -26,11 +29,19 @@ export class IntroComponent implements OnInit {
     );
   }
 
-  gotoLogin() {
-    this.router.navigate(['login']);
-  }
+  openPrivacy() {
+    const dialogRef = this.dialog.open(ModalPrivate, {
+      height: 'auto'
+    });
 
-  gotoJoin() {
-    this.router.navigate(['join']);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }
+
+@Component({
+  selector: 'modal-private',
+  templateUrl: 'modal-private.html',
+})
+export class ModalPrivate { }
