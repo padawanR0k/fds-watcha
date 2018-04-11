@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
-  
+
 import { AuthService } from '../../core/auth/services/auth.service';
 
 @Component({
@@ -16,11 +16,9 @@ export class HeaderComponent implements OnInit {
   searchResultList = [
     { movieNm: '인셉션', moviePoster: '/assets/images/user-avatar-100.jpg' },
     { movieNm: '인조인간', moviePoster: '/assets/images/user-avatar-100.jpg' },
-    {
-      movieNm: '인사이드 아웃',
-      moviePoster: '/assets/images/user-avatar-100.jpg'
-    }
+    { movieNm: '인사이드 아웃', moviePoster: '/assets/images/user-avatar-100.jpg' }
   ];
+
   constructor(
     public router: Router,
     private auth: AuthService,
