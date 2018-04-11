@@ -1,17 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AppRoutingModule } from '../app-routing.module';
+import { MatDialogModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { IntroComponent } from './intro.component';
+import { IntroComponent, ModalPrivate } from './intro.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    AppRoutingModule,
+    MatDialogModule,
+    BrowserAnimationsModule
+  ],
+  entryComponents: [
+    ModalPrivate
   ],
   declarations: [
-    IntroComponent
+    IntroComponent,
+    ModalPrivate
   ],
   exports: [
-    IntroComponent
+    IntroComponent,
+    ModalPrivate
   ]
 })
 export class IntroModule { }
