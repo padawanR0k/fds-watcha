@@ -1,25 +1,26 @@
-<h2 mat-dialog-title>Install Angular</h2>
 
-<div class="profile-head">
-  <div class="photo">
-    <img>
+<div class="profile-wrap">
+  <div class="profile-head">
+    <div class="photo">
+      <img src="../../../assets/images/user-avatar-100.jpg" alt="">
+    </div>
+    <div class="profile">
+      <span class="name">강희창</span>
+      <span class="file"><input type="file" name=""></span>
+    </div>
   </div>
-  <div class="name">
-    <span>강희창</span>
-    <input type="file" name="">
-  </div>
-</div>
 
-<mat-form-field>
-    <div class="table-wrap">
-      <div class="inner">
+  <form [formGroup]="userForm" (ngSubmit)="userEdit()" novalidate>
+    <fieldset>
+      <legend>프로필 수정</legend>
+      <div class="profile-body">
         <table>
           <tbody>
             <tr>
               <td class="th">이메일</td>
               <td>
                 hckang80@gmail.com
-                <button type="button" cdkFocusInitial>변경하기</button>
+                <button type="button" class="btn-default" cdkFocusInitial>변경하기</button>
               </td>
             </tr>
             <tr>
@@ -29,29 +30,32 @@
                 <p>최소 2자, 최대 20글자까지 가능합니다.</p>
               </td>
             </tr>
-            <!-- <tr>
+            <tr>
               <td class="th">비밀번호 변경</td>
               <td>
-                <input type="password" name="">
-                <input type="password" name="">
-                <input type="password" name="">
+                <input type="password" name="password1" value="" placeholder="기존 비밀번호">
+                <input type="password" name="password2" value="" placeholder="새 비밀번호">
+                <input type="password" name="password3" value="" placeholder="새 비밀번호 확인">
               </td>
-            </tr> -->
+            </tr>
           </tbody>
         </table>
       </div>
-    </div>
-</mat-form-field>
 
-    <div class="layer-foot">
-      <div>
-        <button type="button">탈퇴하기</button>
+      <div class="layer-foot">
+        <div class="inner">
+          <div>
+            <button type="button" class="btn-default">탈퇴하기</button>
+          </div>
+          <div>
+            <button type="button" class="btn-default" mat-dialog-close>취소</button>
+            <button [mat-dialog-close]="true" class="btn-default btn-orange">확인</button>
+          </div>
+        </div>
       </div>
-      <div>
-        <button type="button" mat-dialog-close>취소</button>
-        <button [mat-dialog-close]="true">확인</button>
-      </div>
-    </div>
+    </fieldset>
+  </form>
+</div>
 
 <!-- Copyright 2018 Google Inc. All Rights Reserved.
     Use of this source code is governed by an MIT-style license that
