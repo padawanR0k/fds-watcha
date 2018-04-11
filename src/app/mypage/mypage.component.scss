@@ -9,17 +9,19 @@
 
 .my-movie {
   position: relative;
-  width: 80px;
+  width: 200px;
   margin: 50px 0 0;
   margin: 0 auto;
   white-space: nowrap;
   font-size: 1.8rem;
-  .my {
-
-  }
+  // .my {
+  //   text-align: center;
+  // }
   .photo {
     overflow: hidden;
+    width: 80px;
     height: 80px;
+    margin: 0 auto;
     border-radius: 100%;
     background: url('../../assets/images/bg-photo.png') no-repeat;
     background-size: 100%;
@@ -52,14 +54,14 @@
 }
 
 .watched-hours {
-  right: 100%;
+  left: 0;;
   top: 50%;
   transform: translateY(-50%);
   margin: 0 30px 0 0;
 }
 
 .received-likes {
-  left: 100%;
+  right: 0;;
   top: 50%;
   transform: translateY(-50%);
   margin: 0 0 0 30px;
@@ -117,6 +119,9 @@
     display: block;
     clear: both;
   }
+}
+.inner-guide {
+  width: 960px;
 }
 .mypage {
   width: 960px;
