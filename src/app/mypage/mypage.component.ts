@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { Mypageuser } from './mypageuser.interface';
 
 @Component({
   selector: 'app-mypage',
@@ -7,7 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MypageComponent implements OnInit {
 
-  constructor() { }
+  userMovieInfo: Mypageuser[];
+
+  constructor() {
+    this.userMovieInfo = [
+      {
+        name: 'Hee Chang Kang',
+        pic: '../../assets/images/khc.jpg',
+        watchedMovieHour: 100,
+        watchedMoviCount: 50,
+        like: 5
+      }
+    ];
+  }
 
   ngOnInit() {
   }

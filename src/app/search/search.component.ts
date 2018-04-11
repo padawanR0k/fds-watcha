@@ -30,7 +30,7 @@ export class SearchComponent implements OnInit {
 
   // ngOnInit() {
   //       this.http.get<MoviePoster[]>(this.url)
-  //         .subscribe(list => this.moviePosters = list);
+  //         .subscribe(poster => this.moviePosters = poster);
   //     }
 
   moviePosters: MoviePoster[];
@@ -82,7 +82,7 @@ export class SearchComponent implements OnInit {
         title: '지금 만나러 갑니다',
         director: '이장훈',
         actor: '소지섭, 손예진'
-      },
+       },
       {
         movieNm: '레디플레이어 원',
         rate: 0,
@@ -99,125 +99,8 @@ export class SearchComponent implements OnInit {
         year: 2017,
         title: 'What a Man Wants',
         director: '이병헌',
-        actor: '이성민, 신하균, 송지효, 이엘'
-      },
-      {
-        movieNm: '곤지암',
-        rate: 0,
-        posterUrl: '../../assets/images/gonjiam.jpg',
-        year: 2018,
-        title: '곤지암',
-        director: '정범식',
-        actor: '위하준, 박지현, 오아연, 문예원, 박성훈, 유제윤'
-      },
-      {
-        movieNm: '곤지암',
-        rate: 0,
-        posterUrl: '../../assets/images/gonjiam.jpg',
-        year: 2018,
-        title: '곤지암',
-        director: '정범식',
-        actor: '위하준, 박지현, 오아연, 문예원, 박성훈, 유제윤'
-      },
-      {
-        movieNm: '곤지암',
-        rate: 0,
-        posterUrl: '../../assets/images/gonjiam.jpg',
-        year: 2018,
-        title: '곤지암',
-        director: '정범식',
-        actor: '위하준, 박지현, 오아연, 문예원, 박성훈, 유제윤'
-      },
-      {
-        movieNm: '곤지암',
-        rate: 0,
-        posterUrl: '../../assets/images/gonjiam.jpg',
-        year: 2018,
-        title: '곤지암',
-        director: '정범식',
-        actor: '위하준, 박지현, 오아연, 문예원, 박성훈, 유제윤'
-      },
-      {
-        movieNm: '곤지암',
-        rate: 0,
-        posterUrl: '../../assets/images/gonjiam.jpg',
-        year: 2018,
-        title: '곤지암',
-        director: '정범식',
-        actor: '위하준, 박지현, 오아연, 문예원, 박성훈, 유제윤'
-      },
-      {
-        movieNm: '곤지암',
-        rate: 0,
-        posterUrl: '../../assets/images/gonjiam.jpg',
-        year: 2018,
-        title: '곤지암',
-        director: '정범식',
-        actor: '위하준, 박지현, 오아연, 문예원, 박성훈, 유제윤'
-      },
-      {
-        movieNm: '곤지암',
-        rate: 0,
-        posterUrl: '../../assets/images/gonjiam.jpg',
-        year: 2018,
-        title: '곤지암',
-        director: '정범식',
-        actor: '위하준, 박지현, 오아연, 문예원, 박성훈, 유제윤'
-      },
-      {
-        movieNm: '곤지암',
-        rate: 0,
-        posterUrl: '../../assets/images/gonjiam.jpg',
-        year: 2018,
-        title: '곤지암',
-        director: '정범식',
-        actor: '위하준, 박지현, 오아연, 문예원, 박성훈, 유제윤'
-      },
-      {
-        movieNm: '곤지암',
-        rate: 0,
-        posterUrl: '../../assets/images/gonjiam.jpg',
-        year: 2018,
-        title: '곤지암',
-        director: '정범식',
-        actor: '위하준, 박지현, 오아연, 문예원, 박성훈, 유제윤'
-      },
-      {
-        movieNm: '곤지암',
-        rate: 0,
-        posterUrl: '../../assets/images/gonjiam.jpg',
-        year: 2018,
-        title: '곤지암',
-        director: '정범식',
-        actor: '위하준, 박지현, 오아연, 문예원, 박성훈, 유제윤'
-      },
-      {
-        movieNm: '곤지암',
-        rate: 0,
-        posterUrl: '../../assets/images/gonjiam.jpg',
-        year: 2018,
-        title: '곤지암',
-        director: '정범식',
-        actor: '위하준, 박지현, 오아연, 문예원, 박성훈, 유제윤'
-      },
-      {
-        movieNm: '곤지암',
-        rate: 0,
-        posterUrl: '../../assets/images/gonjiam.jpg',
-        year: 2018,
-        title: '곤지암',
-        director: '정범식',
-        actor: '위하준, 박지현, 오아연, 문예원, 박성훈, 유제윤'
-      },
-      {
-        movieNm: '곤지암',
-        rate: 0,
-        posterUrl: '../../assets/images/gonjiam.jpg',
-        year: 2018,
-        title: '곤지암',
-        director: '정범식',
         actor: '위하준, 박지현, 오아연, 문예원, 박성훈, 유제윤, 박지현, 오아연, 문예원, 박성훈, 유제윤, 박지현, 오아연, 문예원, 박성훈, 유제윤'
-      },
+       },
       {
         movieNm: '곤지암',
         rate: 0,
@@ -226,7 +109,7 @@ export class SearchComponent implements OnInit {
         title: '곤지암',
         director: '정범식',
         actor: '위하준, 박지현, 오아연, 문예원, 박성훈, 유제윤'
-      },
+       }
     ];
   }
 
