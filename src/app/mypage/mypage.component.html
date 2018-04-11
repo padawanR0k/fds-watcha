@@ -5,25 +5,29 @@
     <div class="my-page">
       <div class="my-head">
         <div class="inner-guide">
-          <div class="my-movie">
+
+          <div *ngFor="let info of userMovieInfo" class="my-movie">
             <div class="my">
               <div class="photo">
-                <img src="../../assets/images/khc.jpg" alt="">
+                <!-- <img src="../../assets/images/khc.jpg" alt=""> -->
+                <img src="{{ info.pic }}" alt=""> 
               </div>
-              <span class="name">강희창</span>
+              <!-- <span class="name">강희창</span> -->
+              <span class="name">{{ info.name }}</span>
             </div>
             <ul class="my-infor">
-              <li class="total-movies"><span class="count">0</span></li>
+              <li class="total-movies"><span class="count">{{ info.watchedMoviCount }}</span></li>
               <li class="watched-hours">
-                <i class="icon-clock"></i> <span class="count">0</span>
+                <i class="icon-clock"></i><span class="count">{{ info.watchedMovieHour }}</span>
                 <span class="text">영화 본 시간</span>
               </li>
               <li class="received-likes">
-                <i class="icon-thumbs-up"></i> <span class="count">0</span>
+                <i class="icon-thumbs-up"></i> <span class="count">{{ info.like }}</span>
                 <span class="text">받은 좋아요</span>
               </li>
             </ul>
           </div>
+
         </div>
       </div>
       <div class="navigation">
