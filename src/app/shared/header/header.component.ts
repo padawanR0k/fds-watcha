@@ -11,6 +11,7 @@ import { AuthService } from '../../core/auth/services/auth.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  message: string;
   searchString: string;
   resultState = false;
   state = true;
@@ -55,6 +56,7 @@ export class HeaderComponent implements OnInit {
   closeResult(event) {
     this.resultState = this.searchString === '' ? false : true;
   }
+
   ngOnInit() {
     this.searchString = '';
   }
@@ -67,10 +69,17 @@ export class HeaderComponent implements OnInit {
     const dialogRef = this.dialog.open(ModalEditProfile, {
       width: '500px'
     });
-
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-      console.log(this.userForm);
+      console.log('[CLOSE]');
+      // console.log(`Dialog result: ${result}`);
+      this.auth.userEdit(result)
+        .subscribe(
+          () => {},
+          ({ error }) => {
+            console.log('ERROR', error.message);
+            this.message = error.message;
+          }
+        );
     });
   }
 }
@@ -82,14 +91,43 @@ export class HeaderComponent implements OnInit {
 })
 export class ModalEditProfile {
   userForm: FormGroup;
+  message: string;
+  imgSrc: string;
+  
+  constructor(private auth: AuthService) {}
 
   ngOnInit() {
     this.userForm = new FormGroup({
-
+      nickname: new FormControl('', [
+        Validators.required
+      ])
     });
   }
 
+  photoChange(src) {
+    // src = URL.createObjectURL(src);
+    this.auth.photoChange(src)
+      .subscribe(
+        () => {},
+        ({ error }) => {
+          console.log('ERROR', error.message);
+          this.message = error.message;
+        }
+      );
+  }
+
   userEdit() {
-    console.log('submit');
+    this.auth.userEdit(this.userForm.value)
+      .subscribe(
+        () => {},
+        ({ error }) => {
+          console.log('ERROR', error.message);
+          this.message = error.message;
+        }
+      );
+  }
+
+  get nickname() {
+    return this.userForm.get('nickname');
   }
 }
