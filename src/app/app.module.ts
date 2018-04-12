@@ -7,7 +7,6 @@ import { JoinModule } from './join/join.module';
 import { IntroModule } from './intro/intro.module';
 import { SearchModule } from './search/search.module';
 import { MypageModule } from './mypage/mypage.module';
-
 import { HttpClientModule } from '@angular/common/http';
 
 import { JwtHelper } from 'angular2-jwt';
@@ -15,6 +14,7 @@ import { JwtHelper } from 'angular2-jwt';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+// import { PreloaderComponent, PreloaderService } from './preloader';
 
 import { AuthService } from './core/auth/services/auth.service';
 import { UserService } from './core/auth/services/user.service';
@@ -24,7 +24,8 @@ import { AuthGuard } from './core/auth/guards/auth.guard';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    // PreloaderComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +43,8 @@ import { AuthGuard } from './core/auth/guards/auth.guard';
     SocialAuthService,
     UserService,
     AuthGuard,
-    JwtHelper
+    JwtHelper,
+    // PreloaderService
   ],
   bootstrap: [AppComponent]
 })
