@@ -14,7 +14,7 @@ import { MovieCategoryComponent } from './movie-category/movie-category.componen
 
 @NgModule({
   imports: [
-    CommonModule, 
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,

@@ -11,7 +11,8 @@ import {
   UserTasteComponent,
   WishlistComponent,
   CommentsComponent,
-  WatchedMoviesComponent
+  WatchedMoviesComponent,
+  // PreloaderComponen
 } from './pages';
 
 import { AuthGuard } from './core/auth/guards/auth.guard';
@@ -23,6 +24,7 @@ const routes: Routes = [
     component: HomeComponent,
     canActivate: [AuthGuard]
   },
+  // { path: 'preloader', component: PreloaderComponent },
   { path: 'intro', component: IntroComponent },
   { path: 'login', component: LoginComponent },
   { path: 'join', component: JoinComponent },
