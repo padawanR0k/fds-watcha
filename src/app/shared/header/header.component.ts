@@ -70,6 +70,7 @@ export class HeaderComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+      console.log(this.userForm);
     });
   }
 }
@@ -89,6 +90,6 @@ export class ModalEditProfile {
   }
 
   userEdit() {
-    
+    console.log('submit');
   }
 }
