@@ -9,6 +9,8 @@ import { CommentsComponent } from './comments/comments.component';
 import { WatchedMoviesComponent } from './watched-movies/watched-movies.component';
 import { UserTasteComponent } from './user-taste/user-taste.component';
 
+import { PreloaderService, PreloaderComponent } from '../preloader';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -20,8 +22,10 @@ import { UserTasteComponent } from './user-taste/user-taste.component';
     WishlistComponent,
     CommentsComponent,
     WatchedMoviesComponent,
-    UserTasteComponent
+    UserTasteComponent,
+    PreloaderComponent
   ],
+  providers: [PreloaderService],
   exports: [MypageComponent]
 })
 export class MypageModule {}
