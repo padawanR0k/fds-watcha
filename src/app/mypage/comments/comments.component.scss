@@ -7,7 +7,7 @@
 .list-movie {
   flex-flow: row wrap;
   > li {
-    width: 33.333%;
+    width: 50%;
     .poster-type:hover .hidden-layer.rated {
       display: block;
     }
