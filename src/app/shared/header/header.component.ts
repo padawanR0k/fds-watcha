@@ -89,11 +89,12 @@ export class HeaderComponent implements OnInit {
   templateUrl: 'modal-edit-profile.html',
   styleUrls: ['./modal-edit-profile.scss']
 })
+
 export class ModalEditProfile {
   userForm: FormGroup;
   message: string;
   imgSrc: string;
-  
+
   constructor(private auth: AuthService) {}
 
   ngOnInit() {

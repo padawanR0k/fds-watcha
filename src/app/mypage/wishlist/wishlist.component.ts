@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { PreloaderService } from '../../preloader';
+import { PreloaderService } from '../../shared/preloader';
 // import { MoviePoster } from '../../shared/movie-poster.interface';
 
 @Component({
@@ -13,8 +13,8 @@ export class WishlistComponent implements OnInit {
   // moviePosters: MoviePoster[];
   moviePosters: any;
 
-  constructor(public http: HttpClient, public preloader: PreloaderService) {
-  }
+  url = 'http://';
+  constructor(public http: HttpClient, public preloader: PreloaderService) { }
 
   rateScore = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   rateFilm(target, index) {
