@@ -89,7 +89,7 @@
     .action-like {
       width: 20px;
       height: 20px;
-      background: url('../../../assets/images/icon-thumb.svg') no-repeat;
+      background: url('/assets/images/icon-thumb.svg') no-repeat;
     }
     .like-count {
       color: rgb(141, 141, 141);
@@ -99,13 +99,13 @@
       width: 24px;
       height: 22px;
       margin-left: 15px;
-      background: url('../../../assets/images/icon-comment-report.svg')
-        no-repeat;
+      background: url('/assets/images/icon-comment-report.svg') no-repeat;
     }
   }
   &:hover .btn-action .action-report {
     display: inline;
   }
+
 }
 
 @media (max-width: 1600px) {
