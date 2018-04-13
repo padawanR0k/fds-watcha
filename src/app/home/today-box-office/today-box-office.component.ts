@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieDetailService } from '../../core/movie-detail.service';
 
 @Component({
   selector: 'today-box-office',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./today-box-office.component.scss']
 })
 export class TodayBoxOfficeComponent implements OnInit {
-  constructor() {}
+  constructor(public movieDetailService: MovieDetailService) {}
   boxOffice = [
     {
       movieNm: '레디플레이어 원',

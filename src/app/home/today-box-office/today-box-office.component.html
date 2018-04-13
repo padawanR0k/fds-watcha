@@ -2,7 +2,7 @@
     <!-- boxOffice객체의 정보로 DOM을 그림.  -->
   <li class="card" *ngFor="let movie of boxOffice; let i = index">
     <div class="poster-type">
-      <div class="movie-poster" class="movie-poster">
+      <div class="movie-poster" class="movie-poster" (click)="movieDetailService.movieDetail()">
         <img src="{{ movie.posterUrl }}"
           alt="">
       </div>
