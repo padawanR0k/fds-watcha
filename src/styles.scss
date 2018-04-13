@@ -83,6 +83,11 @@ ul {
   overflow: hidden;
 }
 
+.al-middle {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 /* layout */
 .wrapper {
   min-width: 1200px;
@@ -759,4 +764,8 @@ ul {
 .cdk-overlay-pane {
   overflow: hidden;
   border-radius: 10px;
+}
+
+body.modal-open {
+  overflow: hidden;
 }
