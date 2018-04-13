@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { JwtHelper } from 'angular2-jwt';
 
@@ -36,6 +36,25 @@ export class AuthService {
         return this.http.post<Token>(`${this.appUrl}/members/facebook-auth-token/`, credential)
       })
       .do(res => this.setToken(res.token))
+      .shareReplay();
+  }
+
+  photoChange(credential) {
+    const token = this.getToken();
+    const headers = new HttpHeaders()
+      .set('Authorization', `token ${token}`);
+    credential = { img_profile: credential };
+    console.log(credential);
+    return this.http.patch(`${this.appUrl}/members/2/`, credential, { headers })
+      .shareReplay();
+  }
+
+  userEdit(credential) {
+    const token = this.getToken();
+    const headers = new HttpHeaders()
+      .set('Authorization', `token ${token}`);
+    console.log(credential);
+    return this.http.put(`${this.appUrl}/members/2/`, credential, { headers })
       .shareReplay();
   }
 

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { PreloaderService } from '../preloader';
+// import { Mypageuser } from './mypageuser.interface';
+
 @Component({
   selector: 'app-mypage',
   templateUrl: './mypage.component.html',
@@ -7,9 +10,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MypageComponent implements OnInit {
 
-  constructor() { }
+  userMovieInfo = [
+      {
+        name: 'Hee Chang Kang',
+        pic: '../../assets/images/khc.jpg',
+        watchedMovieHour: 100,
+        watchedMoviCount: 50,
+        like: 5
+      }
+    ];
+
+  constructor(public preloader: PreloaderService) { }
 
   ngOnInit() {
+    this.preloader.show();
   }
+
+  // userMovieInfo: Mypageuser[];
+
+  // constructor() {
+  //   this.userMovieInfo = [
+  //     {
+  //       name: 'Hee Chang Kang',
+  //       pic: '../../assets/images/khc.jpg',
+  //       watchedMovieHour: 100,
+  //       watchedMoviCount: 50,
+  //       like: 5
+  //     }
+  //   ];
+  // }
+
+  // ngOnInit() {
+  // }
 
 }

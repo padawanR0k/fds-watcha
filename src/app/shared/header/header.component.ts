@@ -1,7 +1,8 @@
 import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
-  
+import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
+
 import { AuthService } from '../../core/auth/services/auth.service';
 
 @Component({
@@ -10,17 +11,16 @@ import { AuthService } from '../../core/auth/services/auth.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  message: string;
   searchString: string;
   resultState = false;
   state = true;
   searchResultList = [
     { movieNm: '인셉션', moviePoster: '/assets/images/user-avatar-100.jpg' },
     { movieNm: '인조인간', moviePoster: '/assets/images/user-avatar-100.jpg' },
-    {
-      movieNm: '인사이드 아웃',
-      moviePoster: '/assets/images/user-avatar-100.jpg'
-    }
+    { movieNm: '인사이드 아웃', moviePoster: '/assets/images/user-avatar-100.jpg' }
   ];
+
   constructor(
     public router: Router,
     private auth: AuthService,
@@ -56,6 +56,7 @@ export class HeaderComponent implements OnInit {
   closeResult(event) {
     this.resultState = this.searchString === '' ? false : true;
   }
+
   ngOnInit() {
     this.searchString = '';
   }
@@ -66,11 +67,19 @@ export class HeaderComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(ModalEditProfile, {
-      height: '350px'
+      width: '500px'
     });
-
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      console.log('[CLOSE]');
+      // console.log(`Dialog result: ${result}`);
+      this.auth.userEdit(result)
+        .subscribe(
+          () => {},
+          ({ error }) => {
+            console.log('ERROR', error.message);
+            this.message = error.message;
+          }
+        );
     });
   }
 }
@@ -78,5 +87,47 @@ export class HeaderComponent implements OnInit {
 @Component({
   selector: 'modal-edit-profile',
   templateUrl: 'modal-edit-profile.html',
+  styleUrls: ['./modal-edit-profile.scss']
 })
-export class ModalEditProfile { }
+export class ModalEditProfile {
+  userForm: FormGroup;
+  message: string;
+  imgSrc: string;
+  
+  constructor(private auth: AuthService) {}
+
+  ngOnInit() {
+    this.userForm = new FormGroup({
+      nickname: new FormControl('', [
+        Validators.required
+      ])
+    });
+  }
+
+  photoChange(src) {
+    // src = URL.createObjectURL(src);
+    this.auth.photoChange(src)
+      .subscribe(
+        () => {},
+        ({ error }) => {
+          console.log('ERROR', error.message);
+          this.message = error.message;
+        }
+      );
+  }
+
+  userEdit() {
+    this.auth.userEdit(this.userForm.value)
+      .subscribe(
+        () => {},
+        ({ error }) => {
+          console.log('ERROR', error.message);
+          this.message = error.message;
+        }
+      );
+  }
+
+  get nickname() {
+    return this.userForm.get('nickname');
+  }
+}
