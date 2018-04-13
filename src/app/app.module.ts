@@ -13,19 +13,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
-// import { PreloaderComponent, PreloaderService } from './preloader';
 
 import { AuthService } from './core/auth/services/auth.service';
 import { SocialAuthService } from './core/auth/services/social-auth.service';
 import { UserService } from './core/auth/services/user.service';
+import { MovieDetailService } from './core/movie-detail.service';
+import { PreloaderService } from './shared/preloader';
+
 import { AuthGuard } from './core/auth/guards/auth.guard';
 import { JwtHelper } from 'angular2-jwt';
-import { MovieDetailService } from './core/movie-detail.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    // PreloaderComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -45,8 +45,8 @@ import { MovieDetailService } from './core/movie-detail.service';
     UserService,
     AuthGuard,
     JwtHelper,
-    MovieDetailService
-    // PreloaderService
+    MovieDetailService,
+    PreloaderService
   ],
   bootstrap: [AppComponent]
 })
