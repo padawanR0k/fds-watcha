@@ -45,7 +45,7 @@ export class AuthService {
       .set('Authorization', `token ${token}`);
     credential = { img_profile: credential };
     console.log(credential);
-    return this.http.patch(`${this.appUrl}/members/2/`, credential, { headers })
+    return this.http.patch(`${this.appUrl}/members/2/img-profile/`, credential, { headers })
       .shareReplay();
   }
 
