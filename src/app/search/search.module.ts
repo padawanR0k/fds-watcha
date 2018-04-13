@@ -13,8 +13,6 @@ import { SearchComponent } from './search.component';
     SearchComponent
   ],
   providers: [],
-  exports: [
-    SearchComponent
-  ]
+  exports: [SearchComponent]
 })
 export class SearchModule { }
