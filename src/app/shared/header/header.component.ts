@@ -55,6 +55,7 @@ export class HeaderComponent implements OnInit {
   closeResult(event) {
     this.resultState = this.searchString === '' ? false : true;
   }
+
   ngOnInit() {
     this.searchString = '';
   }
@@ -79,6 +80,7 @@ export class HeaderComponent implements OnInit {
   templateUrl: 'modal-edit-profile.html',
   styleUrls: ['./modal-edit-profile.scss']
 })
+
 export class ModalEditProfile {
   userForm: FormGroup;
 
@@ -89,6 +91,5 @@ export class ModalEditProfile {
   }
 
   userEdit() {
-    
   }
 }

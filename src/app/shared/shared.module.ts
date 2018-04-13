@@ -11,6 +11,7 @@ import { HeaderComponent, ModalEditProfile } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { BoxOfficeRankingComponent } from './box-office-ranking/box-office-ranking.component';
 import { MovieCategoryComponent } from './movie-category/movie-category.component';
+import { PreloaderComponent } from './preloader';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { MovieCategoryComponent } from './movie-category/movie-category.componen
     FooterComponent,
     BoxOfficeRankingComponent,
     MovieCategoryComponent,
-    ModalEditProfile
+    ModalEditProfile,
+    PreloaderComponent
   ],
   providers: [],
   exports: [
@@ -38,7 +40,8 @@ import { MovieCategoryComponent } from './movie-category/movie-category.componen
     HeaderComponent,
     MovieCategoryComponent,
     FooterComponent,
-    ModalEditProfile
+    ModalEditProfile,
+    PreloaderComponent
   ]
 })
 export class SharedModule {}
