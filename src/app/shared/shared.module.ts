@@ -12,6 +12,8 @@ import { FooterComponent } from './footer/footer.component';
 import { BoxOfficeRankingComponent } from './box-office-ranking/box-office-ranking.component';
 import { MovieCategoryComponent } from './movie-category/movie-category.component';
 import { MoviePosterComponent } from './movie-poster/movie-poster.component';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { PreloaderComponent } from './preloader';
 
 @NgModule({
   imports: [
@@ -32,7 +34,9 @@ import { MoviePosterComponent } from './movie-poster/movie-poster.component';
     BoxOfficeRankingComponent,
     MovieCategoryComponent,
     ModalEditProfile,
-    MoviePosterComponent
+    MoviePosterComponent,
+    MovieDetailComponent,
+    PreloaderComponent
   ],
   providers: [],
   exports: [
@@ -41,7 +45,9 @@ import { MoviePosterComponent } from './movie-poster/movie-poster.component';
     MovieCategoryComponent,
     FooterComponent,
     MoviePosterComponent,
-    ModalEditProfile
+    ModalEditProfile,
+    MovieDetailComponent,
+    PreloaderComponent
   ]
 })
 export class SharedModule {}

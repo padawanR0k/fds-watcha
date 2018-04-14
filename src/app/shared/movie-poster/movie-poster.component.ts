@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { MoviePoster } from '../movie-poster.interface';
 import { HttpClient } from '@angular/common/http';
 
+import { MovieDetailService } from '../../core/movie-detail.service';
+
 @Component({
   selector: 'movie-poster',
   templateUrl: './movie-poster.component.html',
@@ -10,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
 export class MoviePosterComponent implements OnInit {
   @Input() moviePoster: MoviePoster;
   @Input() rateScore: Number[];
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, public movieDetailService: MovieDetailService) {
     console.log();
   }
   rateFilm(target, index) {

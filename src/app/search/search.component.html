@@ -12,6 +12,7 @@
           <span class="count">(00개)</span>
         </a>
       </div>
+      <preloader></preloader>
         <ul class="list-movie">
           <li *ngFor="let moviePoster of moviePosters ; let i = index">
             <movie-poster [moviePoster]="moviePoster" [rateScore]="rateScore"></movie-poster>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-import { PreloaderService } from '../preloader';
+import { PreloaderService } from '../shared/preloader';
 // import { Mypageuser } from './mypageuser.interface';
 
 @Component({

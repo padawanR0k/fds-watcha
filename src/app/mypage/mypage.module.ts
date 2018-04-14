@@ -12,8 +12,6 @@ import { WatchedMoviesComponent } from './watched-movies/watched-movies.componen
 import { UserTasteComponent } from './user-taste/user-taste.component';
 import { MoviePosterComponent } from '../shared/movie-poster/movie-poster.component';
 
-import { PreloaderService, PreloaderComponent } from '../preloader';
-
 @NgModule({
   imports: [
     CommonModule,
@@ -27,10 +25,9 @@ import { PreloaderService, PreloaderComponent } from '../preloader';
     WishlistComponent,
     CommentsComponent,
     WatchedMoviesComponent,
-    UserTasteComponent,
-    PreloaderComponent,
+    UserTasteComponent
   ],
-  providers: [PreloaderService],
+  providers: [],
   exports: [MypageComponent]
 })
 export class MypageModule {}

@@ -12,8 +12,8 @@ import { BoxofficeRanking } from './box-office-ranking.interface';
 export class BoxOfficeRankingComponent implements OnInit {
 
   // boxOfficeRankingLists: BoxofficeRanking[];
-  // url = 'http://localhost:3000/boxoffice';
 
+  // url = 'http://localhost:3000/boxoffice';
   // constructor(public http: HttpClient) { }
 
   // ngOnInit() {

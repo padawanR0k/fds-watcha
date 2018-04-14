@@ -1,5 +1,5 @@
 <div class="poster-type">
-  <div class="movie-poster">
+  <div class="movie-poster" (click)="movieDetailService.movieDetail()">
     <img src="{{ moviePoster.posterUrl }}" alt="">
   </div>
   <div class="hidden-layer" [class.rated]="moviePoster.rate > 0">
