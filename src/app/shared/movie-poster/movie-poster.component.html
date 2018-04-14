@@ -1,0 +1,15 @@
+<div class="poster-type">
+  <div class="movie-poster">
+    <img src="{{ moviePoster.posterUrl }}" alt="">
+  </div>
+  <div class="hidden-layer" [class.rated]="moviePoster.rate > 0">
+    <cite class="movie-name">{{ moviePoster.movieNm }}</cite>
+    <div class="rating-star">
+      <button *ngFor="let item of rateScore" data-value="{{ item }}" class="star" [class.star-on]="item <= moviePoster.rate" (click)="rateFilm($event.target, i)"></button>
+    </div>
+    <div class="movie-poster-button">
+      <a href="" class="add-button want2see-movie">보고싶어요</a>
+      <a href="" class="add-button comment">코멘트남기기</a>
+    </div>
+  </div>
+</div>

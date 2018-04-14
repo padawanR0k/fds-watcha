@@ -1,7 +1,6 @@
 <div class="section-wrap">
   <section class="statistics rating-graph">
     <h3 class="section-title">영화별점 분포</h3>
-    <p class="comment">대중의 평가에 잘 휘둘리지 않는 '지조파'</p>
     <div class="graph">
       <canvas baseChart width="460" height="200" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
         [colors]="lineChartColors"  [chartType]="lineChartType" ></canvas>
@@ -196,7 +195,6 @@
   </section>
   <section class="statistics genre">
     <h3 class="section-title">영화 선호장르</h3>
-    <p class="comment">애니메이션 좋아하는 사람 치고 나쁜 사람 없어요</p>
     <div class="graph">
 <canvas baseChart [data]="doughnutChartData" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" [labels]="doughnutChartLabels"
   [options]="doughnutChartOptions" [colors]="doughnutChartColors"></canvas>

@@ -24,6 +24,7 @@ export class MypageComponent implements OnInit {
 
   ngOnInit() {
     this.preloader.show();
+    this.preloader.hide();
   }
 
   // userMovieInfo: Mypageuser[];

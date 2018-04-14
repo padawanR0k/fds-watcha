@@ -11,6 +11,7 @@ import { HeaderComponent, ModalEditProfile } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { BoxOfficeRankingComponent } from './box-office-ranking/box-office-ranking.component';
 import { MovieCategoryComponent } from './movie-category/movie-category.component';
+import { MoviePosterComponent } from './movie-poster/movie-poster.component';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { MovieCategoryComponent } from './movie-category/movie-category.componen
     FooterComponent,
     BoxOfficeRankingComponent,
     MovieCategoryComponent,
-    ModalEditProfile
+    ModalEditProfile,
+    MoviePosterComponent
   ],
   providers: [],
   exports: [
@@ -38,6 +40,7 @@ import { MovieCategoryComponent } from './movie-category/movie-category.componen
     HeaderComponent,
     MovieCategoryComponent,
     FooterComponent,
+    MoviePosterComponent,
     ModalEditProfile
   ]
 })
