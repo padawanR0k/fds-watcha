@@ -1,0 +1,14 @@
+<div class="comment-dialog">
+  <h3 mat-dialog-title>레디 플레이어 원 <button class="close-dialog" matDialogClose>닫기</button></h3>
+  <mat-dialog-content>
+    <div class="poster">
+      <img src="../../../assets/images/readyplayone.jpg" alt="">
+    </div>
+    <div class="txtarea-wrapper">
+      <textarea name="" id="" cols="30" rows="10" placeholder="영화에 대한 평을 남겨주세요." #data></textarea>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button class="submit" matDialogClose (click)="submitComment(data.value)">확인</button>
+  </mat-dialog-actions>
+</div>

@@ -779,3 +779,6 @@ ul {
 body.modal-open {
   overflow: hidden;
 }
+.mat-dialog-container {
+  overflow: hidden !important;
+}

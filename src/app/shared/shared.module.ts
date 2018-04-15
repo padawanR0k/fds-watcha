@@ -14,6 +14,7 @@ import { MovieCategoryComponent } from './movie-category/movie-category.componen
 import { MoviePosterComponent } from './movie-poster/movie-poster.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { PreloaderComponent } from './preloader';
+import { CommentDialogComponent } from './comment-dialog/comment-dialog.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { PreloaderComponent } from './preloader';
     BrowserAnimationsModule
   ],
   entryComponents: [
-    ModalEditProfile
+    ModalEditProfile,
+    CommentDialogComponent
   ],
   declarations: [
     HeaderComponent,
@@ -36,7 +38,8 @@ import { PreloaderComponent } from './preloader';
     ModalEditProfile,
     MoviePosterComponent,
     MovieDetailComponent,
-    PreloaderComponent
+    PreloaderComponent,
+    CommentDialogComponent
   ],
   providers: [],
   exports: [

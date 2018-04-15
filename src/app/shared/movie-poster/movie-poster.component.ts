@@ -1,8 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MoviePoster } from '../movie-poster.interface';
 import { HttpClient } from '@angular/common/http';
 
+import { MoviePoster } from '../movie-poster.interface';
+
+
 import { MovieDetailService } from '../../core/movie-detail.service';
+import { CommnetDialogService } from '../../core/comment-dialog.service';
 
 @Component({
   selector: 'movie-poster',
@@ -12,7 +15,7 @@ import { MovieDetailService } from '../../core/movie-detail.service';
 export class MoviePosterComponent implements OnInit {
   @Input() moviePoster: MoviePoster;
   @Input() rateScore: Number[];
-  constructor(public http: HttpClient, public movieDetailService: MovieDetailService) {
+  constructor(public http: HttpClient, public movieDetailService: MovieDetailService, public commnetDialogService: CommnetDialogService) {
     console.log();
   }
   rateFilm(target, index) {
