@@ -1,23 +1,7 @@
 <ul class="list-movie" data-position="0">
   <!-- boxOffice객체의 정보로 DOM을 그림.  -->
-  <li class="card" *ngFor="let movie of data; let i = index">
-    <div class="poster-type">
-      <div class="movie-poster" class="movie-poster">
-        <img src="{{ movie.posterUrl }}" alt="">
-      </div>
-      <div class="hidden-layer" [class.rated]="movie.rate > 0">
-        <cite class="movie-name">{{ movie.movieNm }}</cite>
-        <div class="rating-star">
-
-          <button *ngFor="let item of rateScore" data-value="{{ item }}" class="star" [class.star-on]="item <= movie.rate" (click)="rateFilm($event.target, i)"></button>
-
-        </div>
-        <div class="movie-poster-button">
-          <a href="" class="add-button want2see-movie">보고싶어요</a>
-          <a href="" class="add-button comment">코멘트남기기</a>
-        </div>
-      </div>
-    </div>
+  <li class="card" *ngFor="let movie of comments; let i = index">
+    <movie-poster [moviePoster]="movie" [rateScore]="rateScore"></movie-poster>
     <div class="comment-box">
       <a href="">
         <h3 class="movie-title">{{movie.movieNm}}</h3>

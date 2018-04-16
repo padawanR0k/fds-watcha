@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieDetailService } from '../../core/movie-detail.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'today-box-office',
@@ -7,8 +7,8 @@ import { MovieDetailService } from '../../core/movie-detail.service';
   styleUrls: ['./today-box-office.component.scss']
 })
 export class TodayBoxOfficeComponent implements OnInit {
-  constructor(public movieDetailService: MovieDetailService) {}
-  boxOffice = [
+  constructor( public http: HttpClient) {}
+  boxOffice: any = [
     {
       movieNm: '레디플레이어 원',
       rate: 0,
@@ -111,5 +111,10 @@ export class TodayBoxOfficeComponent implements OnInit {
     }
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.http.get('http://localhost:3000/movieposter').subscribe(res => {
+      this.boxOffice = res;
+      console.log(this.boxOffice);
+    });
+  }
 }

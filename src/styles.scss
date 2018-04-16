@@ -248,7 +248,7 @@ ul {
   }
   .inner {
     // transform: translateX(-100%);
-    height: 650px;
+    height: 670px;
     &::after {
       content: '';
       display: block;
@@ -276,8 +276,15 @@ ul {
   .list-movie {
     > li {
       &:first-child {
+        .poster-type {
+          width: 100%;
+          height: 650px;
+        }
         width: 50%;
         height: 100%;
+        img {
+          width: 460px;
+        }
       }
     }
   }
@@ -665,8 +672,11 @@ ul {
       width: 100%;
   }
 
-  .movie-poster img {
-    vertical-align: top;
+  .movie-poster {
+    img {
+      vertical-align: top;
+    }
+    cursor: pointer;
   }
 }
 .hidden-layer {
@@ -768,4 +778,7 @@ ul {
 
 body.modal-open {
   overflow: hidden;
+}
+.mat-dialog-container {
+  overflow: hidden !important;
 }

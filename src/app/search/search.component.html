@@ -4,7 +4,7 @@
   <main class="layout-container">
     <section class="inner-guide">
       <h3 class="main-title">입력하신
-        <span class="search-title">{{ this.searchString }}</span> 
+        <span class="search-title">{{ this.searchString }}</span>
         의 결과입니다.
       </h3>
       <div class="search-tab-wapper">
@@ -15,24 +15,7 @@
       <preloader></preloader>
         <ul class="list-movie">
           <li *ngFor="let moviePoster of moviePosters ; let i = index">
-            <div class="poster-type">
-              <div class="movie-poster">
-                
-                <img src="{{ moviePoster.posterUrl }}" alt="" height="314" width="220">
-              </div>
-              <div class="hidden-layer" [class.rated]="moviePoster.rate > 0">
-                <cite class="movie-name">{{ moviePoster.movieNm }}</cite>
-                <div class="rating-star">
-
-                  <button *ngFor="let item of rateScore" data-value="{{ item }}" class="star" [class.star-on]="item <= moviePoster.rate" (click)="rateFilm($event.target, i)"></button>
-
-                </div>
-                <div class="movie-poster-button">
-                  <a href="" class="add-button want2see-movie">보고싶어요</a>
-                  <a href="" class="add-button comment">코멘트남기기</a>
-                </div>
-              </div>
-            </div>
+            <movie-poster [moviePoster]="moviePoster" [rateScore]="rateScore"></movie-poster>
             <div class="search-result">
               <a class="search-title" href="#">{{ moviePoster.movieNm }}</a>
               <br> {{ moviePoster.year }}
@@ -46,10 +29,9 @@
         </ul>
     </section>
   </main>
-  
+
   <main-footer></main-footer>
 </div>
-      
-        
-    
-    
+
+
+

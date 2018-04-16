@@ -10,6 +10,7 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { CommentsComponent } from './comments/comments.component';
 import { WatchedMoviesComponent } from './watched-movies/watched-movies.component';
 import { UserTasteComponent } from './user-taste/user-taste.component';
+import { MoviePosterComponent } from '../shared/movie-poster/movie-poster.component';
 
 @NgModule({
   imports: [
