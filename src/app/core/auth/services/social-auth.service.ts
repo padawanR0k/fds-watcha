@@ -28,7 +28,7 @@ export class SocialAuthService {
         case 'facebook':
           FB.getLoginStatus(response => {
             if (response.status === 'connected') {
-              console.log(response.authResponse.accessToken);
+              console.log(['SOCIAL_AUTH1'], response.authResponse.accessToken);
               observer.next(this.fetchFacebookCredential(response.authResponse.accessToken));
               // console.log(response.authResponse.accessToken);
               // return response.authResponse.accessToken;
@@ -36,14 +36,14 @@ export class SocialAuthService {
             } else {
               FB.login(response => {
                 if (response.status === 'connected') {
-                  console.log(response.authResponse.accessToken);
+                  console.log(['SOCIAL_AUTH2'], response.authResponse.accessToken);
                   observer.next(this.fetchFacebookCredential(response.authResponse.accessToken));
                   // return response.authResponse.accessToken;
                   observer.complete();
                 }
               });
             }
-            console.log(observer);
+            console.log(['SOCIAL_AUTH'], observer);
           });
           break;
       }});
