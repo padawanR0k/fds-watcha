@@ -114,6 +114,9 @@
         dd {
           font-size: 2.4rem;
           font-family: Arial, Verdana, Geneva, Tahoma, sans-serif;
+          .num {
+            color: #f3ac45;
+          }
         }
       }
       .detail {
@@ -239,9 +242,28 @@
   .name {
     margin: 10px 0;
     color: #333;
+    font-size: 1.4rem;
   }
   .comment {
     white-space: pre-wrap;
+    font-size: 1.4rem;
+  }
+  .btm {
+    margin: 20px 0 0;
+    font-size: 1.2rem;
+    color: #aaa;
+    > span {
+      display: inline-block;
+      + span {
+        margin: 0 0 0 15px;
+      }
+    }
+    button {
+      color: #4971ad;
+      + button {
+        margin: 0 0 0 15px;
+      }
+    }
   }
 }
 
