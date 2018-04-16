@@ -4,11 +4,12 @@
     <div class="head">
       <div class="still-cut">
         <ul>
-          <li style="background: #333;"></li>
-          <li style="background: #369;"></li>
+          <li style="background: #333;">1</li>
+          <li style="background: #369;">2</li>
+          <li style="background: gray;">3</li>
         </ul>
-        <button class="prev"><i class="icon-left-open-big"></i> 이전 스틸컷 보기</button>
-        <button class="next"><i class="icon-right-open-big"></i>다음 스틸컷 보기</button>
+        <button class="prev"><i class="icon-left-open-big" (click)="nextMovie('left')"></i> 이전 스틸컷 보기</button>
+        <button class="next"><i class="icon-right-open-big" (click)="nextMovie('right')"></i>다음 스틸컷 보기</button>
       </div>
 
       <div class="main-info">
