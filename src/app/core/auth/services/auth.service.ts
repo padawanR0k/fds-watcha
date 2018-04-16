@@ -24,16 +24,17 @@ export class AuthService {
     private jwtHelper: JwtHelper,
     private socialAuth: SocialAuthService
   ) {
-    console.log('[appUrl] ', this.appUrl);
+    // console.log('[appUrl] ', this.appUrl);
     console.log('[Token] ', !!this.getToken(), this.getToken());
   }
 
   socialSignin(provider: string): Observable<Token> {
     return this.socialAuth.getSocialCredential(provider)
       .switchMap(credential => {
-        console.log(provider);
-        console.log('credential', credential);
-        return this.http.post<Token>(`${this.appUrl}/members/facebook-auth-token/`, credential)
+        console.log(['AUTH'], provider);
+        console.log(['AUTH'], credential);
+        // return this.http.post<Token>(`${this.appUrl}/members/facebook-auth-token/`, credential)
+        return this.http.post<Token>(`https://himanmen.com/user/facebook-login/`, credential)
       })
       .do(res => this.setToken(res.token))
       .shareReplay();

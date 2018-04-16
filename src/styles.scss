@@ -148,11 +148,13 @@ ul {
   bottom: 120px;
   margin: 0 10px;
   color: #fff;
+  text-shadow: 1px 1px 5px rgba(0,0,0,.8);
 }
 .main-slider .today {
   font-size: 1.8rem;
 }
 .main-slider dt {
+  margin: 0 0 5px;
   font-size: 3.2rem;
 }
 .main-slider dd {
@@ -541,6 +543,10 @@ ul {
         background: #ddd;
         cursor: default;
       }
+    }
+    .error-msg {
+      margin: 10px 0 0;
+      color: #f00;
     }
     .txt-agree {
       margin: 10px 0 0;
