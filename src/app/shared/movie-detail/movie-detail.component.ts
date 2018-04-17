@@ -8,8 +8,8 @@ import { MovieDetailService } from '../../core/movie-detail.service';
 })
 export class MovieDetailComponent implements OnInit {
   sliderDirect = 'right';
-  movieDetail: HTMLElement;
-  stillCut: HTMLElement;
+  movieDetail: Element;
+  stillCut: Element;
   sliderItem;
   isAni = false;
   moveRange = 0;
