@@ -1,5 +1,7 @@
 import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
+
 import { MovieDetailService } from '../../core/movie-detail.service';
+import { MovieDetailDialogService } from '../../core/movie-detail-dialog.service';
 
 @Component({
   selector: 'movie-detail',
@@ -21,7 +23,8 @@ export class MovieDetailComponent implements OnInit {
   constructor(
     public movieDetailService: MovieDetailService,
     private el: ElementRef,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    public movieDetailDialogService: MovieDetailDialogService
   ) { }
 
   ngOnInit() {
@@ -50,7 +53,7 @@ export class MovieDetailComponent implements OnInit {
 
   getTransition(i) {
     if (i === this.currentNum) {
-      return 'opacity .8s'
+      return 'opacity .8s';
     } else {
       return null;
     }
@@ -58,7 +61,7 @@ export class MovieDetailComponent implements OnInit {
 
   getOpacity(i) {
     if (i === this.currentNum) {
-      return 0
+      return 0;
     } else if (i === this.activeNum) {
       return 1;
     } else {
@@ -68,7 +71,7 @@ export class MovieDetailComponent implements OnInit {
 
   getZIndex(i) {
     if (i === this.currentNum) {
-      return 3
+      return 3;
     } else if (i === this.activeNum) {
       return 2;
     } else {
@@ -93,13 +96,13 @@ export class MovieDetailComponent implements OnInit {
     } else {
       this.activeNum = direction;
     }
-  };
+  }
 
   autoFn() {
     this.autoPlay = setInterval(() => {
       this.currentMovieNumberInit('right');
     }, this.timer);
-  };
+  }
 
   nextMovie(direct: string) {
     this.sliderDirect = direct;
@@ -108,4 +111,8 @@ export class MovieDetailComponent implements OnInit {
     clearInterval(this.autoPlay);
     this.autoFn();
   }
+
+  // openDialog() {
+  //   this.staffDetail.openDialog();
+  // }
 }

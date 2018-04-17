@@ -24,6 +24,7 @@ import { CommnetDialogService } from './core/comment-dialog.service';
 
 import { AuthGuard } from './core/auth/guards/auth.guard';
 import { JwtHelper } from 'angular2-jwt';
+import { MovieDetailDialogService } from './core/movie-detail-dialog.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { JwtHelper } from 'angular2-jwt';
     JwtHelper,
     MovieDetailService,
     PreloaderService,
-    CommnetDialogService
+    CommnetDialogService,
+    MovieDetailDialogService
   ],
   bootstrap: [AppComponent]
 })
