@@ -1,9 +1,9 @@
 <div class="poster-type">
   <div class="movie-poster" (click)="movieDetailService.movieDetail()">
-    <img src="{{ moviePoster.posterUrl }}" alt="">
+    <img src="{{ moviePoster.poster_image }}" alt="">
   </div>
   <div class="hidden-layer" [class.rated]="moviePoster.rate > 0">
-    <cite class="movie-name">{{ moviePoster.movieNm }}</cite>
+    <cite class="movie-name">{{ moviePoster.title_ko }}</cite>
     <div class="rating-star">
       {{ moviePoster.rate}}
       <button *ngFor="let item of rateScore" data-value="{{ item }}" class="star" [class.star-on]="item <= moviePoster.rate" (click)="rateFilm($event.target)"></button>

@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 
+import { BoxOfficePagenationService } from './box-office-pagenation.service';
+
 import { HomeComponent } from '../pages';
 
 import {
@@ -35,6 +37,9 @@ import {
     NewMoviesComponent,
     ThemeMoviesComponent,
     NewMoviesPostComponent
+  ],
+  providers: [
+    BoxOfficePagenationService
   ]
 })
 export class HomeModule { }
