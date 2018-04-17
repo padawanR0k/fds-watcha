@@ -29,6 +29,7 @@
               </em>
             </div>
             <button class="submit" [disabled]="userForm.invalid">로그인</button>
+            <p class="error-msg" *ngIf="message">{{ message }}</p>
             <div class="links">
               <button>비밀번호 찾기 /</button>
               <a routerLink="/join">회원 가입하기</a>
@@ -41,7 +42,7 @@
     <div class="box bottom">
       <div class="wrap">
        <span class="notice">이미 페이스북으로 가입하셨다면</span>
-       <a href="#" class="icon-btn fb"><span class="icon"><i class="icon-facebook"></i></span><span class="text"> facebook으로 로그인</span></a>
+       <a (click)="socialSignin('facebook')" class="icon-btn fb"><span class="icon"><i class="icon-facebook"></i></span><span class="text"> facebook으로 로그인</span></a>
       </div>
     </div>
   </div>

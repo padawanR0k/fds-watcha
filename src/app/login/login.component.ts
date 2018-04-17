@@ -48,8 +48,17 @@ export class LoginComponent implements OnInit {
         },
         ({ error }) => {
           console.log('ERROR', error.message);
-          this.message = error.message;
+          // this.message = error.message;
+          this.message = error.non_field_errors[0];
         }
+      );
+  }
+
+  socialSignin(provider: string) {
+    this.auth.socialSignin(provider)
+      .subscribe(
+        () => this.router.navigate(['']),
+        ({ error }) => this.message = error.message
       );
   }
 }

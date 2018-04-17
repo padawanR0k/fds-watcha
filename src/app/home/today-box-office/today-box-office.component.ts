@@ -152,3 +152,4 @@ export class TodayBoxOfficeComponent implements OnInit {
   //   });
   // }
 }
+
