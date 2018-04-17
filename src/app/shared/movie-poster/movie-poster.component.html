@@ -5,7 +5,8 @@
   <div class="hidden-layer" [class.rated]="moviePoster.rate > 0">
     <cite class="movie-name">{{ moviePoster.movieNm }}</cite>
     <div class="rating-star">
-      <button *ngFor="let item of rateScore" data-value="{{ item }}" class="star" [class.star-on]="item <= moviePoster.rate" (click)="rateFilm($event.target, i)"></button>
+      {{ moviePoster.rate}}
+      <button *ngFor="let item of rateScore" data-value="{{ item }}" class="star" [class.star-on]="item <= moviePoster.rate" (click)="rateFilm($event.target)"></button>
     </div>
     <div class="movie-poster-button">
       <a class="add-button want2see-movie">보고싶어요</a>

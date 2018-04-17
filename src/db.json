@@ -37,7 +37,7 @@
   "movieposter": [
     {
       "movieNm": "레디플레이어 원",
-      "rate": 0,
+      "rate": 1,
       "posterUrl": "../../assets/images/readyplayone.jpg",
       "year": 2018,
       "title": "Ready Player One",
@@ -46,7 +46,7 @@
     },
     {
       "movieNm": "바람 바람 바람",
-      "rate": 0,
+      "rate": 5,
       "posterUrl": "../../assets/images/windwindwind.jpg",
       "year": 2017,
       "title": "What a Man Wants",
@@ -55,7 +55,7 @@
     },
     {
       "movieNm": "곤지암",
-      "rate": 0,
+      "rate": 2,
       "posterUrl": "../../assets/images/gonjiam.jpg",
       "year": 2018,
       "title": "곤지암",
@@ -64,7 +64,7 @@
     },
     {
       "movieNm": "곤지암",
-      "rate": 0,
+      "rate": 3,
       "posterUrl": "../../assets/images/gonjiam.jpg",
       "year": 2018,
       "title": "곤지암",
@@ -73,7 +73,7 @@
     },
     {
       "movieNm": "곤지암",
-      "rate": 0,
+      "rate": 4,
       "posterUrl": "../../assets/images/gonjiam.jpg",
       "year": 2018,
       "title": "곤지암",
@@ -191,11 +191,12 @@
         "year": 2017,
         "title": "지금 만나러 갑니다",
         "director": "이장훈",
-        "actor": "소지섭, 손예진"
+        "actor": "소지섭, 손예진",
+        "index": 1
       },
       {
         "movieNm": "레디플레이어 원",
-        "rate": 0,
+        "rate": 1,
         "posterUrl": "../../assets/images/readyplayone.jpg",
         "year": 2018,
         "title": "Ready Player One",
@@ -204,7 +205,7 @@
       },
       {
         "movieNm": "바람 바람 바람",
-        "rate": 0,
+        "rate": 2,
         "posterUrl": "../../assets/images/windwindwind.jpg",
         "year": 2017,
         "title": "What a Man Wants",
@@ -212,7 +213,7 @@
       },
       {
         "movieNm": "곤지암",
-        "rate": 0,
+        "rate": 3,
         "posterUrl": "../../assets/images/gonjiam.jpg",
         "year": 2018,
         "title": "곤지암",
@@ -221,7 +222,7 @@
       },
       {
         "movieNm": "그날, 바다",
-        "rate": 0,
+        "rate": 4,
         "posterUrl": "../../assets/images/Intention.jpg",
         "year": 2018,
         "title": "Intention",
@@ -230,7 +231,7 @@
       },
       {
         "movieNm": "지금 만나러 갑니다",
-        "rate": 0,
+        "rate": 2,
         "posterUrl": "../../assets/images/bewithyou.jpg",
         "year": 2017,
         "title": "지금 만나러 갑니다",
@@ -239,7 +240,7 @@
       },
       {
         "movieNm": "레디플레이어 원",
-        "rate": 0,
+        "rate": 5,
         "posterUrl": "../../assets/images/readyplayone.jpg",
         "year": 2018,
         "title": "Ready Player One",
@@ -248,7 +249,7 @@
       },
       {
         "movieNm": "바람 바람 바람",
-        "rate": 0,
+        "rate": 1,
         "posterUrl": "../../assets/images/windwindwind.jpg",
         "year": 2017,
         "title": "What a Man Wants",
@@ -256,7 +257,7 @@
       },
       {
         "movieNm": "곤지암",
-        "rate": 0,
+        "rate": 2,
         "posterUrl": "../../assets/images/gonjiam.jpg",
         "year": 2018,
         "title": "곤지암",

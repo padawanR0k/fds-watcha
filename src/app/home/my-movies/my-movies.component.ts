@@ -9,7 +9,6 @@ import { MovieCategoryService } from '../../shared/movie-category.service';
 })
 export class MyMoviesComponent implements OnInit {
   constructor(public category: MovieCategoryService) {}
-  rateScore = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   ngOnInit() {
     this.category.defaultCategory();
   }
