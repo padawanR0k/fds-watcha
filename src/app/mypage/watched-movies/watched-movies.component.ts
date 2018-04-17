@@ -20,17 +20,6 @@ export class WatchedMoviesComponent implements OnInit {
     public preloader: PreloaderService
   ) { }
 
-  rateScore = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  rateFilm(target, index) {
-    if (!this.moviePosters[index].rate) {
-      this.moviePosters[index].rate = target.value;
-    } else if (target.value === this.moviePosters[index].rate) {
-      this.moviePosters[index].rate = 0;
-    } else {
-      this.moviePosters[index].rate = target.value;
-    }
-  }
-
   ngOnInit() {
     this.preloader.show();
     this.auth.getToken();
@@ -38,7 +27,7 @@ export class WatchedMoviesComponent implements OnInit {
     this.http.get(this.url, { headers: { Authorization: 'token 2abf6e7d296b948c0c906a41f61d3d2cf942e677'}})
       .subscribe(res => {
         setTimeout(() => {
-          this.moviePosters = res;
+          this.moviePosters = res.watched;
           this.preloader.hide();
         }, 2000);
       });

@@ -1,5 +1,6 @@
 export interface BoxofficeRanking {
-    ranking: number;
-    title: string;
-    link: string;
+  id: number;
+  title_ko: string;
+  ticketing_rate: string;
+  rating_avg: string;
 }
