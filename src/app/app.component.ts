@@ -5,7 +5,7 @@ import { MovieDetailService } from './core/movie-detail.service';
   selector: 'app-root',
   template: `
   <router-outlet></router-outlet>
-  
+
   <ng-container *ngIf="movieDetailService.modal">
     <movie-detail></movie-detail>
   </ng-container>

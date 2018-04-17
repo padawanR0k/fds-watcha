@@ -18,5 +18,5 @@ export class MovieDetailService {
     this.modal = !this.modal;
     this.renderer.setAttribute(document.body, 'class', null);
   }
-  
 }
+

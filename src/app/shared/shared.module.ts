@@ -15,6 +15,7 @@ import { MoviePosterComponent } from './movie-poster/movie-poster.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { PreloaderComponent } from './preloader';
 import { CommentDialogComponent } from './comment-dialog/comment-dialog.component';
+import { MovieCategoryService } from './movie-category.service';
 
 @NgModule({
   imports: [
@@ -41,7 +42,7 @@ import { CommentDialogComponent } from './comment-dialog/comment-dialog.componen
     PreloaderComponent,
     CommentDialogComponent
   ],
-  providers: [],
+  providers: [MovieCategoryService],
   exports: [
     BoxOfficeRankingComponent,
     HeaderComponent,
