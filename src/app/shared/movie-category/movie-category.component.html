@@ -1,16 +1,18 @@
 <section class="theme-area">
   <h4 class="skip">테마별 영화</h4>
   <ul>
-    <li *ngFor="let movieCategoryList of movieCategoryLists"
+    <ng-container *ngFor="let movieCategoryList of movieCategoryLists; let i = index" >
+      <li *ngIf="i<13"
       [class.active]="movieCategoryList.active"
-      (click)="changeCategory(movieCategoryList.id)"
+      (click)="changeCategory(movieCategoryList.genre)"
       class="category-list">
-      <a href="javascript:;" class="current">
-        <span class="category">{{ movieCategoryList.category }}
-          <span class="highright-border"></span>
-        </span>
-      </a>
-    </li>
+        <a class="btn-category">
+          <span class="category">{{ movieCategoryList.category }}
+            <span class="highright-border"></span>
+          </span>
+        </a>
+      </li>
+    </ng-container>
     <!-- <li>
       <a href="#">
         <span>왓챠 평균별점 TOP 영화</span>

@@ -1,0 +1,16 @@
+.list-movie li{
+  animation: fade .5s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+}
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

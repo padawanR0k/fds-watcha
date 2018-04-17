@@ -2,13 +2,16 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
 
 import { ThemeMovies } from './shared/theme-movies.interface';
 
+
 @Component({
   selector: 'home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
   themeMovieList: ThemeMovies[];
+
   leftPosition = 0;
   targetEl;
   prevBtnShowBoxOffice = false;
@@ -35,32 +38,50 @@ export class HomeComponent implements OnInit {
 
   moveTo(target: string, direction: string): void {
     this.targetEl = document.querySelector(`${target} .list-movie`);
-    this.leftPosition = +(<HTMLElement>document.querySelector(`${target} .list-movie`)).dataset.position;
-    if ( direction === 'prev') {
+    this.leftPosition = +(<HTMLElement>document.querySelector(
+      `${target} .list-movie`
+    )).dataset.position;
+    if (direction === 'prev') {
       this.leftPosition += 960;
-      this.renderer.setStyle(this.targetEl, 'transform', `translateX(${this.leftPosition}px)`);
-      (<HTMLElement>document.querySelector(`${target} .list-movie`)).dataset.position = `${this.leftPosition}`;
-    } else if ( direction === 'next') {
+      this.renderer.setStyle(
+        this.targetEl,
+        'transform',
+        `translateX(${this.leftPosition}px)`
+      );
+      (<HTMLElement>document.querySelector(
+        `${target} .list-movie`
+      )).dataset.position = `${this.leftPosition}`;
+    } else if (direction === 'next') {
       this.leftPosition -= 960;
-      this.renderer.setStyle(this.targetEl, 'transform', `translateX(${this.leftPosition}px)`);
-      (<HTMLElement>document.querySelector(`${target} .list-movie`)).dataset.position = `${this.leftPosition}`;
+      this.renderer.setStyle(
+        this.targetEl,
+        'transform',
+        `translateX(${this.leftPosition}px)`
+      );
+      (<HTMLElement>document.querySelector(
+        `${target} .list-movie`
+      )).dataset.position = `${this.leftPosition}`;
     }
     switch (target) {
       case 'today-box-office':
-        this.prevBtnShowBoxOffice = this.targetEl.dataset.position === '0' ? false : true;
-        this.nextBtnShowBoxOffice = this.targetEl.dataset.position === '-1920' ? false : true;
+        this.prevBtnShowBoxOffice =
+          this.targetEl.dataset.position === '0' ? false : true;
+        this.nextBtnShowBoxOffice =
+          this.targetEl.dataset.position === '-1920' ? false : true;
         break;
       case 'my-movies':
-        this.prevBtnShowMyMovies = this.targetEl.dataset.position === '0' ? false : true;
-        this.nextBtnShowMyMovies = this.targetEl.dataset.position === '-960' ? false : true;
+        this.prevBtnShowMyMovies =
+          this.targetEl.dataset.position === '0' ? false : true;
+        this.nextBtnShowMyMovies =
+          this.targetEl.dataset.position === '-960' ? false : true;
         break;
       case 'theme-movies':
-        this.prevBtnShowTheme = this.targetEl.dataset.position === '0' ? false : true;
-        this.nextBtnShowTheme = this.targetEl.dataset.position === '-960' ? false : true;
+        this.prevBtnShowTheme =
+          this.targetEl.dataset.position === '0' ? false : true;
+        this.nextBtnShowTheme =
+          this.targetEl.dataset.position === '-960' ? false : true;
         break;
     }
   }
-
-  ngOnInit() { }
-
+  ngOnInit() {}
 }

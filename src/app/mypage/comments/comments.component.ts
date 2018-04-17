@@ -18,7 +18,7 @@ export class CommentsComponent implements OnInit {
 
   ngOnInit() {
     this.preloader.show();
-    this.http.get('http://localhost:3000/user/').subscribe(res => {
+    this.http.get<any>('http://localhost:3000/user/').subscribe(res => {
       setTimeout(() => {
         this.comments = res.comment;
         this.preloader.hide();
