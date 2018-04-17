@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
 import { HttpClient } from '@angular/common/http';
+
 import { PreloaderService } from '../../shared/preloader';
 
 @Component({
@@ -13,17 +13,23 @@ export class CommentsComponent implements OnInit {
   moviePosters;
 
   rateScore = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  constructor(public http: HttpClient, public preloader: PreloaderService) {}
-
+  constructor(
+    public http: HttpClient,
+    public preloader: PreloaderService
+  ) { }
 
   ngOnInit() {
     this.preloader.show();
-    this.http.get('http://localhost:3000/user/').subscribe(res => {
-      setTimeout(() => {
-        this.comments = res.comment;
-        this.preloader.hide();
-      }, 1000);
+    this.http.get('http://localhost:3000/user/')
+    .subscribe(res => {
+      // console.log('res', res);
+      // setTimeout(() => {
+      //   this.comments = res.comment;
+      //   console.log('comment', this.comments);
+      //   this.preloader.hide();
+      // }, 1000);
     });
+
     this.http.get('http://localhost:3000/movieposter')
       .subscribe(res => {
         setTimeout(() => {

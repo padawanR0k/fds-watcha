@@ -23,7 +23,7 @@ export class MyMoviesComponent implements OnInit {
   ngOnInit() {
     this.http.get('http://localhost:3000/movieposter').subscribe(res => {
       this.boxOffice = res;
-      console.log(this.boxOffice)
+      console.log(this.boxOffice);
     });
   }
 }
