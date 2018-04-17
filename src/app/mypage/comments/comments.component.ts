@@ -20,14 +20,11 @@ export class CommentsComponent implements OnInit {
 
   ngOnInit() {
     this.preloader.show();
-    this.http.get('http://localhost:3000/user/')
-    .subscribe(res => {
-      // console.log('res', res);
-      // setTimeout(() => {
-      //   this.comments = res.comment;
-      //   console.log('comment', this.comments);
-      //   this.preloader.hide();
-      // }, 1000);
+    this.http.get<any>('http://localhost:3000/user/').subscribe(res => {
+      setTimeout(() => {
+        this.comments = res.comment;
+        this.preloader.hide();
+      }, 1000);
     });
 
     this.http.get('http://localhost:3000/movieposter')
