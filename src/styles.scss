@@ -785,6 +785,11 @@ ul {
 body.modal-open {
   overflow: hidden;
 }
+.director-open {
+  .movie-detail {
+    overflow: hidden;
+  }
+}
 .mat-dialog-container {
   overflow: hidden !important;
 }

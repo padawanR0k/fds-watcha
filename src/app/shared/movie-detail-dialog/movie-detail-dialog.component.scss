@@ -1,0 +1,81 @@
+.director-dialog {
+    overflow: auto;
+    overflow-x: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    background: rgba(0,0,0,.3);
+}
+.inner {
+    overflow: hidden;
+    position: relative;
+    width: 660px;
+    margin: 50px auto;
+    background: #fff;
+    border-radius: 5px;
+    animation: modal-ani .4s forwards;
+}
+.my-head {
+  background: #fff;
+  height: 100px;
+  padding: 130px 0 0;
+  color: #fff;
+  text-align: center;
+  text-shadow: 1px 1px 0 rgba(0,0,0,.5);
+}
+
+.my-movie {
+  background: #fff;
+  position: relative;
+  width: 100%;
+  margin: 50px 0 0;
+  margin: 0 auto;
+  white-space: nowrap;
+  font-size: 1.8rem;
+  .photo {
+    overflow: hidden;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    border-radius: 100%;
+    // background: url('../../../assets/images/bg-photo') no-repeat;
+    background-size: 100%;
+    img {
+      width: 100%;
+    }
+  }
+  .name {
+    display: block;
+    margin: 8px 0 0;
+  }
+}
+.inner-guide {
+  width: 960px;
+}
+.mypage {
+  width: 960px;
+}
+
+.content {
+  padding: 30px 0;
+}
+:host ::ng-deep {
+  app-user-taste,
+  app-wishlist,
+  app-watched-movies,
+  app-comments {
+    animation: fadein .3s 0s 1 linear alternate;
+  }
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
