@@ -4,25 +4,23 @@
     <div class="head">
       <div class="still-cut">
         <ul>
-          <li style="background: #333;">1</li>
-          <li style="background: #369;">2</li>
-          <li style="background: gray;">3</li>
+          <li *ngFor="let stillCut of stillCuts; let i = index;" [style.transition]="getTransition(i)" [style.opacity]="getOpacity(i)" [style.z-index]="getZIndex(i)" [style.background-image]="'url(' + stillCut + ')'"></li>
         </ul>
         <button class="prev"><i class="icon-left-open-big" (click)="nextMovie('left')"></i> 이전 스틸컷 보기</button>
         <button class="next"><i class="icon-right-open-big" (click)="nextMovie('right')"></i>다음 스틸컷 보기</button>
       </div>
-
+      
       <div class="main-info">
-        <div class="poster"><span><img src="https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/c_fill,h_700,q_80,w_490/v1521617852/guetszfm472lbu0ypxp2.jpg" alt=""></span></div>
+        <div class="poster"><span><img src="{{ movie.poster }}" alt=""></span></div>
         <div class="con-right">
           <div class="score">
             <dl>
               <dt>예상별점</dt>
-              <dd>3.0</dd>
+              <dd>{{ movie.star }}</dd>
             </dl>
             <dl>
               <dt>예매율</dt>
-              <dd><em class="num">26.70%</em></dd>
+              <dd><em class="num">{{ movie.ticket }}%</em></dd>
             </dl>
             <dl>
               <dt>누적관객수</dt>
@@ -35,7 +33,7 @@
           </div>
           <article class="detail">
             <div class="movie">
-              <h2>램페이지</h2>
+              <h2>{{ movie.title }}</h2>
               <div class="info">RAMPAGE, 2018, 미국, 액션, 12세 관람가, 1시간 47분</div>
               <div class="info">
                 <div class="star-ui">

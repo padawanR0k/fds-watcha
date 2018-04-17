@@ -7,18 +7,16 @@ import { MovieDetailService } from '../../core/movie-detail.service';
   styleUrls: ['./movie-detail.component.scss']
 })
 export class MovieDetailComponent implements OnInit {
+  movie;
   sliderDirect = 'right';
   movieDetail: Element;
-  stillCut: Element;
-  sliderItem;
-  isAni = false;
-  moveRange = 0;
-  currentNum = 0;
+  stillCuts = [];
+  activeNum = 0;
+  currentNum: number;
   interval = null;
   autoPlay = null;
-  timer = 3000;
+  timer = 4000;
   OPACITY: number;
-  
 
   constructor(
     public movieDetailService: MovieDetailService,
@@ -27,59 +25,74 @@ export class MovieDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.movie = {
+      id: 100,
+      cuts: {
+        0: 'https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/c_fill,h_720,q_80,w_1280/v1521319925/jsgkobx3lahyetw45yhl.jpg',
+        1: 'https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/c_fill,h_720,q_80,w_1280/v1521693623/ugbgvz82u8mxk8h7umsb.jpg',
+        2: 'https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/c_fill,h_720,q_80,w_1280/v1521692948/jqxqt7wqkqxskl15oim6.jpg'
+      },
+      poster: 'https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/c_fill,h_400,q_80,w_280/v1521689621/i3utanr7qh41xtggl2mu.jpg',
+      star: '3.0',
+      ticket: '26.70',
+      watcher: 78509,
+      title: '어벤져스'
+    };
+    for (let i = 0; i < Object.keys(this.movie.cuts).length; i++) {
+      this.stillCuts.push(this.movie.cuts[i]);
+    }
+
     this.movieDetail = document.querySelector('.movie-detail');
-
-    this.sliderItem = document.querySelectorAll('.still-cut ul li');
-    this.sliderItem = [].slice.call(this.sliderItem);
-
     this.renderer.setStyle(this.movieDetail, 'top', `${window.scrollY}px`);
 
     this.autoFn();
   }
 
-  frame = () => {
-    if (Math.floor(this.OPACITY) === 1) {
-      clearInterval(this.interval);
-      this.sliderItem.forEach(item => {
-        item.classList.remove('active');
-        item.style.zIndex = null;
-        item.style.opacity = null;
-      });
-      this.sliderItem[this.currentNum].classList.add('active');
-      this.sliderItem[this.currentNum].style.zIndex = '2';
-      this.isAni = false;
+  getTransition(i) {
+    if (i === this.currentNum) {
+      return 'opacity .8s'
     } else {
-      this.OPACITY += 0.01;
-      this.sliderItem[this.currentNum].style.opacity = this.OPACITY;
-      this.sliderItem[this.currentNum].style.zIndex = '4';
+      return null;
     }
-  };
+  }
 
-  mainSlider() {
-    this.OPACITY = 0;
+  getOpacity(i) {
+    if (i === this.currentNum) {
+      return 0
+    } else if (i === this.activeNum) {
+      return 1;
+    } else {
+      return null;
+    }
+  }
 
-    this.interval = setInterval(this.frame, 2.5);
-  };
+  getZIndex(i) {
+    if (i === this.currentNum) {
+      return 3
+    } else if (i === this.activeNum) {
+      return 2;
+    } else {
+      return null;
+    }
+  }
 
-  currentMovieNumberInit(direct) {
-    if (this.isAni) return;
-    this.isAni = true;
-    if (direct === 'right') {
-      if (this.currentNum === this.sliderItem.length - 1) {
-        this.currentNum = 0;
+  currentMovieNumberInit(direction) {
+    this.currentNum = this.activeNum;
+    if (direction === 'right') {
+      if (this.activeNum === Object.keys(this.movie.cuts).length - 1) {
+        this.activeNum = 0;
       } else {
-        this.currentNum += 1;
+        this.activeNum += 1;
       }
-    } else if (direct === 'left') {
-      if (this.currentNum === 0) {
-        this.currentNum = this.sliderItem.length - 1;
+    } else if (direction === 'left') {
+      if (this.activeNum === 0) {
+        this.activeNum = Object.keys(this.movie.cuts).length - 1;
       } else {
-        this.currentNum -= 1;
+        this.activeNum -= 1;
       }
     } else {
-      this.currentNum = direct;
+      this.activeNum = direction;
     }
-    this.mainSlider();
   };
 
   autoFn() {
