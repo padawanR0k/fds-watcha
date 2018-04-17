@@ -2,8 +2,8 @@
   <h4 class="title">영화 랭킹</h4>
   <ol>
     <li class="ranking-list"
-      *ngFor="let boxOfficeRankingList of boxOfficeRankingLists">
-      <a href="#"><span class="rank">{{boxOfficeRankingList.ranking}}</span> {{boxOfficeRankingList.title}}</a>
+      *ngFor="let boxOfficeRankingList of boxOfficeRankingLists; let i = index">
+      <a href="#"><span class="rank">{{ i+1 }}</span> {{boxOfficeRankingList.title_ko}}</a>
     </li>
   </ol>
 </section>

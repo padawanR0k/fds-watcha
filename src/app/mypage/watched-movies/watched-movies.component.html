@@ -1,6 +1,6 @@
 <ul class="list-movie">
   <li *ngFor="let moviePoster of moviePosters ; let i = index">
-    <movie-poster [moviePoster]="moviePoster" [rateScore]="rateScore"></movie-poster>
+    <movie-poster [moviePoster]="moviePoster"></movie-poster>
     <div class="BW-rating-star">
       <button *ngFor="let item of rateScore" data-value="{{ item }}" class="star" [class.star-on]="item <= moviePoster.rate"></button>
     </div>

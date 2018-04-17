@@ -3,6 +3,7 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
 
 import { PreloaderService } from '../shared/preloader';
 import { ThemeMovies } from './shared/theme-movies.interface';
+import { BoxOfficePagenationService } from './box-office-pagenation.service';
 
 
 @Component({
@@ -13,7 +14,6 @@ import { ThemeMovies } from './shared/theme-movies.interface';
 export class HomeComponent implements OnInit {
 
   themeMovieList: ThemeMovies[];
-
   leftPosition = 0;
   targetEl;
   prevBtnShowBoxOffice = false;
@@ -23,11 +23,7 @@ export class HomeComponent implements OnInit {
   prevBtnShowTheme = false;
   nextBtnShowTheme = true;
 
-  constructor(
-    private renderer: Renderer2,
-    // public http: HttpClient,
-    public preloader: PreloaderService
-  ) {
+  constructor(private renderer: Renderer2, public boxOfficePage: BoxOfficePagenationService, public preloader: PreloaderService) {
     this.themeMovieList = [
       { id: 10, link: '', content: '드라마', image: '' },
       { id: 9, link: '', content: '공포', image: '' },
@@ -44,48 +40,29 @@ export class HomeComponent implements OnInit {
 
   moveTo(target: string, direction: string): void {
     this.targetEl = document.querySelector(`${target} .list-movie`);
-    this.leftPosition = +(<HTMLElement>document.querySelector(
-      `${target} .list-movie`
-    )).dataset.position;
+    this.leftPosition = +(<HTMLElement>document.querySelector( `${target} .list-movie` )).dataset.position;
     if (direction === 'prev') {
       this.leftPosition += 960;
-      this.renderer.setStyle(
-        this.targetEl,
-        'transform',
-        `translateX(${this.leftPosition}px)`
-      );
-      (<HTMLElement>document.querySelector(
-        `${target} .list-movie`
-      )).dataset.position = `${this.leftPosition}`;
+      this.renderer.setStyle( this.targetEl, 'transform', `translateX(${this.leftPosition}px)` );
+      (<HTMLElement>document.querySelector( `${target} .list-movie` )).dataset.position = `${this.leftPosition}`;
     } else if (direction === 'next') {
       this.leftPosition -= 960;
-      this.renderer.setStyle(
-        this.targetEl,
-        'transform',
-        `translateX(${this.leftPosition}px)`
-      );
-      (<HTMLElement>document.querySelector(
-        `${target} .list-movie`
-      )).dataset.position = `${this.leftPosition}`;
+      this.renderer.setStyle( this.targetEl, 'transform', `translateX(${this.leftPosition}px)` );
+      (<HTMLElement>document.querySelector( `${target} .list-movie` )).dataset.position = `${this.leftPosition}`;
     }
     switch (target) {
       case 'today-box-office':
-        this.prevBtnShowBoxOffice =
-          this.targetEl.dataset.position === '0' ? false : true;
-        this.nextBtnShowBoxOffice =
-          this.targetEl.dataset.position === '-1920' ? false : true;
+        this.prevBtnShowBoxOffice = this.targetEl.dataset.position === '0' ? false : true;
+        this.nextBtnShowBoxOffice = this.targetEl.dataset.position === '-1920' ? false : true;
+        this.boxOfficePage.next();
         break;
       case 'my-movies':
-        this.prevBtnShowMyMovies =
-          this.targetEl.dataset.position === '0' ? false : true;
-        this.nextBtnShowMyMovies =
-          this.targetEl.dataset.position === '-960' ? false : true;
+        this.prevBtnShowMyMovies = this.targetEl.dataset.position === '0' ? false : true;
+        this.nextBtnShowMyMovies = this.targetEl.dataset.position === '-960' ? false : true;
         break;
       case 'theme-movies':
-        this.prevBtnShowTheme =
-          this.targetEl.dataset.position === '0' ? false : true;
-        this.nextBtnShowTheme =
-          this.targetEl.dataset.position === '-960' ? false : true;
+        this.prevBtnShowTheme = this.targetEl.dataset.position === '0' ? false : true;
+        this.nextBtnShowTheme = this.targetEl.dataset.position === '-960' ? false : true;
         break;
     }
   }
