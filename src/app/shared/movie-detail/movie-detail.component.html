@@ -4,11 +4,12 @@
     <div class="head">
       <div class="still-cut">
         <ul>
-          <li style="background: #333;"></li>
-          <li style="background: #369;"></li>
+          <li style="background: #333;">1</li>
+          <li style="background: #369;">2</li>
+          <li style="background: gray;">3</li>
         </ul>
-        <button class="prev"><i class="icon-left-open-big"></i> 이전 스틸컷 보기</button>
-        <button class="next"><i class="icon-right-open-big"></i>다음 스틸컷 보기</button>
+        <button class="prev"><i class="icon-left-open-big" (click)="nextMovie('left')"></i> 이전 스틸컷 보기</button>
+        <button class="next"><i class="icon-right-open-big" (click)="nextMovie('right')"></i>다음 스틸컷 보기</button>
       </div>
 
       <div class="main-info">
@@ -96,7 +97,7 @@
                   <p class="comment">고릴라를 본 적이 있다. 고릴라가 나의 편인지 적군인지 시험하기 위해 녀석의 우리 앞에서 죽은 척을 해보았다. 내가 듣기로는 고릴라가 사람을 먹는다는 이야기를 들어본 적이 없었으나</p>
                   <div class="btm">
                     <span class="time">2일 전</span>
-                    <span class="like">34</span>
+                    <span class="like">좋아요 34</span>
                     <span class="event">
                       <button>부적절한 표현 신고하기</button>
                       <button>스포일러 신고하기</button>
@@ -123,7 +124,7 @@
                   <p class="comment">고릴라를 본 적이 있다. 고릴라가 나의 편인지 적군인지 시험하기 위해 녀석의 우리 앞에서 죽은 척을 해보았다. 내가 듣기로는 고릴라가 사람을 먹는다는 이야기를 들어본 적이 없었으나</p>
                   <div class="btm">
                     <span class="time">2일 전</span>
-                    <span class="like">34</span>
+                    <span class="like">좋아요 34</span>
                     <span class="event">
                       <button>부적절한 표현 신고하기</button>
                       <button>스포일러 신고하기</button>

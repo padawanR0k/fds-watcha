@@ -64,4 +64,12 @@ export class JoinComponent implements OnInit {
         }
       );
   }
+
+  socialSignin(provider: string) {
+    this.auth.socialSignin(provider)
+      .subscribe(
+        () => this.router.navigate(['']),
+        ({ error }) => this.message = error.message
+      );
+  }
 }

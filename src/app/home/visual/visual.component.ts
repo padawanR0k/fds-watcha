@@ -54,7 +54,6 @@ export class VisualComponent implements OnInit {
     this.sliderDot.forEach(item => item.classList.remove('current'));
     this.sliderDot[this.currentNum].classList.add('current');
 
-    this.frame();
     this.interval = setInterval(this.frame, 2.5);
   };
 
