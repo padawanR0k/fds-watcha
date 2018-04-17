@@ -26,6 +26,8 @@ export class MypageComponent implements OnInit {
   ngOnInit() {
     this.preloader.show();
     this.preloader.hide();
+    console.log('show', this.preloader.show());
+    console.log('hide', this.preloader.hide());
   }
 
   // userMovieInfo: Mypageuser[];
@@ -46,3 +48,4 @@ export class MypageComponent implements OnInit {
   // }
 
 }
+

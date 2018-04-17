@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 
 import { MoviePoster } from '../movie-poster.interface';
 
-
 import { MovieDetailService } from '../../core/movie-detail.service';
 import { CommnetDialogService } from '../../core/comment-dialog.service';
 
@@ -15,9 +14,12 @@ import { CommnetDialogService } from '../../core/comment-dialog.service';
 export class MoviePosterComponent implements OnInit {
   @Input() moviePoster: MoviePoster;
   @Input() rateScore: Number[];
-  constructor(public http: HttpClient, public movieDetailService: MovieDetailService, public commnetDialogService: CommnetDialogService) {
-    console.log();
-  }
+  constructor(
+    public http: HttpClient,
+    public movieDetailService: MovieDetailService,
+    public commnetDialogService: CommnetDialogService
+  ) { console.log(); }
+
   rateFilm(target, index) {
     this.http.put('http://localhost:3000/movieposter', {rate: target.value}, );
     // if (!this.moviePoster[index].rate) {

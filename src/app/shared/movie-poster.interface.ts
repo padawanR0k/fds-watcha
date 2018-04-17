@@ -1,9 +1,32 @@
 export interface MoviePoster {
-    movieNm: string;
-    rate: number;
-    posterUrl: string;
-    year: number;
-    title: string;
-    director: string;
-    actor: string;
-}
+    id: number;
+    title_ko: string;
+    title_en: string;
+    rating_avg: number;
+    nation: string;
+    poster_image: string;
+    genre: [
+        {
+            id: number;
+            genre: string;
+        },
+        {
+            id: number;
+            genre: string;
+        },
+        {
+            id: number;
+            genre: string;
+        },
+        {
+            id: number;
+            genre: string;
+        },
+        {
+            id: number;
+            genre: string;
+        }
+    ];
+    running_time: number;
+    }
+

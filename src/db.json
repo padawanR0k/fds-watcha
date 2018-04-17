@@ -38,7 +38,7 @@
     {
       "movieNm": "레디플레이어 원",
       "rate": 0,
-      "posterUrl": "../../assets/images/readyplayone.jpg",
+      "poster_image": "../../assets/images/readyplayone.jpg",
       "year": 2018,
       "title": "Ready Player One",
       "director": "스티븐 스필버그",
@@ -47,7 +47,7 @@
     {
       "movieNm": "바람 바람 바람",
       "rate": 0,
-      "posterUrl": "../../assets/images/windwindwind.jpg",
+      "poster_image": "../../assets/images/windwindwind.jpg",
       "year": 2017,
       "title": "What a Man Wants",
       "director": "이병헌",
@@ -56,7 +56,7 @@
     {
       "movieNm": "곤지암",
       "rate": 0,
-      "posterUrl": "../../assets/images/gonjiam.jpg",
+      "poster_image": "../../assets/images/gonjiam.jpg",
       "year": 2018,
       "title": "곤지암",
       "director": "정범식",
@@ -65,7 +65,7 @@
     {
       "movieNm": "곤지암",
       "rate": 0,
-      "posterUrl": "../../assets/images/gonjiam.jpg",
+      "poster_image": "../../assets/images/gonjiam.jpg",
       "year": 2018,
       "title": "곤지암",
       "director": "정범식",
@@ -74,7 +74,7 @@
     {
       "movieNm": "곤지암",
       "rate": 0,
-      "posterUrl": "../../assets/images/gonjiam.jpg",
+      "poster_image": "../../assets/images/gonjiam.jpg",
       "year": 2018,
       "title": "곤지암",
       "director": "정범식",
@@ -83,7 +83,7 @@
     {
       "movieNm": "곤지암",
       "rate": 0,
-      "posterUrl": "../../assets/images/gonjiam.jpg",
+      "poster_image": "../../assets/images/gonjiam.jpg",
       "year": 2018,
       "title": "곤지암",
       "director": "정범식",
@@ -92,7 +92,7 @@
     {
       "movieNm": "곤지암",
       "rate": 0,
-      "posterUrl": "../../assets/images/gonjiam.jpg",
+      "poster_image": "../../assets/images/gonjiam.jpg",
       "year": 2018,
       "title": "곤지암",
       "director": "정범식",
@@ -101,7 +101,7 @@
     {
       "movieNm": "곤지암",
       "rate": 0,
-      "posterUrl": "../../assets/images/gonjiam.jpg",
+      "poster_image": "../../assets/images/gonjiam.jpg",
       "year": 2018,
       "title": "곤지암",
       "director": "정범식",
@@ -110,7 +110,7 @@
     {
       "movieNm": "곤지암",
       "rate": 0,
-      "posterUrl": "../../assets/images/gonjiam.jpg",
+      "poster_image": "../../assets/images/gonjiam.jpg",
       "year": 2018,
       "title": "곤지암",
       "director": "정범식",
@@ -119,7 +119,7 @@
     {
       "movieNm": "곤지암",
       "rate": 0,
-      "posterUrl": "../../assets/images/gonjiam.jpg",
+      "poster_image": "../../assets/images/gonjiam.jpg",
       "year": 2018,
       "title": "곤지암",
       "director": "정범식",
@@ -131,7 +131,7 @@
       {
         "movieNm": "바람 바람 바람",
         "rate": 0,
-        "posterUrl": "../../assets/images/windwindwind.jpg",
+        "poster_image": "../../assets/images/windwindwind.jpg",
         "year": 2017,
         "title": "What a Man Wants",
         "director": "이병헌",
@@ -140,7 +140,7 @@
       {
         "movieNm": "곤지암",
         "rate": 0,
-        "posterUrl": "../../assets/images/gonjiam.jpg",
+        "poster_image": "../../assets/images/gonjiam.jpg",
         "year": 2018,
         "title": "곤지암",
         "director": "정범식",
@@ -149,7 +149,7 @@
       {
         "movieNm": "지금 만나러 갑니다",
         "rate": 0,
-        "posterUrl": "../../assets/images/bewithyou.jpg",
+        "poster_image": "../../assets/images/bewithyou.jpg",
         "year": 2017,
         "title": "지금 만나러 갑니다",
         "director": "이장훈",
@@ -158,7 +158,7 @@
       {
         "movieNm": "레디플레이어 원",
         "rate": 0,
-        "posterUrl": "../../assets/images/readyplayone.jpg",
+        "poster_image": "../../assets/images/readyplayone.jpg",
         "year": 2018,
         "title": "Ready Player One",
         "director": "스티븐 스필버그",
@@ -167,7 +167,7 @@
       {
         "movieNm": "바람 바람 바람",
         "rate": 0,
-        "posterUrl": "../../assets/images/windwindwind.jpg",
+        "poster_image": "../../assets/images/windwindwind.jpg",
         "year": 2017,
         "title": "What a Man Wants",
         "director": "이병헌",
@@ -176,7 +176,7 @@
       {
         "movieNm": "곤지암",
         "rate": 0,
-        "posterUrl": "../../assets/images/gonjiam.jpg",
+        "poster_image": "../../assets/images/gonjiam.jpg",
         "year": 2018,
         "title": "곤지암",
         "director": "정범식",
@@ -187,7 +187,7 @@
       {
         "movieNm": "지금 만나러 갑니다",
         "rate": 1,
-        "posterUrl": "../../assets/images/bewithyou.jpg",
+        "poster_image": "../../assets/images/bewithyou.jpg",
         "year": 2017,
         "title": "지금 만나러 갑니다",
         "director": "이장훈",
@@ -196,7 +196,7 @@
       {
         "movieNm": "레디플레이어 원",
         "rate": 0,
-        "posterUrl": "../../assets/images/readyplayone.jpg",
+        "poster_image": "../../assets/images/readyplayone.jpg",
         "year": 2018,
         "title": "Ready Player One",
         "director": "스티븐 스필버그",
@@ -205,7 +205,7 @@
       {
         "movieNm": "바람 바람 바람",
         "rate": 0,
-        "posterUrl": "../../assets/images/windwindwind.jpg",
+        "poster_image": "../../assets/images/windwindwind.jpg",
         "year": 2017,
         "title": "What a Man Wants",
         "director": "이병헌"
@@ -213,7 +213,7 @@
       {
         "movieNm": "곤지암",
         "rate": 0,
-        "posterUrl": "../../assets/images/gonjiam.jpg",
+        "poster_image": "../../assets/images/gonjiam.jpg",
         "year": 2018,
         "title": "곤지암",
         "director": "정범식",
@@ -222,7 +222,7 @@
       {
         "movieNm": "그날, 바다",
         "rate": 0,
-        "posterUrl": "../../assets/images/Intention.jpg",
+        "poster_image": "../../assets/images/Intention.jpg",
         "year": 2018,
         "title": "Intention",
         "director": "김지영",
@@ -231,7 +231,7 @@
       {
         "movieNm": "지금 만나러 갑니다",
         "rate": 0,
-        "posterUrl": "../../assets/images/bewithyou.jpg",
+        "poster_image": "../../assets/images/bewithyou.jpg",
         "year": 2017,
         "title": "지금 만나러 갑니다",
         "director": "이장훈",
@@ -240,7 +240,7 @@
       {
         "movieNm": "레디플레이어 원",
         "rate": 0,
-        "posterUrl": "../../assets/images/readyplayone.jpg",
+        "poster_image": "../../assets/images/readyplayone.jpg",
         "year": 2018,
         "title": "Ready Player One",
         "director": "스티븐 스필버그",
@@ -249,7 +249,7 @@
       {
         "movieNm": "바람 바람 바람",
         "rate": 0,
-        "posterUrl": "../../assets/images/windwindwind.jpg",
+        "poster_image": "../../assets/images/windwindwind.jpg",
         "year": 2017,
         "title": "What a Man Wants",
         "director": "이병헌"
@@ -257,7 +257,7 @@
       {
         "movieNm": "곤지암",
         "rate": 0,
-        "posterUrl": "../../assets/images/gonjiam.jpg",
+        "poster_image": "../../assets/images/gonjiam.jpg",
         "year": 2018,
         "title": "곤지암",
         "director": "정범식",
@@ -278,7 +278,7 @@
         "month": 4,
         "day": 1
       },
-      "posterUrl":
+      "poster_image":
         "https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/c_fill,h_700,q_80,w_490/v1521617852/guetszfm472lbu0ypxp2.jpg"
     },
     {
@@ -294,7 +294,7 @@
         "month": 4,
         "day": 1
       },
-      "posterUrl":
+      "poster_image":
         "https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/c_fill,h_400,q_80,w_280/v1519955226/vvnr4dqs6rxnxbc4mgvq.jpg"
     },
     {
@@ -310,7 +310,7 @@
         "month": 4,
         "day": 1
       },
-      "posterUrl":
+      "poster_image":
         "https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/c_fill,h_400,q_80,w_280/v1519955226/vvnr4dqs6rxnxbc4mgvq.jpg"
     },
     {
@@ -326,7 +326,7 @@
         "month": 4,
         "day": 1
       },
-      "posterUrl":
+      "poster_image":
         "https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/c_fill,h_400,q_80,w_280/v1519955226/vvnr4dqs6rxnxbc4mgvq.jpg"
     },
     {
@@ -342,7 +342,7 @@
         "month": 4,
         "day": 1
       },
-      "posterUrl":
+      "poster_image":
         "https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/c_fill,h_400,q_80,w_280/v1519955226/vvnr4dqs6rxnxbc4mgvq.jpg"
     },
     {
@@ -358,7 +358,7 @@
         "month": 4,
         "day": 1
       },
-      "posterUrl":
+      "poster_image":
         "https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/c_fill,h_400,q_80,w_280/v1519955226/vvnr4dqs6rxnxbc4mgvq.jpg"
     },
     {
@@ -374,7 +374,7 @@
         "month": 4,
         "day": 1
       },
-      "posterUrl":
+      "poster_image":
         "https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/c_fill,h_400,q_80,w_280/v1519955226/vvnr4dqs6rxnxbc4mgvq.jpg"
     },
     {
@@ -390,7 +390,7 @@
         "month": 4,
         "day": 1
       },
-      "posterUrl":
+      "poster_image":
         "https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/c_fill,h_400,q_80,w_280/v1519955226/vvnr4dqs6rxnxbc4mgvq.jpg"
     },
     {
@@ -406,7 +406,7 @@
         "month": 4,
         "day": 1
       },
-      "posterUrl":
+      "poster_image":
         "https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/c_fill,h_400,q_80,w_280/v1519955226/vvnr4dqs6rxnxbc4mgvq.jpg"
     },
     {
@@ -422,7 +422,7 @@
         "month": 4,
         "day": 1
       },
-      "posterUrl":
+      "poster_image":
         "https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/c_fill,h_400,q_80,w_280/v1519955226/vvnr4dqs6rxnxbc4mgvq.jpg"
     },
     {
@@ -438,7 +438,7 @@
         "month": 4,
         "day": 1
       },
-      "posterUrl":
+      "poster_image":
         "https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/c_fill,h_400,q_80,w_280/v1519955226/vvnr4dqs6rxnxbc4mgvq.jpg"
     },
     {
@@ -454,7 +454,7 @@
         "month": 4,
         "day": 1
       },
-      "posterUrl":
+      "poster_image":
         "https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/c_fill,h_400,q_80,w_280/v1519955226/vvnr4dqs6rxnxbc4mgvq.jpg"
     },
     {
@@ -470,7 +470,7 @@
         "month": 4,
         "day": 1
       },
-      "posterUrl":
+      "poster_image":
         "https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/c_fill,h_400,q_80,w_280/v1519955226/vvnr4dqs6rxnxbc4mgvq.jpg"
     },
     {
@@ -486,7 +486,7 @@
         "month": 4,
         "day": 1
       },
-      "posterUrl":
+      "poster_image":
         "https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/c_fill,h_400,q_80,w_280/v1519955226/vvnr4dqs6rxnxbc4mgvq.jpg"
     },
     {
@@ -502,7 +502,7 @@
         "month": 4,
         "day": 1
       },
-      "posterUrl":
+      "poster_image":
         "https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/c_fill,h_400,q_80,w_280/v1519955226/vvnr4dqs6rxnxbc4mgvq.jpg"
     }
     ]
