@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 import { MatDialog } from '@angular/material';
 
 import { CommentDialogComponent } from '../shared/comment-dialog/comment-dialog.component';
