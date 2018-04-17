@@ -1,0 +1,15 @@
+<div class="poster-type">
+  <div class="movie-poster" (click)="movieDetailService.movieDetail()">
+    <img src="{{ moviePoster.poster_image }}" alt="">
+  </div>
+  <div class="hidden-layer" [class.rated]="moviePoster.rating_avg> 0">
+    <cite class="movie-name">{{ moviePoster.title_ko }}</cite>
+    <div class="rating-star">
+      <button *ngFor="let item of rateScore" data-value="{{ item }}" class="star" [class.star-on]="item <= moviePoster.rate" (click)="rateFilm($event.target, i)"></button>
+    </div>
+    <div class="movie-poster-button">
+      <a class="add-button want2see-movie">보고싶어요</a>
+      <a class="add-button comment" (click)="commnetDialogService.openDialog()">코멘트남기기</a>
+    </div>
+  </div>
+</div>

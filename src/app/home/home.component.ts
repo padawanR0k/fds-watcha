@@ -1,5 +1,7 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
+// import { HttpClient } from '@angular/common/http';
 
+import { PreloaderService } from '../shared/preloader';
 import { ThemeMovies } from './shared/theme-movies.interface';
 
 @Component({
@@ -18,7 +20,11 @@ export class HomeComponent implements OnInit {
   prevBtnShowTheme = false;
   nextBtnShowTheme = true;
 
-  constructor(private renderer: Renderer2) {
+  constructor(
+    private renderer: Renderer2,
+    // public http: HttpClient,
+    public preloader: PreloaderService
+  ) {
     this.themeMovieList = [
       { id: 10, link: '', content: '드라마', image: '' },
       { id: 9, link: '', content: '공포', image: '' },
@@ -61,6 +67,10 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  ngOnInit() { }
-
+  ngOnInit() {
+    this.preloader.show();
+    this.preloader.hide();
+    console.log('show', this.preloader.show());
+    console.log('hide', this.preloader.hide());
+   }
 }

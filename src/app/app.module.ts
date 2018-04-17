@@ -20,6 +20,8 @@ import { UserService } from './core/auth/services/user.service';
 import { MovieDetailService } from './core/movie-detail.service';
 import { PreloaderService } from './shared/preloader';
 
+import { CommnetDialogService } from './core/comment-dialog.service';
+
 import { AuthGuard } from './core/auth/guards/auth.guard';
 import { JwtHelper } from 'angular2-jwt';
 
@@ -46,7 +48,8 @@ import { JwtHelper } from 'angular2-jwt';
     AuthGuard,
     JwtHelper,
     MovieDetailService,
-    PreloaderService
+    PreloaderService,
+    CommnetDialogService
   ],
   bootstrap: [AppComponent]
 })
