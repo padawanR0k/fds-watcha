@@ -6,22 +6,46 @@ import { environment } from '../../environments/environment';
 
 import { AuthService } from '../core/auth/services/auth.service';
 
+
+export interface BoxofficeDetail {
+  count: number;
+  next?: string;
+  previous?: string;
+  results: [
+    {
+      id: number,
+      title_ko: string,
+      ticketing_rate: number,
+      rating_avg: number,
+      poster_image: string,
+      members: [
+          {
+          type: string,
+          member: number,
+          name: string,
+          real_name: string
+          }
+        ]
+    }
+  ];
+}
 @Injectable()
 export class BoxOfficePagenationService {
   appUrl = environment.apiUrl;
   nextUrl: string;
+  httpHeader = {'headers': { 'Authorization' : `token ${this.authSevice.getToken()}`} };
   todayBoxOffice;
   constructor(public http: HttpClient, public authSevice: AuthService) { }
   next(): void {
-    this.http.get(this.nextUrl, {'headers': { 'Authorization' : `token ${this.authSevice.getToken()}`} })
+    this.http.get<BoxofficeDetail>(this.nextUrl, this.httpHeader)
     .subscribe(res => {
       this.nextUrl = res.next;
-      this.todayBoxOffice = [...this.todayBoxOffice, ...res.results]
+      this.todayBoxOffice = [...this.todayBoxOffice, ...res.results];
     });
   }
 
   loadTopFive(): void {
-    this.http.get(`${this.appUrl}/movie/box-office/five-list/`, {'headers': { 'Authorization' : `token ${this.authSevice.getToken()}`} })
+    this.http.get<BoxofficeDetail>(`${this.appUrl}/movie/box-office/five-list/`, this.httpHeader)
     .subscribe(res => {
       this.todayBoxOffice = res.results;
       this.nextUrl = res.next;
