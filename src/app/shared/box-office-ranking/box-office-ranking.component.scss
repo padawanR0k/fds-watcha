@@ -1,6 +1,8 @@
 @import '../../../variables.scss';
 
 .ranking-area {
+  overflow: hidden;
+  border-radius: 5px;
   .title {
     padding: 15px;
     color: #fff;

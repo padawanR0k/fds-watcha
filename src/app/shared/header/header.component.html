@@ -3,13 +3,13 @@
     <header class="main-header">
       <ul class="gnb">
         <li>
-          <a href="" class="home">
+          <a routerLink="/" class="home">
             <img src="../../../assets/images/main-logo.png" alt="홈으로">
           </a>
         </li>
-        <li><a href="" class="boxoffice">박스오피스</a></li>
-        <li><a href="" class="recommend">추천영화</a></li>
-        <li><a href="" class="add-archive">평가늘리기</a></li>
+        <li><a routerLinkActive="active" routerLink="/boxoffice" class="boxoffice">박스오피스</a></li>
+        <li><a routerLinkActive="active" routerLink="/recommendation" class="recommend">추천영화</a></li>
+        <li><a routerLinkActive="active" routerLink="/evalmore" class="add-archive">평가늘리기</a></li>
       </ul>
       <div class="search-area">
         <input type="text" class="search-bar" [(ngModel)]="searchString" (focusin)="resultState=true" (keyup)="moveFocus($event)" (focusout)="closeResult($event)">
@@ -21,7 +21,7 @@
                 <img src="{{list.moviePoster}}" alt="">
               </span>
             </a>
-            <li><a href="" class="more-result">"{{ searchString }}" 검색결과 더보기</a></li>
+            <li><a routerLink="/search" class="more-result">"{{ searchString }}" 검색결과 더보기</a></li>
           </ul>
         </div>
       </div>
