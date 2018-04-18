@@ -15,7 +15,7 @@
       <preloader></preloader>
         <ul class="list-movie">
           <li *ngFor="let moviePoster of moviePosters ; let i = index">
-            <movie-poster [moviePoster]="moviePoster" [rateScore]="rateScore"></movie-poster>
+            <movie-poster [moviePoster]="moviePoster"></movie-poster>
             <div class="search-result">
               <a class="search-title" href="#">{{ moviePoster.movieNm }}</a>
               <br> {{ moviePoster.year }}

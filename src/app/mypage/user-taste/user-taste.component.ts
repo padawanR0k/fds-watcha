@@ -8,7 +8,6 @@ import { AgWordCloudData, AgWordCloudModule } from 'angular4-word-cloud';
   styleUrls: ['./user-taste.component.scss']
 })
 export class UserTasteComponent implements OnInit {
-  rateScore = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   // nation
   public doughnutChartLabels: string[] = ['SF', '판타지', '스릴러'];

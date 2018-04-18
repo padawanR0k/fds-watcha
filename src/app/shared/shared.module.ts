@@ -15,7 +15,10 @@ import { MoviePosterComponent } from './movie-poster/movie-poster.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { PreloaderComponent } from './preloader';
 import { CommentDialogComponent } from './comment-dialog/comment-dialog.component';
+import { MovieDetailDialogComponent } from './movie-detail-dialog/movie-detail-dialog.component';
+
 import { MovieCategoryService } from './movie-category.service';
+import { MovieDetailDialogService } from '../core/movie-detail-dialog.service';
 
 @NgModule({
   imports: [
@@ -40,9 +43,10 @@ import { MovieCategoryService } from './movie-category.service';
     MoviePosterComponent,
     MovieDetailComponent,
     PreloaderComponent,
-    CommentDialogComponent
+    CommentDialogComponent,
+    MovieDetailDialogComponent
   ],
-  providers: [MovieCategoryService],
+  providers: [MovieCategoryService, MovieDetailDialogService],
   exports: [
     BoxOfficeRankingComponent,
     HeaderComponent,
@@ -51,7 +55,8 @@ import { MovieCategoryService } from './movie-category.service';
     MoviePosterComponent,
     ModalEditProfile,
     MovieDetailComponent,
-    PreloaderComponent
+    PreloaderComponent,
+    MovieDetailDialogComponent
   ]
 })
 export class SharedModule {}
