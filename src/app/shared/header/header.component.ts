@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 
 import { AuthService } from '../../core/auth/services/auth.service';
+import { UserService } from '../../core/auth/services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -20,10 +21,12 @@ export class HeaderComponent implements OnInit {
     { movieNm: '인조인간', moviePoster: '/assets/images/user-avatar-100.jpg' },
     { movieNm: '인사이드 아웃', moviePoster: '/assets/images/user-avatar-100.jpg' }
   ];
+  userInfo;
 
   constructor(
     public router: Router,
     private auth: AuthService,
+    private user: UserService,
     public dialog: MatDialog
   ) { }
 
@@ -59,6 +62,15 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.searchString = '';
+
+    this.userInfo = this.user.getUsers()
+      .subscribe(
+        () => { },
+        ({ error }) => {
+          console.log('ERROR', error.message);
+          this.message = error.message;
+        }
+      );
   }
 
   signout() {
