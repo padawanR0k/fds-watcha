@@ -268,6 +268,30 @@ ul {
   }
 }
 
+.star-ui {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0;
+  > span {
+    display: inline-block;
+    vertical-align: middle;
+    width: 7px;
+    height: 13px;
+    background: url('./assets/images/star-off.svg') no-repeat;
+    background-size: 200%;
+    &:nth-child(odd) {
+
+    }
+    &:nth-child(even) {
+      margin: 0 2px 0 0;
+      background-position: 100% 0;
+    }
+    &.on {
+      background-image: url('./assets/images/star-on.svg');
+    }
+  }
+}
+
 .box-office {
   .conLeft {
     width: 20%;
@@ -287,6 +311,10 @@ ul {
         img {
           width: 460px;
         }
+      }
+      .wrap {
+        overflow: hidden;
+        border-radius: 5px;
       }
     }
   }
@@ -320,11 +348,6 @@ ul {
   .conRight {
     width: 80%;
   }
-}
-
-.theme-area {
-  height: 100%;
-  background: #fff;
 }
 
 .new-movies {

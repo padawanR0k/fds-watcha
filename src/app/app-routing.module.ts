@@ -7,11 +7,14 @@ import {
   LoginComponent,
   JoinComponent,
   SearchComponent,
+  BoxofficeComponent,
+  EvalmoreComponent,
+  RecommendationComponent,
   MypageComponent,
   UserTasteComponent,
   WishlistComponent,
   CommentsComponent,
-  WatchedMoviesComponent,
+  WatchedMoviesComponent
   // PreloaderComponen
 } from './pages';
 
@@ -29,6 +32,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'join', component: JoinComponent },
   { path: 'search', component: SearchComponent },
+  { path: 'boxoffice', component: BoxofficeComponent },
+  { path: 'evalmore', component: EvalmoreComponent },
+  { path: 'recommendation', component: RecommendationComponent },
   {
     path: 'mypage', component: MypageComponent,
     children: [

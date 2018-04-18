@@ -1,0 +1,74 @@
+<div class="wrapper">
+  <app-header></app-header>
+
+  <main class="layout-container">
+    <div class="inner-guide">
+      <div class="main-content">
+        <section class="box-office">
+          <div class="body">
+            <div class="outer">
+              <div class="inner">
+                <div class="conLeft">
+                  <box-office-ranking></box-office-ranking>
+                </div>
+                <div class="conRight">
+                  <ul class="list-boxoffice">
+                    <li *ngFor="let movie of boxOfficePage.todayBoxOffice; let i = index">
+                      <div class="wrap">
+                        <div class="poster">
+                          <movie-poster [moviePoster]="movie"></movie-poster>
+                        </div>
+                        <div class="detail-infor">
+                          <div class="head">
+                            <h5>어벤져스: 인피니티 워</h5>
+                            <div class="sub-info">
+                              <span>개봉 7일전</span>
+                              <span>누적 관객수 0명</span>
+                            </div>
+                          </div>
+                          <div class="body">
+                            <div class="movie">
+                              <span>액션, 2시간 29분, 12세 관람가</span>
+                              <span>
+                                <div class="star-ui">
+                                  <span class="on"></span>
+                                  <span class="on"></span>
+                                  <span class="on"></span>
+                                  <span class="on"></span>
+                                  <span class="on"></span>
+                                  <span class="on"></span>
+                                  <span class="on"></span>
+                                  <span class="on"></span>
+                                  <span class="on"></span>
+                                  <span></span>
+                                </div>
+                                4.4 (195명 참여)
+                              </span>
+                            </div>
+
+                            <div class="directors">감독 : 안소니 루소 , 조 루소</div>
+                            <div class="casts">주연 : 로버트 다우니 주니어 , 조쉬 브롤린 , 크리스 헴스워스 , 마크 러팔로 , 크리스 에반스 , 스칼렛 요한슨 , 베네딕트 컴버배치 , 돈 치들 , 톰 홀랜드 , 채드윅 보스만 , 폴 베타니 , 엘리자베스 올슨 , 안소니 마키 , 세바스찬 스탠 , 톰 히들스턴 , 이드리스 엘바 , 제레미 레너 , 피터 딘클리지 , 베네딕트 웡 , 폼 클레멘티에프 , 카렌 길리언 , 이사벨라 아마라 , 데이브 바티스타 , 조 샐다나 , 빈 디젤 , 브래들리 쿠퍼 , 폴 러드 , 크리스 프랫</div>
+                          </div>
+                          <div class="guest">
+                            <div class="photo"><a href="#"></a></div>
+                            <dl>
+                              <dt><a href="#">차지훈</a> 보고싶어요</dt>
+                              <dd>타노스 공짜로 지구 먹을 생각에 머리가 대머리가 됐구나 싶습니다.</dd>
+                            </dl>
+                            <div class="link"><i class="icon-heart"></i> 9,428</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <main-footer></main-footer>
+</div>

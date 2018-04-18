@@ -318,30 +318,6 @@
   font-weight: bold;
 }
 
-.star-ui {
-  display: inline-block;
-  vertical-align: middle;
-  font-size: 0;
-  > span {
-    display: inline-block;
-    vertical-align: middle;
-    width: 7px;
-    height: 13px;
-    background: url('../../../assets/images/star-off.svg') no-repeat;
-    background-size: 200%;
-    &:nth-child(odd) {
-
-    }
-    &:nth-child(even) {
-      margin: 0 2px 0 0;
-      background-position: 100% 0;
-    }
-    &.on {
-      background-image: url('../../../assets/images/star-on.svg');
-    }
-  }
-}
-
 @keyframes modal-ani {
   0% {
     opacity: 0;

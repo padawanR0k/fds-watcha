@@ -1,0 +1,24 @@
+.main-content {
+  .inner {
+    height: auto;
+  }
+}
+
+.list-boxoffice {
+  li {
+    padding: 10px;
+  }
+  .wrap {
+    overflow: hidden;
+    position: relative;
+    border-radius: 5px;
+    background: #fff;
+  }
+}
+.poster {
+  float: left;
+}
+.detail-infor {
+  margin: 0 0 0 220px;
+  padding: 20px;
+}

@@ -25,10 +25,16 @@ import { CommnetDialogService } from './core/comment-dialog.service';
 import { AuthGuard } from './core/auth/guards/auth.guard';
 import { JwtHelper } from 'angular2-jwt';
 import { MovieDetailDialogService } from './core/movie-detail-dialog.service';
+import { BoxofficeComponent } from './boxoffice/boxoffice.component';
+import { RecommendationComponent } from './recommendation/recommendation.component';
+import { EvalmoreComponent } from './evalmore/evalmore.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BoxofficeComponent,
+    RecommendationComponent,
+    EvalmoreComponent
   ],
   imports: [
     BrowserModule,
