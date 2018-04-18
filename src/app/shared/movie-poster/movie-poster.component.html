@@ -5,7 +5,7 @@
   <div class="hidden-layer" [class.rated]="moviePoster.rating_avg> 0">
     <cite class="movie-name">{{ moviePoster.title_ko }}</cite>
     <div class="rating-star">
-      {{ moviePoster.rate}}
+      {{ moviePoster.rate }}
       <button *ngFor="let item of rateScore" data-value="{{ item }}" class="star" [class.star-on]="item <= moviePoster.rate" (click)="rateFilm($event.target)"></button>
     </div>
     <div class="movie-poster-button">
