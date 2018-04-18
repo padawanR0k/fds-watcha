@@ -17,7 +17,7 @@ import { PreloaderComponent } from './preloader';
 import { CommentDialogComponent } from './comment-dialog/comment-dialog.component';
 import { MovieDetailDialogComponent } from './movie-detail-dialog/movie-detail-dialog.component';
 
-import { MovieCategoryService } from './movie-category.service';
+import { MovieCategoryService } from './movie-category/movie-category.service';
 import { MovieDetailDialogService } from '../core/movie-detail-dialog.service';
 
 @NgModule({

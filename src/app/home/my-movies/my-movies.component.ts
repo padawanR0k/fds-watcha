@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { MovieCategoryService } from '../../shared/movie-category.service';
+import { MovieCategoryService } from '../../shared/movie-category/movie-category.service';
 
 @Component({
   selector: 'my-movies',
