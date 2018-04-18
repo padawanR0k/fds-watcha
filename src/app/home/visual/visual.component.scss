@@ -16,22 +16,18 @@
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-size: 100%;
+  opacity: 0;
+}
+.main-slider li.current {
+  z-index: 3;
+  opacity: 0;
+  transition: opacity .8s;
 }
 .main-slider li.active {
-  z-index: 1;
-}
-/* .main-slider li.active {
-  animation: fadein-ani 1s;
   z-index: 2;
+  opacity: 1;
 }
-@keyframes fadein-ani {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-} */
+
 .main-slider .inner-guide {
   height: 100%;
 }

@@ -82,16 +82,14 @@ export class MovieDetailComponent implements OnInit {
   currentMovieNumberInit(direction) {
     this.currentNum = this.activeNum;
     if (direction === 'right') {
-      if (this.activeNum === Object.keys(this.movie.cuts).length - 1) {
+      this.activeNum += 1;
+      if (this.activeNum === Object.keys(this.movie.cuts).length) {
         this.activeNum = 0;
-      } else {
-        this.activeNum += 1;
       }
     } else if (direction === 'left') {
-      if (this.activeNum === 0) {
+      this.activeNum -= 1;
+      if (this.activeNum < 0) {
         this.activeNum = Object.keys(this.movie.cuts).length - 1;
-      } else {
-        this.activeNum -= 1;
       }
     } else {
       this.activeNum = direction;
