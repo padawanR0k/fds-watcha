@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VisualComponent implements OnInit {
   sliderDirect = 'right';
-  currentNum = 0;
+  activeNum = 0;
+  currentNum: number;
   timer = 4000;
   isAni = false;
   autoPlay = null;
@@ -29,51 +30,34 @@ export class VisualComponent implements OnInit {
     this.autoFn();
   }
 
-  frame = () => {
-    if (Math.floor(this.OPACITY) === 1) {
-      clearInterval(this.interval);
-      this.sliderItem.forEach(item => {
-        item.classList.remove('active');
-        item.style.zIndex = null;
-        item.style.opacity = null;
-      });
-      this.sliderItem[this.currentNum].classList.add('active');
-      this.sliderItem[this.currentNum].style.zIndex = '2';
-      this.isAni = false;
-    } else {
-      this.OPACITY += 0.01;
-      this.sliderItem[this.currentNum].style.opacity = this.OPACITY;
-      this.sliderItem[this.currentNum].style.zIndex = '4';
-    }
-  };
-
   mainSlider() {
-    this.OPACITY = 0;
     this.sliderDot = document.querySelectorAll('.main-slider .each span');
     this.sliderDot = [].slice.call(this.sliderDot);
     this.sliderDot.forEach(item => item.classList.remove('current'));
-    this.sliderDot[this.currentNum].classList.add('current');
+    this.sliderDot[this.activeNum].classList.add('current');
 
-    this.interval = setInterval(this.frame, 2.5);
+    this.sliderItem.forEach(item => {
+      item.classList.remove('current');
+      item.classList.remove('active');
+    });
+    this.sliderItem[this.currentNum].classList.add('current');
+    this.sliderItem[this.activeNum].classList.add('active');
   };
 
   currentMovieNumberInit (direct) {
-    if (this.isAni) return;
-    this.isAni = true;
+    this.currentNum = this.activeNum;
     if (direct === 'right') {
-      if (this.currentNum === this.sliderItem.length - 1) {
-        this.currentNum = 0;
-      } else {
-        this.currentNum += 1;
+      this.activeNum += 1;
+      if (this.activeNum === this.sliderItem.length) {
+        this.activeNum = 0;
       }
     } else if (direct === 'left') {
-      if (this.currentNum === 0) {
-        this.currentNum = this.sliderItem.length - 1;
-      } else {
-        this.currentNum -= 1;
+      this.activeNum -= 1;
+      if (this.activeNum < 0) {
+        this.activeNum = this.sliderItem.length - 1;
       }
     } else {
-      this.currentNum = direct;
+      this.activeNum = direct;
     }
     this.mainSlider();
   };
