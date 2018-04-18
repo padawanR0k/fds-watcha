@@ -1,6 +1,8 @@
 <ul class="list-movie" data-position="0">
     <!-- boxOffice객체의 정보로 DOM을 그림.  -->
   <li class="card" *ngFor="let movie of boxOfficePage.todayBoxOffice; let i = index">
-    <movie-poster [moviePoster]="movie"></movie-poster>
+    <div class="wrap">
+      <movie-poster [moviePoster]="movie"></movie-poster>
+    </div>
   </li>
 </ul>
