@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { MovieCategory } from './movie-category.interface';
 
-import { MovieCategoryService } from '../movie-category.service';
+import { MovieCategoryService } from '../movie-category/movie-category.service';
 
 @Component({
   selector: 'movie-category',
@@ -14,29 +14,31 @@ export class MovieCategoryComponent implements OnInit {
   movieCategoryLists: MovieCategory[];
   constructor(public http: HttpClient, public category: MovieCategoryService) {
     this.movieCategoryLists = [
-      { id: 1, genre: 'classic', category: '고전 영화', active: true },
-      { id: 2, genre: 'noir', category: '느와르 영화', active: false },
-      { id: 3, genre: 'hero', category: '슈퍼 히어로 영화', active: false },
-      { id: 4, genre: 'sports', category: '스포츠 영화', active: false },
-      { id: 5, genre: 'crime', category: '범죄', active: false },
-      { id: 6, genre: 'drama', category: '드라마', active: false },
-      { id: 7, genre: 'comedy', category: '코미디', active: false },
-      { id: 8, genre: 'romance', category: '로맨스/멜로', active: false },
-      { id: 9, genre: 'thriller', category: '스릴러', active: false },
-      {
-        id: 10,
-        genre: 'romanticComedy',
-        category: '로맨틱코미디',
-        active: false
-      },
-      { id: 11, genre: 'war', category: '전쟁', active: false },
-      { id: 12, genre: 'family', category: '가족', active: false },
-      { id: 13, genre: 'fantasy', category: '판타지', active: false },
-      { id: 14, genre: 'action', category: '액션', active: false },
-      { id: 15, genre: 'SF', category: 'SF', active: false },
-      { id: 16, genre: 'animation', category: '애니메이션', active: false },
-      { id: 17, genre: 'documentary', category: '다큐멘터리', active: false },
-      { id: 18, genre: 'horror', category: '공포', active: false }
+      { genre: 'top-korea', category: '국내 누적관객수 TOP 영화', active: true },
+      { genre: 'million-seller', category: '역대 100만 관객 돌파 영화', active: false },
+      { genre: 'top-world', category: '전세계 흥행 TOP 영화', active: false },
+      { genre: 'hero', category: '슈퍼 히어로 영화', active: false },
+      { genre: 'sports', category: '스포츠', active: false },
+      { genre: 'family', category: '가족', active: false },
+      { genre: 'action', category: '액션', active: false },
+      { genre: 'crime', category: '범죄', active: false },
+      { genre: 'drama', category: '드라마', active: false },
+      { genre: 'comedy', category: '코미디', active: false },
+      { genre: 'romance', category: '로맨스/멜로', active: false },
+      { genre: 'thriller', category: '스릴러', active: false },
+      { genre: 'roco', category: '로맨틱코미디', active: false },
+      { genre: 'war', category: '전쟁', active: false },
+      { genre: 'fantasy', category: '판타지', active: false },
+      { genre: 'sf', category: 'SF', active: false },
+      { genre: 'animation', category: '애니메이션', active: false },
+      { genre: 'documentary', category: '다큐멘터리', active: false },
+      { genre: 'classic', category: '고전', active: true },
+      { genre: 'horror', category: '공포', active: false },
+      { genre: 'western', category: '서부', active: false },
+      { genre: 'musical', category: '뮤지컬', active: false },
+      { genre: 'martial-arts', category: '무협', active: false },
+      { genre: 'mistery', category: '미스터리', active: false },
+      { genre: 'cult', category: '컬트', active: false },
     ];
   }
 
@@ -50,11 +52,6 @@ export class MovieCategoryComponent implements OnInit {
       }
     });
   }
-  ngOnInit() {
-    // this.http.get('http://localhost:3000/movieposter').subscribe(res => {
-    //   this.movieCategoryLists = res;
-    //   console.log(this.movieCategoryLists);
-    // });
-  }
+  ngOnInit() {}
 }
 

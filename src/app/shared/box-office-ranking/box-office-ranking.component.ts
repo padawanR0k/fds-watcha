@@ -14,12 +14,12 @@ import { BoxofficeRanking } from './box-office-ranking.interface';
   styleUrls: ['./box-office-ranking.component.scss']
 })
 export class BoxOfficeRankingComponent implements OnInit {
-  boxOfficeRankingLists: BoxofficeRanking[];
+  boxOfficeRankingLists: object[];
 
   appUrl = environment.apiUrl;
 
   constructor(public http: HttpClient, private authSevice: AuthService) {
-    this.http.get<BoxofficeRanking[]>(`${this.appUrl}/movie/box-office/name-list/`,
+    this.http.get<BoxofficeRanking>(`${this.appUrl}/movie/box-office/name-list/`,
       {headers: { Authorization: `token ${this.authSevice.getToken()}`} })
       .subscribe(res => {
         this.boxOfficeRankingLists = res.results;
