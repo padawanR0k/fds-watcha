@@ -322,11 +322,6 @@ ul {
   }
 }
 
-.theme-area {
-  height: 100%;
-  background: #fff;
-}
-
 .new-movies {
   .conLeft {
     width: 40%;
@@ -665,6 +660,7 @@ ul {
   position: relative;
   overflow: hidden;
   width: 220px;
+  border-radius: 5px;
   &:hover .hidden-layer, .hidden-layer.rated {
     display: block;
   }
