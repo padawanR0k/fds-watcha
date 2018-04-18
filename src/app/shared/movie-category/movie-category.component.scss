@@ -1,5 +1,9 @@
 @import "../../../variables.scss";
 .theme-area {
+  overflow: hidden;
+  border-radius: 5px;
+  height: 100%;
+  background: #fff;
   .category-list {
     height: 44px;
     border-bottom: 1px solid #eee;
