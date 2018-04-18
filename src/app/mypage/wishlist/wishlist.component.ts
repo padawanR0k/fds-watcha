@@ -14,7 +14,7 @@ export class WishlistComponent implements OnInit {
   // moviePosters: MoviePoster[];
   moviePosters: any;
 
-  url = 'https://justdo2t.com/api/members/3/want-movie/';
+  url = 'https://justdo2t.com/api/members/6/want-movie/';
   constructor(
     public http: HttpClient,
     private auth: AuthService,
@@ -25,12 +25,10 @@ export class WishlistComponent implements OnInit {
     this.preloader.show();
     this.auth.getToken();
     // console.log('token', this.auth.getToken());
-    this.http.get(this.url, { headers: { Authorization: 'token 2abf6e7d296b948c0c906a41f61d3d2cf942e677' } })
+    this.http.get(this.url, { headers: { Authorization: 'Token 55a180ba9147e6e09f6c01227c3ee13a3d3d8c97' } })
       .subscribe(res => {
-        setTimeout(() => {
-          this.moviePosters = res;
-          this.preloader.hide();
-        }, 2000);
+        this.moviePosters = res.results;
+        this.preloader.hide();
       });
   }
 }

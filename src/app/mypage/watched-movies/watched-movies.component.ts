@@ -13,7 +13,8 @@ import { PreloaderService } from '../../shared/preloader';
 export class WatchedMoviesComponent implements OnInit {
   moviePosters: any;
 
-  url = 'https://justdo2t.com/api/members/3/watched-movie/';
+  url = 'https://justdo2t.com/api/members/6/watched-movie/';
+
   constructor(
     public http: HttpClient,
     private auth: AuthService,
@@ -24,10 +25,10 @@ export class WatchedMoviesComponent implements OnInit {
     this.preloader.show();
     this.auth.getToken();
     // console.log('token', this.auth.getToken());
-    this.http.get(this.url, { headers: { Authorization: 'token 2abf6e7d296b948c0c906a41f61d3d2cf942e677'}})
+    this.http.get(this.url, { headers: { Authorization: 'Token cbeecb0637c0fe6131315d84760cd5385db99bde'}})
       .subscribe(res => {
         setTimeout(() => {
-          this.moviePosters = res.watched;
+          this.moviePosters = res.results
           this.preloader.hide();
         }, 2000);
       });

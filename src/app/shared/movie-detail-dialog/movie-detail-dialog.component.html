@@ -1,19 +1,19 @@
 <div class="director-dialog" (click)="movieDetailDialogService.close($event.target)">
   <div class="inner">
-    <main class="layout-container" style="margin-top:0;padding-top:0;">
-      <div class="my-page">
-        <div class="my-head">
-          <div class="my-movie">
-            <div class="photo">
-              <img src="../../../assets/images/RobertDowneyJr.jpg" alt="">
-            </div>
-            <span class="name">로버트 다우니 주니어</span>
+    <main class="layout-container" style="margin:0 0;padding-top:0;">
+      <div class="directorpage">
+        <div class="director-info">
+          <div class="photo">
+            <img src="../../../assets/images/AnthonyRusso.jpg" alt="">
           </div>
+          <span class="name">안소니 루소</span>
         </div>
-        <h3>배우로 참여한 작품입니다.</h3>
+         <h3>감독으로 참여한 작품입니다. (10)개</h3>
         <div class="content">
-          <div class="inner-guide mypage">
-          </div>
+          <ul class="list-movie">
+            <li *ngFor="let moviePoster of moviePosters ; let i = index">
+              <movie-poster [moviePoster]="moviePoster"></movie-poster>
+          </ul>
         </div>
       </div>
     </main>
