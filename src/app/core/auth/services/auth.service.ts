@@ -25,14 +25,12 @@ export class AuthService {
     private socialAuth: SocialAuthService
   ) {
     // console.log('[appUrl] ', this.appUrl);
-    console.log('[Token] ', !!this.getToken(), this.getToken());
+    console.log('[Token] ', this.getToken());
   }
 
   socialSignin(provider: string): Observable<Token> {
     return this.socialAuth.getSocialCredential(provider)
       .switchMap(credential => {
-        console.log(['AUTH'], provider);
-        console.log(['AUTH'], credential);
         // return this.http.post<Token>(`${this.appUrl}/members/facebook-auth-token/`, credential)
         return this.http.post<Token>(`https://himanmen.com/user/facebook-login/`, credential)
       })
@@ -45,8 +43,8 @@ export class AuthService {
     const headers = new HttpHeaders()
       .set('Authorization', `token ${token}`);
     credential = { img_profile: credential };
-    console.log(credential);
-    return this.http.patch(`${this.appUrl}/members/2/img-profile/`, credential, { headers })
+    console.log('[Img_profile]', credential);
+    return this.http.patch(`${this.appUrl}/members/img-profile/9/`, credential, { headers })
       .shareReplay();
   }
 
@@ -54,8 +52,7 @@ export class AuthService {
     const token = this.getToken();
     const headers = new HttpHeaders()
       .set('Authorization', `token ${token}`);
-    console.log(credential);
-    return this.http.put(`${this.appUrl}/members/2/`, credential, { headers })
+    return this.http.put(`${this.appUrl}/members/detail/`, credential, { headers })
       .shareReplay();
   }
 
