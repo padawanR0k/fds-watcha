@@ -22,15 +22,15 @@ export class WatchedMoviesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.preloader.show();
-    this.auth.getToken();
-    // console.log('token', this.auth.getToken());
-    this.http.get(this.url, { headers: { Authorization: 'Token cbeecb0637c0fe6131315d84760cd5385db99bde'}})
-      .subscribe(res => {
-        setTimeout(() => {
-          this.moviePosters = res.results
-          this.preloader.hide();
-        }, 2000);
-      });
+    // this.preloader.show();
+    // this.auth.getToken();
+    // // console.log('token', this.auth.getToken());
+    // this.http.get(this.url, { headers: { Authorization: 'Token cbeecb0637c0fe6131315d84760cd5385db99bde'}})
+    //   .subscribe(res => {
+    //     setTimeout(() => {
+    //       this.moviePosters = res.results;
+    //       this.preloader.hide();
+    //     }, 2000);
+    //   });
   }
 }
