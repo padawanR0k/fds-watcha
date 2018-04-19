@@ -1,5 +1,5 @@
-<div class="poster-type">
-  <div class="movie-poster" (click)="movieDetailService.movieDetail()">
+<div class="poster-type" [attr.data-id]="moviePoster.id">
+  <div class="movie-poster" (click)="movieDetailService.movieDetail(moviePoster.id)">
     <img src="{{ moviePoster.poster_image }}" alt="">
   </div>
   <div class="hidden-layer" [class.rated]="moviePoster.rating_avg> 0">

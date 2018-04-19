@@ -22,13 +22,13 @@ export class WishlistComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.preloader.show();
-    this.auth.getToken();
-    // console.log('token', this.auth.getToken());
-    this.http.get(this.url, { headers: { Authorization: 'Token 55a180ba9147e6e09f6c01227c3ee13a3d3d8c97' } })
-      .subscribe(res => {
-        this.moviePosters = res.results;
-        this.preloader.hide();
-      });
+    // this.preloader.show();
+    // this.auth.getToken();
+    // // console.log('token', this.auth.getToken());
+    // this.http.get(this.url, { headers: { Authorization: 'Token 55a180ba9147e6e09f6c01227c3ee13a3d3d8c97' } })
+    //   .subscribe(res => {
+    //     this.moviePosters = res.results;
+    //     this.preloader.hide();
+    //   });
   }
 }
