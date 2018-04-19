@@ -15,7 +15,14 @@
               <movie-poster [moviePoster]="moviePoster"></movie-poster>
           </ul>
         </div>
-      </div>
+        </div>
+         <h3>배우로 참여한 작품입니다. (0)개</h3>
+        <div class="content">
+          <ul class="list-movie">
+            <li *ngFor="let moviePoster of moviePosters ; let i = index">
+              <movie-poster [moviePoster]="moviePoster"></movie-poster>
+          </ul>
+        </div>
     </main>
   </div>
 </div>
