@@ -21,7 +21,10 @@ export class HeaderComponent implements OnInit {
     { movieNm: '인조인간', moviePoster: '/assets/images/user-avatar-100.jpg' },
     { movieNm: '인사이드 아웃', moviePoster: '/assets/images/user-avatar-100.jpg' }
   ];
-  userInfo;
+
+  id: number;
+  email: string;
+  nickName: string;
 
   constructor(
     public router: Router,
@@ -64,9 +67,14 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.searchString = '';
 
-    this.userInfo = this.user.getUsers()
+    this.user.getUsers()
       .subscribe(
-        () => { },
+        user => {
+          console.log(user);
+          this.id = user.pk;
+          this.email = user.email;
+          this.nickName = user.nickname;
+        },
         ({ error }) => {
           console.log('ERROR', error.message);
           this.message = error.message;
@@ -82,18 +90,17 @@ export class HeaderComponent implements OnInit {
     const dialogRef = this.dialog.open(ModalEditProfile, {
       width: '500px'
     });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('[CLOSE]');
-      // console.log(`Dialog result: ${result}`);
-      this.auth.userEdit(result)
-        .subscribe(
-          () => {},
-          ({ error }) => {
-            console.log('ERROR', error.message);
-            this.message = error.message;
-          }
-        );
-    });
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log(`Dialog result: ${result}`);
+    //   this.auth.userEdit(result)
+    //     .subscribe(
+    //       () => {console.log('MODIFY')},
+    //       ({ error }) => {
+    //         console.log('ERROR', error.message);
+    //         this.message = error.message;
+    //       }
+    //     );
+    // });
   }
 }
 
@@ -107,22 +114,26 @@ export class ModalEditProfile {
   userForm: FormGroup;
   message: string;
   imgSrc: string;
+  files : FileList; 
 
-  constructor(private auth: AuthService) {}
+  id: number;
+  email: string;
+  nickName: string;
+
+  constructor(
+    private auth: AuthService,
+    private user: UserService
+  ) {}
 
   ngOnInit() {
-    this.userForm = new FormGroup({
-      nickname: new FormControl('', [
-        Validators.required
-      ])
-    });
-  }
-
-  photoChange(src) {
-    // src = URL.createObjectURL(src);
-    this.auth.photoChange(src)
+    this.user.getUsers()
       .subscribe(
-        () => {},
+        user => {
+          console.log(user);
+          this.id = user.pk;
+          this.email = user.email;
+          this.nickName = user.nickname;
+        },
         ({ error }) => {
           console.log('ERROR', error.message);
           this.message = error.message;
@@ -130,8 +141,14 @@ export class ModalEditProfile {
       );
   }
 
-  userEdit() {
-    this.auth.userEdit(this.userForm.value)
+  getFiles(event){ 
+      this.files = event.target.files;
+      console.log('[this.files]', this.files[0]);
+  }
+
+  photoChange(event) { 
+        console.log('[photoChange]', this.files[0]); 
+    this.auth.photoChange(this.files[0])
       .subscribe(
         () => {},
         ({ error }) => {
@@ -139,9 +156,27 @@ export class ModalEditProfile {
           this.message = error.message;
         }
       );
-  }
+  } 
 
-  get nickname() {
-    return this.userForm.get('nickname');
+  // photoChange(src) {
+  //   this.auth.photoChange(src)
+  //     .subscribe(
+  //       () => {},
+  //       ({ error }) => {
+  //         console.log('ERROR', error.message);
+  //         this.message = error.message;
+  //       }
+  //     );
+  // }
+
+  userEdit(payload) {
+    this.auth.userEdit(payload)
+      .subscribe(
+        () => {},
+        ({ error }) => {
+          console.log('ERROR', error.message);
+          this.message = error.message;
+        }
+      );
   }
 }

@@ -22,21 +22,17 @@ import { AuthGuard } from './core/auth/guards/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  {
-    path: 'home',
-    component: HomeComponent,
-    canActivate: [AuthGuard]
-  },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   // { path: 'preloader', component: PreloaderComponent },
   { path: 'intro', component: IntroComponent },
   { path: 'login', component: LoginComponent },
   { path: 'join', component: JoinComponent },
-  { path: 'search', component: SearchComponent },
-  { path: 'boxoffice', component: BoxofficeComponent },
-  { path: 'evalmore', component: EvalmoreComponent },
-  { path: 'recommendation', component: RecommendationComponent },
+  { path: 'search', component: SearchComponent, canActivate: [AuthGuard] },
+  { path: 'boxoffice', component: BoxofficeComponent, canActivate: [AuthGuard] },
+  { path: 'evalmore', component: EvalmoreComponent, canActivate: [AuthGuard] },
+  { path: 'recommendation', component: RecommendationComponent, canActivate: [AuthGuard] },
   {
-    path: 'mypage', component: MypageComponent,
+    path: 'mypage', component: MypageComponent, canActivate: [AuthGuard],
     children: [
       { path: '', redirectTo: 'wishlist', pathMatch: 'full' },
       { path: 'userTaste', component: UserTasteComponent },
@@ -45,7 +41,7 @@ const routes: Routes = [
       { path: 'comments', component: CommentsComponent }
     ]
   }
-  // { path: '**', component: NotFoundComponent }
+  { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 
 @NgModule({

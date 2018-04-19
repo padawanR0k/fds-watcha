@@ -10,14 +10,14 @@ import { environment } from '../../../../environments/environment';
 @Injectable()
 export class UserService {
   appUrl = environment.apiUrl;
-  TOKEN_NAME = environment.tokenName;
   user = environment.user;
 
   constructor(private http: HttpClient, private auth: AuthService) {}
 
   getUsers(): Observable<User> {
+    const token = this.auth.getToken();
     const headers = new HttpHeaders()
-      .set('Authorization', `token ${this.auth.getToken()}`);
+      .set('Authorization', `token ${token}`);
     return this.http.get<User>(`${this.appUrl}/members/detail`, { headers })
       .shareReplay();
   }

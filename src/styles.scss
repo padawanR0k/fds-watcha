@@ -798,6 +798,11 @@ ul {
     background: linear-gradient(#ff9000, #ff8000);
     color: #fff;
   }
+  &[disabled] {
+    border: 1px solid #ddd;
+    background: linear-gradient(#f9f9f9, #eee);
+    cursor: default;
+  }
 }
 
 .cdk-overlay-pane {
