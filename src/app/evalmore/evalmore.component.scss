@@ -1,5 +1,21 @@
+@import '../../variables.scss';
+
 .main-content {
   .inner {
     height: auto;
+  }
+}
+:host ::ng-deep .list-movie {
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+.user-watched {
+  text-align: center;
+  font-size: 2rem;
+  color: $global-color;
+  .count-bar {
+      height: 10px;
+      background: $global-color;
+      margin: 20px 10px 0;
   }
 }

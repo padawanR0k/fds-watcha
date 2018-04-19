@@ -1,9 +1,9 @@
 <div class="wrapper">
   <app-header></app-header>
-  
+
   <main class="layout-container" style="margin-top:0;padding-top:0;">
     <visual></visual>
-    
+
     <div class="inner-guide">
       <div class="main-content">
         <section class="main-section box-office">
@@ -43,7 +43,7 @@
             <div class="outer">
               <div class="inner">
                 <div class="conLeft">
-                  <movie-category></movie-category>
+                  <movie-category [movieListLength]="movieListLength"></movie-category>
                 </div>
                 <div class="conRight">
                   <my-movies></my-movies>

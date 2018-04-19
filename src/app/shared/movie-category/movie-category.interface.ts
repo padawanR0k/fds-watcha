@@ -4,15 +4,23 @@ export interface MovieCategory {
     active: boolean;
 }
 export interface MovieList {
-  id: number;
-  title_ko: string;
-  poster_image: string;
-  rating_avg: string;
-  genre: [
+  count: number;
+  next?: string;
+  previous?: string;
+  results: [
     {
       id: number;
-      genre: string;
+      title_ko: string;
+      movie_created_date: string;
+      poster_image_m: string;
+      rating_avg: string;
+      genre: [
+        {
+          id: number;
+          genre: string;
+        }
+      ];
+      tag: number[];
     }
   ];
-  tag: number[];
 }

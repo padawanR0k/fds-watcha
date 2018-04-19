@@ -17,14 +17,14 @@ export class MovieCategoryService {
   defaultCategory() {
     this.http.get<MovieList[]>(`${this.appUrl}/movie/genre/top-korea/`, this.httpHeader)
       .subscribe(res => {
-        this.moviePosters = res;
+        this.moviePosters = res.results;
       });
   }
   changeCategory(category) {
     this.sort = ['top-korea', 'million-seller', 'hero', 'sports', 'family', 'top-world'].indexOf(category) === -1 ? 'genre' : 'tag';
     this.http.get<MovieList[]>(`${this.appUrl}/movie/${this.sort}/${category}/`, this.httpHeader)
       .subscribe(res => {
-        this.moviePosters = res;
+        this.moviePosters = res.results;
       });
   }
 }

@@ -33,9 +33,9 @@ export interface BoxofficeDetail {
 export class BoxOfficePagenationService {
   appUrl = environment.apiUrl;
   nextUrl: string;
-  httpHeader = {'headers': { 'Authorization' : `token ${this.authSevice.getToken()}`} };
+  httpHeader = {'headers': { 'Authorization' : `token ${this.authService.getToken()}`} };
   todayBoxOffice;
-  constructor(public http: HttpClient, public authSevice: AuthService) { }
+  constructor(public http: HttpClient, public authService: AuthService) { }
   next(): void {
     this.http.get<BoxofficeDetail>(this.nextUrl, this.httpHeader)
     .subscribe(res => {

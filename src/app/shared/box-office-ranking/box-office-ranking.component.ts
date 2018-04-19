@@ -17,10 +17,10 @@ export class BoxOfficeRankingComponent implements OnInit {
   boxOfficeRankingLists: object[];
 
   appUrl = environment.apiUrl;
+  httpHeader = {'headers': { 'Authorization' : `token ${this.authSevice.getToken()}`} };
 
   constructor(public http: HttpClient, private authSevice: AuthService) {
-    this.http.get<BoxofficeRanking>(`${this.appUrl}/movie/box-office/name-list/`,
-      {headers: { Authorization: `token ${this.authSevice.getToken()}`} })
+    this.http.get<BoxofficeRanking>(`${this.appUrl}/movie/box-office/name-list/`, this.httpHeader)
       .subscribe(res => {
         this.boxOfficeRankingLists = res.results;
       });

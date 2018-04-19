@@ -1,6 +1,6 @@
 <div class="poster-type">
-  <div class="movie-poster" (click)="movieDetailService.movieDetail()">
-    <img src="{{ moviePoster.poster_image }}" alt="">
+  <div class="movie-poster" (click)="movieDetailService.movieDetail()" data-moviepk="moviePoster.id">
+    <img src="{{ moviePoster.poster_image_m }}" alt="">
   </div>
   <div class="hidden-layer" [class.rated]="moviePoster.rating_avg> 0">
     <cite class="movie-name">{{ moviePoster.title_ko }}</cite>
