@@ -65,8 +65,9 @@ export class HeaderComponent implements OnInit {
     this.searchString = '';
 
     this.userInfo = this.user.getUsers()
+    // console.log(this.userInfo);
       .subscribe(
-        () => { },
+        res => { console.log(res) },
         ({ error }) => {
           console.log('ERROR', error.message);
           this.message = error.message;
