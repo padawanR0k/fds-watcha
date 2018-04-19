@@ -22,7 +22,7 @@ export class MovieDetailService {
     const token = this.auth.getToken();
     const headers = new HttpHeaders()
       .set('Authorization', `Token ${token}`);
-    this.http.get(`${this.appUrl}/movie/id/`, { headers })
+    this.http.get(`${this.appUrl}/movie/${id}/`, { headers })
       .subscribe(
         (res) => { console.log(res) },
         ({ error }) => {
