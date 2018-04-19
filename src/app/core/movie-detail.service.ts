@@ -11,6 +11,7 @@ export class MovieDetailService {
   renderer: Renderer2;
   el: ElementRef;
   modal = false;
+  message: string;
 
   constructor(
     private http: HttpClient,
