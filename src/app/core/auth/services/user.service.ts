@@ -16,10 +16,9 @@ export class UserService {
 
   getUsers(): Observable<User> {
     const token = this.auth.getToken();
-    // const headers = new HttpHeaders()
-    //   .set('Authorization', `token ${token}`);
-    const headers = { 'headers': { 'Authorization': `token ${token}` } };
-    return this.http.get<User>(`${this.appUrl}/members/detail`, headers)
+    const headers = new HttpHeaders()
+      .set('Authorization', `token ${token}`);
+    return this.http.get<User>(`${this.appUrl}/members/detail`, { headers })
       .shareReplay();
   }
 
