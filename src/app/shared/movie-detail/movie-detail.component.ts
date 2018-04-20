@@ -9,7 +9,7 @@ import { MovieDetailDialogService } from '../../core/movie-detail-dialog.service
   styleUrls: ['./movie-detail.component.scss']
 })
 export class MovieDetailComponent implements OnInit {
-  movie;
+  stillCutLength = this.movieDetailService.movie.still_cuts.length;
   sliderDirect = 'right';
   movieDetail: Element;
   stillCuts = [];
@@ -19,6 +19,8 @@ export class MovieDetailComponent implements OnInit {
   autoPlay = null;
   timer = 4000;
   OPACITY: number;
+  
+  commetRating: number;
 
   constructor(
     public movieDetailService: MovieDetailService,
@@ -28,23 +30,6 @@ export class MovieDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.movie = {
-      id: 100,
-      cuts: {
-        0: 'https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/c_fill,h_720,q_80,w_1280/v1521319925/jsgkobx3lahyetw45yhl.jpg',
-        1: 'https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/c_fill,h_720,q_80,w_1280/v1521693623/ugbgvz82u8mxk8h7umsb.jpg',
-        2: 'https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/c_fill,h_720,q_80,w_1280/v1521692948/jqxqt7wqkqxskl15oim6.jpg'
-      },
-      poster: 'https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/c_fill,h_400,q_80,w_280/v1521689621/i3utanr7qh41xtggl2mu.jpg',
-      star: '3.0',
-      ticket: '26.70',
-      watcher: 78509,
-      title: '어벤져스'
-    };
-    for (let i = 0; i < Object.keys(this.movie.cuts).length; i++) {
-      this.stillCuts.push(this.movie.cuts[i]);
-    }
-
     this.movieDetail = document.querySelector('.movie-detail');
     this.renderer.setStyle(this.movieDetail, 'top', `${window.scrollY}px`);
 
@@ -83,13 +68,13 @@ export class MovieDetailComponent implements OnInit {
     this.currentNum = this.activeNum;
     if (direction === 'right') {
       this.activeNum += 1;
-      if (this.activeNum === Object.keys(this.movie.cuts).length) {
+      if (this.activeNum === this.stillCutLength) {
         this.activeNum = 0;
       }
     } else if (direction === 'left') {
       this.activeNum -= 1;
       if (this.activeNum < 0) {
-        this.activeNum = Object.keys(this.movie.cuts).length - 1;
+        this.activeNum = this.stillCutLength - 1;
       }
     } else {
       this.activeNum = direction;
