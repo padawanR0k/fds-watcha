@@ -4,27 +4,33 @@
     <div class="head">
       <div class="still-cut">
         <ul>
-          <li *ngFor="let stillCut of stillCuts; let i = index;" [style.transition]="getTransition(i)" [style.opacity]="getOpacity(i)" [style.z-index]="getZIndex(i)" [style.background-image]="'url(' + stillCut + ')'"></li>
+          <li 
+            *ngFor="let stillCut of movieDetailService.movie.still_cuts; let i = index;"
+            [style.transition]="getTransition(i)"
+            [style.opacity]="getOpacity(i)"
+            [style.z-index]="getZIndex(i)"
+            [style.background-image]="'url(' + stillCut.still_img + ')'">
+          </li>
         </ul>
         <button class="prev"><i class="icon-left-open-big" (click)="nextMovie('left')"></i> 이전 스틸컷 보기</button>
         <button class="next"><i class="icon-right-open-big" (click)="nextMovie('right')"></i>다음 스틸컷 보기</button>
       </div>
       
       <div class="main-info">
-        <div class="poster"><span><img src="{{ movie.poster }}" alt=""></span></div>
+        <div class="poster"><span><img src="{{ movieDetailService.movie.poster_image_m }}" alt=""></span></div>
         <div class="con-right">
           <div class="score">
             <dl>
               <dt>예상별점</dt>
-              <dd>{{ movie.star }}</dd>
+              <dd>{{ movieDetailService.movie.rating_avg }}</dd>
             </dl>
             <dl>
               <dt>예매율</dt>
-              <dd><em class="num">{{ movie.ticket }}%</em></dd>
+              <dd><em class="num">{{ movieDetailService.movie.ticketing_rate }}%</em></dd>
             </dl>
             <dl>
               <dt>누적관객수</dt>
-              <dd>78,509</dd>
+              <dd>{{ movieDetailService.movie.audience }}</dd>
             </dl>
             <dl>
               <dt>개봉일</dt>
@@ -33,8 +39,15 @@
           </div>
           <article class="detail">
             <div class="movie">
-              <h2>{{ movie.title }}</h2>
-              <div class="info">RAMPAGE, 2018, 미국, 액션, 12세 관람가, 1시간 47분</div>
+              <h2>{{ movieDetailService.movie.title_ko }}</h2>
+              <div class="info">
+                {{ movieDetailService.movie.title_en }}, 
+                {{ movieDetailService.movie.d_day }}, 
+                {{ movieDetailService.movie.nation }},
+                <ng-container *ngFor="let genre of movieDetailService.movie.genre">{{ genre.genre }}, </ng-container>
+                {{ movieDetailService.movie.title_en }}세 관람가, 
+                {{ movieDetailService.movie.running_time }}분
+              </div>
               <div class="info">
                 <div class="star-ui">
                   <span class="on"></span>
@@ -52,9 +65,9 @@
               </div>
             </div>
             <div class="favorite">
-              <span><i class="icon-star"></i> 604</span>
-              <span><i class="icon-heart"></i> 123</span>
-              <span><i class="icon-comment"></i> 50+</span>
+              <span><i class="icon-star"></i> {{ movieDetailService.movie.movie_eval_info.rating_cnt }}</span>
+              <span><i class="icon-heart"></i> {{ movieDetailService.movie.movie_eval_info.want_movie_cnt }}</span>
+              <span><i class="icon-comment"></i> {{ movieDetailService.movie.movie_eval_info.comment_cnt }}</span>
             </div>
             <div class="chart">Chart API</div>
           </article>
@@ -68,18 +81,17 @@
           <section class="section-story">
             <h3 class="title">줄거리</h3>
             <div class="cont">
-              <p>초거대 괴수들이 미쳐 날뛴다! <br>
-              유인원 전문가 ‘데이비스(드웨인 존슨)’는 사람들은 멀리하지만, 어릴 때 구조해서 보살펴 온 영리한 알비노 고릴라 ‘조지’와는 특별한 감정을 공유한다. 어느 날, 유순하기만 하던 조지가 의문의 가스를 흡입하면서 엄청난 괴수로 변해 광란을 벌인다. 재벌기업이 우주에서 무단으로 감행한 ‘프로젝트 램페이지’라는 유전자 조작 실험이 잘못되면서 지구로 3개의 병원체가 추락했던 것. 조지뿐만 아니라 가스를 마신 늑대와 악어 역시 변이시키고 끝도 없이 거대해진 이들 포식자들이 도심을 파괴하며 미국 전역을 쑥대밭으로 만들어 놓는다. 데이비스는 괴수들을 상대로 전지구적인 재앙을 막고 변해버린 조지를 구하기 위한 해독제를 찾아야만 하는데…</p>
+              <p>{{ movieDetailService.movie.intro }}</p>
             </div>
           </section>
 
           <section class="section-comment">
-            <h3 class="title">코멘트 <span class="sub-txt">(183)</span></h3>
+            <h3 class="title">코멘트 <span class="sub-txt">({{ movieDetailService.movie.movie_checking_data.length }})</span></h3>
             <div class="cont">
-              <div class="item">
-                <div class="photo"><img src="../../assets/images/khc.jpg" alt=""></div>
+              <div class="item" *ngFor="let comment of movieDetailService.movie.movie_checking_data">
+                <div class="photo"><img src="{{ comment.img_profile }}" alt=""></div>
                 <div class="wrap">
-                  <div class="star-ui">
+                  <div class="star-ui" [attr.data-value]="comment.rating">
                     <span class="on"></span>
                     <span class="on"></span>
                     <span class="on"></span>
@@ -91,37 +103,10 @@
                     <span></span>
                     <span></span>
                   </div>
-                  <div class="name">강희창</div>
-                  <p class="comment">고릴라를 본 적이 있다. 고릴라가 나의 편인지 적군인지 시험하기 위해 녀석의 우리 앞에서 죽은 척을 해보았다. 내가 듣기로는 고릴라가 사람을 먹는다는 이야기를 들어본 적이 없었으나</p>
+                  <div class="name">{{ comment.nickname }}</div>
+                  <p class="comment">{{ comment.comment }}</p>
                   <div class="btm">
-                    <span class="time">2일 전</span>
-                    <span class="like">좋아요 34</span>
-                    <span class="event">
-                      <button>부적절한 표현 신고하기</button>
-                      <button>스포일러 신고하기</button>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="photo"><img src="../../assets/images/khc.jpg" alt=""></div>
-                <div class="wrap">
-                  <div class="star-ui">
-                    <span class="on"></span>
-                    <span class="on"></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                  <div class="name">강희창</div>
-                  <p class="comment">고릴라를 본 적이 있다. 고릴라가 나의 편인지 적군인지 시험하기 위해 녀석의 우리 앞에서 죽은 척을 해보았다. 내가 듣기로는 고릴라가 사람을 먹는다는 이야기를 들어본 적이 없었으나</p>
-                  <div class="btm">
-                    <span class="time">2일 전</span>
+                    <span class="time"><!-- {{ 2018-04-20T15:48:14.534450+09:00 }} --> 2일 전</span>
                     <span class="like">좋아요 34</span>
                     <span class="event">
                       <button>부적절한 표현 신고하기</button>
