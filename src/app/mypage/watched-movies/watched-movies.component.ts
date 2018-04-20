@@ -27,18 +27,6 @@ export class WatchedMoviesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-<<<<<<< HEAD
-    // this.preloader.show();
-    // this.auth.getToken();
-    // // console.log('token', this.auth.getToken());
-    // this.http.get(this.url, { headers: { Authorization: 'Token cbeecb0637c0fe6131315d84760cd5385db99bde'}})
-    //   .subscribe(res => {
-    //     setTimeout(() => {
-    //       this.moviePosters = res.results;
-    //       this.preloader.hide();
-    //     }, 2000);
-    //   });
-=======
     this.preloader.show();
     this.auth.getToken();
     this.http.get<UserInfo>(`${this.appUrl}/members/detail`,
@@ -51,6 +39,5 @@ export class WatchedMoviesComponent implements OnInit {
               this.preloader.hide();
           });
       });
->>>>>>> 91c6b67232faaf31b9a24927e410a4342e914943
   }
 }
