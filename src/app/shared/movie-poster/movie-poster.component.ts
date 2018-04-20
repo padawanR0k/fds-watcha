@@ -13,6 +13,8 @@ import { CommnetDialogService } from '../../core/comment-dialog.service';
 })
 export class MoviePosterComponent implements OnInit {
   @Input() moviePoster: MoviePoster;
+  @Input() posterSmall: boolean;
+
   rateScore = [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
   constructor(
     public http: HttpClient,
