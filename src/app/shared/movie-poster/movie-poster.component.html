@@ -1,6 +1,7 @@
 <div class="poster-type" [attr.data-id]="moviePoster.id">
   <div class="movie-poster" (click)="movieDetailService.movieDetail(moviePoster.id)">
-    <img src="{{ moviePoster.poster_image }}" alt="">
+    <img src="{{ moviePoster.poster_image }}" *ngIf="!posterSmall">
+    <img src="{{ moviePoster.poster_image_s }}" *ngIf="posterSmall">
   </div>
   <div class="hidden-layer" [class.rated]="moviePoster.rating_avg> 0">
     <cite class="movie-name">{{ moviePoster.title_ko }}</cite>

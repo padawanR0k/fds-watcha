@@ -40,7 +40,7 @@ const routes: Routes = [
       { path: 'Watched', component: WatchedMoviesComponent },
       { path: 'comments', component: CommentsComponent }
     ]
-  }
+  },
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 
