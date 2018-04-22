@@ -25,6 +25,8 @@ export class HomeComponent implements OnInit {
 
   movieListLength = 13;
 
+  page = 'home';
+
   constructor(private renderer: Renderer2, public boxOfficePage: BoxOfficePagenationService, public preloader: PreloaderService) {
     this.themeMovieList = [
       { id: 10, link: '', content: '드라마', image: '' },

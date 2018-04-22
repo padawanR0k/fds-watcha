@@ -3,7 +3,11 @@ import { HttpClient } from '@angular/common/http';
 
 import { AuthService } from '../../core/auth/services/auth.service';
 import { PreloaderService } from '../../shared/preloader';
-// import { MoviePoster } from '../../shared/movie-poster.interface';
+
+import { MoviePoster } from '../../shared/movie-poster.interface';
+import { UserInfo } from '../../shared/user-info.interface';
+
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-wishlist',
@@ -11,10 +15,10 @@ import { PreloaderService } from '../../shared/preloader';
   styleUrls: ['./wishlist.component.scss']
 })
 export class WishlistComponent implements OnInit {
-  // moviePosters: MoviePoster[];
-  moviePosters: any;
+  userInfo: object;
+  moviePosters: object[];
+  appUrl = environment.apiUrl;
 
-  url = 'https://justdo2t.com/api/members/3/want-movie/';
   constructor(
     public http: HttpClient,
     private auth: AuthService,
@@ -24,13 +28,15 @@ export class WishlistComponent implements OnInit {
   ngOnInit() {
     this.preloader.show();
     this.auth.getToken();
-    // console.log('token', this.auth.getToken());
-    this.http.get(this.url, { headers: { Authorization: 'token 2abf6e7d296b948c0c906a41f61d3d2cf942e677' } })
-      .subscribe(res => {
-        setTimeout(() => {
-          this.moviePosters = res;
-          this.preloader.hide();
-        }, 2000);
+    this.http.get<UserInfo>(`${this.appUrl}/members/detail`,
+      { headers: { Authorization: `Token ${this.auth.getToken()}` } })
+      .subscribe(user => {
+        this.http.get<MoviePoster>(`${this.appUrl}/members/${user.pk}/want-movie/`,
+          { headers: { Authorization: `Token ${this.auth.getToken()}` } })
+          .subscribe(res => {
+            this.moviePosters = res.results;
+            this.preloader.hide();
+          });
       });
   }
 }
