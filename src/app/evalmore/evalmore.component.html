@@ -9,16 +9,16 @@
           <div class="body">
             <div class="user-watched">
               <!-- {{ watchedCount }} -->
-              <span class="count">{{ watchedCount }}</span>
+              <span class="count"> {{ watchedCount }}</span>
               <div class="count-bar" [ngStyle]="{'width': countBarPercent*100 + '%'}"></div>
             </div>
             <div class="outer">
               <div class="inner">
                 <div class="conLeft">
-                  <movie-category [movieListLength]="movieListLength"></movie-category>
+                  <movie-category [movieListLength]="movieListLength" [page]="page"></movie-category>
                 </div>
                 <div class="conRight">
-                  <my-movies></my-movies>
+                  <my-movies [page]="page"></my-movies>
                 </div>
               </div>
             </div>
