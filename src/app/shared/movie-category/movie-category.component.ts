@@ -55,7 +55,9 @@ export class MovieCategoryComponent implements OnInit {
         category.active = false;
       }
     });
-    const offsetY = window.pageYOffset + document.querySelector('.theme-area').getBoundingClientRect().top - 60;
+    const offsetY = pageName === 'home' ? 
+      window.pageYOffset + document.querySelector('.theme-area').getBoundingClientRect().top - 60
+      : window.pageYOffset + document.querySelector('.theme-area').getBoundingClientRect().top - 150;
     window.scroll({ top: offsetY, behavior: 'smooth' });
   }
   scrollTop() {

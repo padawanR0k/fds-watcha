@@ -19,7 +19,6 @@ export class MovieCategoryService {
     this.sort = ['top-korea', 'million-seller', 'hero', 'sports', 'family', 'top-world'].indexOf(category) === -1 ? 'genre' : 'tag';
     const headers = new HttpHeaders()
       .set('Authorization', `token ${this.authService.getToken()}`);
-    console.log(page);
     const pageUrl = page === 'eval' ? 'movie/eval' : 'movie';
 
     this.http.get<MovieList>(`${this.appUrl}/${pageUrl}/${this.sort}/${category}/`, { headers } )
