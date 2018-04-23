@@ -52,6 +52,7 @@ export class UserCheckedService {
     this.user.getUsers().subscribe( userInfo => {
       this.http.get<UserWatched>(`${this.appUrl}/members/${userInfo.pk}/watched-movie/`, { headers } )
         .subscribe( res => {
+          this.userWatched = res.results;
           this.setWatchedList(res.results);
           console.log('유저 가 본 리스트 get', res.results);
         });

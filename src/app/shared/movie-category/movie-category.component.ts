@@ -11,6 +11,7 @@ import { MovieCategoryService } from '../movie-category/movie-category.service';
 })
 export class MovieCategoryComponent implements OnInit {
   @Input() movieListLength;
+  @Input() page: string;
   movieCategoryLists: MovieCategory[];
   el: any;
 
@@ -44,8 +45,9 @@ export class MovieCategoryComponent implements OnInit {
     ];
   }
 
-  changeCategory(genre, target) {
-    this.category.changeCategory(genre);
+  changeCategory(genre, pageName) {
+    console.log(pageName, 'page이름?');
+    this.category.changeCategory(genre, pageName);
     this.movieCategoryLists.map(category => {
       if (genre === category.genre) {
         category.active = true;
@@ -59,7 +61,6 @@ export class MovieCategoryComponent implements OnInit {
   scrollTop() {
     window.scroll({ top: 0, behavior: 'smooth' });
   }
-  ngOnInit() {
-  }
+  ngOnInit() { }
 }
 

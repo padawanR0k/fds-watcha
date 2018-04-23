@@ -53,14 +53,15 @@ export class EvalmoreComponent implements OnInit {
   page = 'eval';
   appUrl = environment.apiUrl;
 
+
   constructor(public userChecked: UserCheckedService, public user: UserService, public http: HttpClient, private authService: AuthService) {
      const headers  = new HttpHeaders()
       .set('Authorization', `token ${this.authService.getToken()}`);
     this.user.getUsers().subscribe( userInfo => {
-       this.http.get<UserWatched>(`${this.appUrl}/members/${userInfo.pk}/watched-movie/`, { headers } )
-         .subscribe( res => {
-           this.changeCount(res.count);
-         });
+      this.http.get<UserWatched>(`${this.appUrl}/members/${userInfo.pk}/watched-movie/`, { headers } )
+        .subscribe( res => {
+          this.changeCount(res.count);
+        });
     });
   }
 
@@ -68,7 +69,6 @@ export class EvalmoreComponent implements OnInit {
     // watchedCount는 user의 res.count를 참조한다.
     // 평가가 될떄, 취소될때 마다 바뀌어야함
     // 자식으로부터 평가하는 이벤트를 캐치해서, 그 이벤트가 발생할때마다 특정 함수를 실행시킨다 = >user의 count를 가져온다.
-    console.log(count);
     this.watchedCount = count;
     if (this.watchedCount >= 0 && this.watchedCount <= 100) {
       this.countBarPercent = this.watchedCount / 100;

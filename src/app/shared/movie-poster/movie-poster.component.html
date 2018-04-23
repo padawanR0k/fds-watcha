@@ -1,12 +1,18 @@
 <div class="poster-type">
-  <div class="movie-poster" (click)="movieDetailService.movieDetail()" data-moviepk="moviePoster.id">
-    <img src="{{ moviePoster.poster_image_m }}" alt="">
+  <div class="movie-poster" (click)="movieDetailService.movieDetail()" [attr.data-moviepk]="moviePoster.id">
+    <img src="{{ moviePoster.poster_image_m }}" alt="" *ngIf="!posterSizeLarge">
+    <img src="{{ moviePoster.poster_image }}" alt="" *ngIf="posterSizeLarge">
   </div>
-  <div class="hidden-layer" [class.rated]="moviePoster.rating_avg> 0">
+  <div class="hidden-layer" [class.rated]="rating> 0">
     <cite class="movie-name">{{ moviePoster.title_ko }}</cite>
-    <div class="rating-star">
+    <div class="rating-star"
+    [attr.data-rating]="rating"
+    [attr.data-chekdId]="checkedId"
+    >
+
       {{ moviePoster.rate }}
-      <button *ngFor="let item of rateScore" data-value="{{ item }}" class="star" [class.star-on]="item <= moviePoster.rate" (click)="rateFilm($event.target)"></button>
+      <button *ngFor="let rate of rateScore" [attr.data-value]="rate" class="star" [class.star-on]="rate <= rating"
+        (click)="rateFilm($event.target, rate, moviePoster.id)"></button>
     </div>
     <div class="movie-poster-button">
       <a class="add-button want2see-movie">보고싶어요</a>
@@ -14,3 +20,6 @@
     </div>
   </div>
 </div>
+<!-- [attr.data-checkedId]="moviePoster.login_user_checked.id === undefined ? null : moviePoster.login_user_checked.id" [attr.data-wanted]="moviePoster.login_user_checked.user_want_movie
+=== undefined ? null : moviePoster.login_user_checked.user_want_movie" [attr.data-watched]="moviePoster.login_user_checked.user_watched_movie
+=== undefined ? null : moviePoster.login_user_checked.user_watched_movie"> -->

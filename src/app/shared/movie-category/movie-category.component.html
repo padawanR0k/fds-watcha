@@ -4,7 +4,7 @@
     <ng-container *ngFor="let movieCategoryList of movieCategoryLists; let i = index" >
       <li *ngIf="i<movieListLength"
       [class.active]="movieCategoryList.active"
-      (click)="changeCategory(movieCategoryList.genre, target)"
+      (click)="changeCategory(movieCategoryList.genre, page)"
       class="category-list">
         <a class="btn-category">
           <span class="category">{{ movieCategoryList.category }}
