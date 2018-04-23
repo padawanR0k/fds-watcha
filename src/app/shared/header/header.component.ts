@@ -86,21 +86,22 @@ export class HeaderComponent implements OnInit {
     this.auth.signout();
   }
 
-  openDialog() {
+  modifyProfile() {
     const dialogRef = this.dialog.open(ModalEditProfile, {
       width: '500px'
     });
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log(`Dialog result: ${result}`);
-    //   this.auth.userEdit(result)
-    //     .subscribe(
-    //       () => {console.log('MODIFY')},
-    //       ({ error }) => {
-    //         console.log('ERROR', error.message);
-    //         this.message = error.message;
-    //       }
-    //     );
-    // });
+
+    dialogRef.afterClosed().subscribe(payload => {
+      console.log(`Dialog result: ${payload}`);
+      this.auth.userEdit(payload)
+        .subscribe(
+          () => {},
+          ({ error }) => {
+            console.log('ERROR', error.message);
+            this.message = error.message;
+          }
+        );
+    });
   }
 }
 
@@ -147,7 +148,7 @@ export class ModalEditProfile {
   }
 
   photoChange(event) { 
-        console.log('[photoChange]', this.files[0]); 
+    console.log('[photoChange]', this.files[0]); 
     this.auth.photoChange(this.files[0])
       .subscribe(
         () => {},
@@ -169,14 +170,14 @@ export class ModalEditProfile {
   //     );
   // }
 
-  userEdit(payload) {
-    this.auth.userEdit(payload)
-      .subscribe(
-        () => {},
-        ({ error }) => {
-          console.log('ERROR', error.message);
-          this.message = error.message;
-        }
-      );
-  }
+  // userEdit(payload) {
+  //   this.auth.userEdit(payload)
+  //     .subscribe(
+  //       () => {},
+  //       ({ error }) => {
+  //         console.log('ERROR', error.message);
+  //         this.message = error.message;
+  //       }
+  //     );
+  // }
 }

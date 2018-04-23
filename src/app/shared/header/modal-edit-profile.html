@@ -16,7 +16,7 @@
     </div>
   </div>
 
-  <form #userForm="ngForm" (ngSubmit)="userEdit(userForm.value)">
+  <form #userForm="ngForm">
     <fieldset>
       <legend>프로필 수정</legend>
       <div class="profile-body">
@@ -53,11 +53,11 @@
       <div class="layer-foot">
         <div class="inner">
           <div>
-            <button type="button" class="btn-default">탈퇴하기</button>
+            <!-- <button type="button" class="btn-default">탈퇴하기</button> -->
           </div>
           <div>
             <button type="button" class="btn-default" mat-dialog-close>취소</button>
-            <button class="btn-default btn-orange" [disabled]="userForm.invalid">확인</button>
+            <button type="button" class="btn-default btn-orange" [disabled]="userForm.invalid" [mat-dialog-close]="userForm.value">확인</button>
           </div>
         </div>
       </div>
