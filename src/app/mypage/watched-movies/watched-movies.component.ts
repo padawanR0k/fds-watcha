@@ -8,6 +8,7 @@ import { MoviePoster } from '../../shared/movie-poster.interface';
 import { UserInfo } from '../../shared/user-info.interface';
 
 import { environment } from '../../../environments/environment';
+import { UserCheckedService } from '../../core/user-checked.service';
 
 @Component({
   selector: 'app-watched-movies',
@@ -15,7 +16,7 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./watched-movies.component.scss']
 })
 export class WatchedMoviesComponent implements OnInit {
-
+  rateScore = [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
   moviePosters: object;
   userInfo: object;
   appUrl = environment.apiUrl;
@@ -23,12 +24,12 @@ export class WatchedMoviesComponent implements OnInit {
   constructor(
     public http: HttpClient,
     private auth: AuthService,
-    public preloader: PreloaderService
+    public preloader: PreloaderService,
+    public userChecked: UserCheckedService
   ) { }
 
   ngOnInit() {
     this.preloader.show();
-    this.auth.getToken();
     this.http.get<UserInfo>(`${this.appUrl}/members/detail`,
       { headers: { Authorization: `Token ${this.auth.getToken()}` } })
       .subscribe(user => {

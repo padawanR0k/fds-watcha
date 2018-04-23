@@ -19,6 +19,7 @@ import { MovieDetailDialogComponent } from './movie-detail-dialog/movie-detail-d
 
 import { MovieCategoryService } from './movie-category/movie-category.service';
 import { MovieDetailDialogService } from '../core/movie-detail-dialog.service';
+import { UserCheckedService } from '../core/user-checked.service';
 
 import { MembersFilterPipe } from './members-filter.pipe';
 
@@ -49,7 +50,7 @@ import { MembersFilterPipe } from './members-filter.pipe';
     MovieDetailDialogComponent,
     MembersFilterPipe
   ],
-  providers: [MovieCategoryService, MovieDetailDialogService],
+  providers: [MovieCategoryService, MovieDetailDialogService, UserCheckedService],
   exports: [
     BoxOfficeRankingComponent,
     HeaderComponent,
