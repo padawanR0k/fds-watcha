@@ -2,7 +2,7 @@
     <!-- boxOffice객체의 정보로 DOM을 그림.  -->
   <li class="card" *ngFor="let movie of boxOfficePage.todayBoxOffice; let i = index">
     <div class="wrap">
-      <movie-poster [moviePoster]="movie"></movie-poster>
+      <movie-poster [moviePoster]="movie" [posterSizeLarge]="flag"></movie-poster>
     </div>
   </li>
 </ul>

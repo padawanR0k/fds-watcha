@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BoxOfficePagenationService } from '../box-office-pagenation.service';
+import { UserCheckedService } from '../../core/user-checked.service';
 
 @Component({
   selector: 'today-box-office',
@@ -7,7 +8,11 @@ import { BoxOfficePagenationService } from '../box-office-pagenation.service';
   styleUrls: ['./today-box-office.component.scss']
 })
 export class TodayBoxOfficeComponent implements OnInit {
-  constructor(public boxOfficePage: BoxOfficePagenationService) {}
+  flag = true;
+  constructor(
+    public userChecked: UserCheckedService,
+    public boxOfficePage: BoxOfficePagenationService
+  ) {}
 
   ngOnInit() {
     this.boxOfficePage.loadTopFive();
