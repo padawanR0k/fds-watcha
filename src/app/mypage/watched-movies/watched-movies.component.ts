@@ -8,7 +8,6 @@ import { MoviePoster } from '../../shared/movie-poster.interface';
 import { UserInfo } from '../../shared/user-info.interface';
 
 import { environment } from '../../../environments/environment';
-import { UserCheckedService } from '../../core/user-checked.service';
 
 @Component({
   selector: 'app-watched-movies',
@@ -25,7 +24,6 @@ export class WatchedMoviesComponent implements OnInit {
     public http: HttpClient,
     private auth: AuthService,
     public preloader: PreloaderService,
-    public userChecked: UserCheckedService
   ) { }
 
   ngOnInit() {
