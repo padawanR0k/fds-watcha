@@ -1,35 +1,42 @@
 import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 
 import { AuthService } from '../../core/auth/services/auth.service';
 import { UserService } from '../../core/auth/services/user.service';
+// import { SearchService } from '../../core/search.service';
+
+import { MoviePoster } from '../../shared/movie-poster.interface';
+
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
+
+
 export class HeaderComponent implements OnInit {
-  message: string;
-  searchString: string;
+  appUrl = environment.apiUrl;
   resultState = false;
   state = true;
-  searchResultList = [
-    { movieNm: '인셉션', moviePoster: '/assets/images/user-avatar-100.jpg' },
-    { movieNm: '인조인간', moviePoster: '/assets/images/user-avatar-100.jpg' },
-    { movieNm: '인사이드 아웃', moviePoster: '/assets/images/user-avatar-100.jpg' }
-  ];
-
+  message: string;
+  searchString: string;
   id: number;
   email: string;
   nickName: string;
+  moviePosters: object;
+  data: object;
 
   constructor(
+    public http: HttpClient,
     public router: Router,
     private auth: AuthService,
     private user: UserService,
+    // private search: SearchService,
     public dialog: MatDialog
   ) { }
 
@@ -58,8 +65,18 @@ export class HeaderComponent implements OnInit {
       } else if (event.keyCode === 40) {
         event.target.nextElementSibling.focus();
       }
+    } else {
+      this.auth.getToken();
+      this.http.get<MoviePoster>(`${this.appUrl}/movie/search/?movie=${this.searchString}`,
+        { headers: { Authorization: `Token ${this.auth.getToken()}` } })
+        .subscribe(res => {
+          this.moviePosters = res.results;
+          this.data = res;
+        });
+      // searchMovie();
     }
   }
+
   closeResult(event) {
     this.resultState = this.searchString === '' ? false : true;
   }
@@ -115,7 +132,7 @@ export class ModalEditProfile {
   userForm: FormGroup;
   message: string;
   imgSrc: string;
-  files : FileList; 
+  files: FileList;
 
   id: number;
   email: string;
@@ -137,18 +154,19 @@ export class ModalEditProfile {
         },
         ({ error }) => {
           console.log('ERROR', error.message);
-          this.message = error.message;
+        this.message = error.message;
         }
       );
   }
 
-  getFiles(event){ 
+  getFiles(event) {
       this.files = event.target.files;
       console.log('[this.files]', this.files[0]);
   }
 
+
   photoChange(event) { 
-    console.log('[photoChange]', this.files[0]); 
+    console.log('[photoChange]', this.files[0]);
     this.auth.photoChange(this.files[0])
       .subscribe(
         () => {},
@@ -157,7 +175,7 @@ export class ModalEditProfile {
           this.message = error.message;
         }
       );
-  } 
+  }
 
   // photoChange(src) {
   //   this.auth.photoChange(src)

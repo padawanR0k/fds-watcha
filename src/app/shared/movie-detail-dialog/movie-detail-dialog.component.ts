@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { MovieDetailDialogService } from '../../core/movie-detail-dialog.service';
+import { MovieDetailService } from '../../core/movie-detail.service';
 import { AuthService } from '../../core/auth/services/auth.service';
 
 import { MovieMemberDetail } from '../../shared/movie-detail-dialog/movie-member-detail.interface';
@@ -27,7 +28,8 @@ export class MovieDetailDialogComponent implements OnInit {
     private auth: AuthService,
     private el: ElementRef,
     private renderer: Renderer2,
-    public movieDetailDialogService: MovieDetailDialogService
+    public movieDetailDialogService: MovieDetailDialogService,
+    public movieDetailService: MovieDetailService
   ) { }
 
   ngOnInit() {
