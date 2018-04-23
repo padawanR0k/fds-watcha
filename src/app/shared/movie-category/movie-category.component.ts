@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { MovieCategory } from './movie-category.interface';
 
@@ -11,8 +10,12 @@ import { MovieCategoryService } from '../movie-category/movie-category.service';
   styleUrls: ['./movie-category.component.scss']
 })
 export class MovieCategoryComponent implements OnInit {
+  @Input() movieListLength;
+  @Input() page: string;
   movieCategoryLists: MovieCategory[];
-  constructor(public http: HttpClient, public category: MovieCategoryService) {
+  el: any;
+
+  constructor(public category: MovieCategoryService) {
     this.movieCategoryLists = [
       { genre: 'top-korea', category: '국내 누적관객수 TOP 영화', active: true },
       { genre: 'million-seller', category: '역대 100만 관객 돌파 영화', active: false },
@@ -42,8 +45,9 @@ export class MovieCategoryComponent implements OnInit {
     ];
   }
 
-  changeCategory(genre) {
-    this.category.changeCategory(genre);
+  changeCategory(genre, pageName) {
+    console.log(pageName, 'page이름?');
+    this.category.changeCategory(genre, pageName);
     this.movieCategoryLists.map(category => {
       if (genre === category.genre) {
         category.active = true;
@@ -51,7 +55,12 @@ export class MovieCategoryComponent implements OnInit {
         category.active = false;
       }
     });
+    const offsetY = window.pageYOffset + document.querySelector('.theme-area').getBoundingClientRect().top - 60;
+    window.scroll({ top: offsetY, behavior: 'smooth' });
   }
-  ngOnInit() {}
+  scrollTop() {
+    window.scroll({ top: 0, behavior: 'smooth' });
+  }
+  ngOnInit() { }
 }
 

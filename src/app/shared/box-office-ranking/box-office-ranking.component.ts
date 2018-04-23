@@ -18,6 +18,7 @@ export class BoxOfficeRankingComponent implements OnInit {
   boxOfficeRankingLists: object;
 
   appUrl = environment.apiUrl;
+  httpHeader = {'headers': { 'Authorization' : `token ${this.authSevice.getToken()}`} };
 
   constructor(
     public http: HttpClient,
