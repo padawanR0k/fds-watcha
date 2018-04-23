@@ -18,9 +18,10 @@
                         <div class="poster">
                           <movie-poster [moviePoster]="movie"></movie-poster>
                         </div>
-                        <div class="detail-infor">
+                        movieDetail
+                        <div class="detail-infor" *ngFor="let detail of movieDetail.results">
                           <div class="head">
-                            <h5>어벤져스: 인피니티 워</h5>
+                            <h5>{{ detail.title_ko }}</h5>
                             <div class="sub-info">
                               <span>개봉 7일전</span>
                               <span>누적 관객수 0명</span>

@@ -21,6 +21,8 @@ export class MovieDetailService {
   starMax = 5;
   starIncrease = .5;
 
+  boxOfficeMovie;
+
   constructor(
     private http: HttpClient,
     private auth: AuthService
@@ -36,7 +38,7 @@ export class MovieDetailService {
       .set('Authorization', `Token ${token}`);
     this.http.get<MovieDetail>(`${this.appUrl}/movie/${id}/`, { headers })
       .subscribe(
-        (movie) => {
+        movie => {
           this.movie = movie;
           console.log('[Movie]', this.movie);
           this.modal = !this.modal;
@@ -53,6 +55,14 @@ export class MovieDetailService {
     if ( target.className !== 'movie-detail' ) return;
     this.modal = !this.modal;
     this.renderer.setAttribute(document.body, 'class', null);
+  }
+
+  getBoxOfficeDetail() {
+    const token = this.auth.getToken();
+    const headers = new HttpHeaders()
+      .set('Authorization', `Token ${token}`);
+    return this.http.get(`${this.appUrl}/movie/box-office/`, { headers })
+      .shareReplay();
   }
 }
 
