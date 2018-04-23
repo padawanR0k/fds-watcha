@@ -1,7 +1,9 @@
-<div class="poster-type">
-  <div class="movie-poster" (click)="movieDetailService.movieDetail()" [attr.data-moviepk]="moviePoster.id">
-    <img src="{{ moviePoster.poster_image_m }}" alt="" *ngIf="!posterSizeLarge">
-    <img src="{{ moviePoster.poster_image }}" alt="" *ngIf="posterSizeLarge">
+<div class="poster-type" [attr.data-id]="moviePoster.id">
+  <div class="movie-poster" (click)="movieDetailService.movieDetail(moviePoster.id)">
+
+    <img src="{{ moviePoster.poster_image_m }}" alt="" *ngIf="!posterSizeLarge&&!posterSmall">
+    <img src="{{ moviePoster.poster_image_s }}" *ngIf="!posterSizeLarge&&posterSmall">
+    <img src="{{ moviePoster.poster_image }}" alt="" *ngIf="posterSizeLarge&&!posterSmall">
   </div>
   <div class="hidden-layer" [class.rated]="rating> 0">
     <cite class="movie-name">{{ moviePoster.title_ko }}</cite>
@@ -20,6 +22,3 @@
     </div>
   </div>
 </div>
-<!-- [attr.data-checkedId]="moviePoster.login_user_checked.id === undefined ? null : moviePoster.login_user_checked.id" [attr.data-wanted]="moviePoster.login_user_checked.user_want_movie
-=== undefined ? null : moviePoster.login_user_checked.user_want_movie" [attr.data-watched]="moviePoster.login_user_checked.user_watched_movie
-=== undefined ? null : moviePoster.login_user_checked.user_watched_movie"> -->

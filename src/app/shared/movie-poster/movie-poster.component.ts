@@ -63,6 +63,7 @@ export interface ShortMoviePoster {
 export class MoviePosterComponent implements OnInit{
   @Input() moviePoster: ShortMoviePoster;
   @Input() posterSizeLarge: boolean;
+  @Input() posterSmall: boolean;
 
   rateScore = [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
   userAction: CheckMovie;

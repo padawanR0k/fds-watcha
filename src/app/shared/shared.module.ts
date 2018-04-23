@@ -21,6 +21,8 @@ import { MovieCategoryService } from './movie-category/movie-category.service';
 import { MovieDetailDialogService } from '../core/movie-detail-dialog.service';
 import { UserCheckedService } from '../core/user-checked.service';
 
+import { MembersFilterPipe } from './members-filter.pipe';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -45,7 +47,8 @@ import { UserCheckedService } from '../core/user-checked.service';
     MovieDetailComponent,
     PreloaderComponent,
     CommentDialogComponent,
-    MovieDetailDialogComponent
+    MovieDetailDialogComponent,
+    MembersFilterPipe
   ],
   providers: [MovieCategoryService, MovieDetailDialogService, UserCheckedService],
   exports: [
