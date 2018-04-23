@@ -16,9 +16,9 @@
         <div class="search-result" *ngIf="resultState">
           <ul class="search-result-list">
             <li>영화</li>
-            <a href="{{i}}" #searchResult1 *ngFor="let list of searchResultList; let i = index" (keyup)="moveFocus($event)">{{list.movieNm}}
+            <a href="{{i}}" #searchResult1 *ngFor="let moviePoster of moviePosters; let i = index" (keyup)="moveFocus($event)">{{moviePoster.title_ko}}
               <span class="w100 movie-poster">
-                <img src="{{list.moviePoster}}" alt="">
+                <img src="{{moviePoster.poster_image}}" alt="">
               </span>
             </a>
             <li><a routerLink="/search" class="more-result">"{{ searchString }}" 검색결과 더보기</a></li>
