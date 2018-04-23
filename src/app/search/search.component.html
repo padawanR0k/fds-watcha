@@ -9,7 +9,7 @@
       </h3>
       <div class="search-tab-wapper">
         <a class="tab-movie" href="">영화
-          <span class="count">(00개)</span>
+          <span class="count">({{this.count}}개)</span>
         </a>
       </div>
       <preloader></preloader>
@@ -17,13 +17,13 @@
           <li *ngFor="let moviePoster of moviePosters ; let i = index">
             <movie-poster [moviePoster]="moviePoster"></movie-poster>
             <div class="search-result">
-              <a class="search-title" href="#">{{ moviePoster.movieNm }}</a>
-              <br> {{ moviePoster.year }}
+              <a class="search-title" href="#">{{ moviePoster.title_ko }}</a>
+              <br> {{ moviePoster.movie_created_date }}
             </div>
             <div class="search-summury">
-              <br> 원제: {{ moviePoster.title }}
+              <br> 원제: {{ moviePoster.title_en }}
               <br> 감독: {{ moviePoster.director }}
-              <br> 배우: {{ moviePoster.actor }}
+              <br> 배우: {{ moviePoster.main_actor }}
             </div>
           </li>
         </ul>

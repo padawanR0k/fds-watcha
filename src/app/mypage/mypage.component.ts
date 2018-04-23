@@ -2,48 +2,43 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { PreloaderService } from '../shared/preloader';
-// import { Mypageuser } from './mypageuser.interface';
+import { AuthService } from '../core/auth/services/auth.service';
+
+import { UserInfo } from '../shared/user-info.interface';
+import { Mypageuser } from './mypageuser.interface';
+
+import { environment } from '../../environments/environment.prod';
 
 @Component({
   selector: 'app-mypage',
   templateUrl: './mypage.component.html',
   styleUrls: ['./mypage.component.scss']
 })
+
 export class MypageComponent implements OnInit {
+  userInfo: object;
+  myPageUser: object;
+  appUrl = environment.apiUrl;
 
-  userMovieInfo = [
-      {
-        name: 'Hee Chang Kang',
-        pic: '../../assets/images/khc.jpg',
-        watchedMovieHour: 100,
-        watchedMoviCount: 50,
-        like: 5
-      }
-    ];
-
-  constructor(public preloader: PreloaderService) { }
+  constructor(
+    public http: HttpClient,
+    private auth: AuthService,
+    public preloader: PreloaderService
+  ) { }
 
   ngOnInit() {
     this.preloader.show();
-    this.preloader.hide();
+    this.auth.getToken();
+    this.http.get<UserInfo>(`${this.appUrl}/members/detail`,
+      { headers: { Authorization: `Token ${this.auth.getToken()}` } })
+      .subscribe(user => {
+        this.http.get<Mypageuser>(`${this.appUrl}/members/${user.pk}/mypage-top/`,
+          { headers: { Authorization: `Token ${this.auth.getToken()}` } })
+          .subscribe(res => {
+            this.myPageUser = res;
+            this.preloader.hide();
+          });
+      });
   }
-
-  // userMovieInfo: Mypageuser[];
-
-  // constructor() {
-  //   this.userMovieInfo = [
-  //     {
-  //       name: 'Hee Chang Kang',
-  //       pic: '../../assets/images/khc.jpg',
-  //       watchedMovieHour: 100,
-  //       watchedMoviCount: 50,
-  //       like: 5
-  //     }
-  //   ];
-  // }
-
-  // ngOnInit() {
-  // }
-
 }
 
