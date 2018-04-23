@@ -20,21 +20,21 @@
         <div class="poster"><span><img src="{{ movieDetailService.movie.poster_image_m }}" alt=""></span></div>
         <div class="con-right">
           <div class="score">
-            <dl>
+            <!-- <dl>
               <dt>예상별점</dt>
               <dd>{{ movieDetailService.movie.rating_avg }}</dd>
-            </dl>
-            <dl>
+            </dl> -->
+            <dl *ngIf="movieDetailService.movie.ticketing_rate">
               <dt>예매율</dt>
               <dd><em class="num">{{ movieDetailService.movie.ticketing_rate }}%</em></dd>
             </dl>
             <dl>
               <dt>누적관객수</dt>
-              <dd>{{ movieDetailService.movie.audience }}</dd>
+              <dd>{{ movieDetailService.movie.audience | commasNumbers }}</dd>
             </dl>
             <dl>
               <dt>개봉일</dt>
-              <dd>D +1</dd>
+              <dd>{{ movieDetailService.movie.d_day | dDayPrint }}</dd>
             </dl>
           </div>
           <article class="detail">
@@ -43,12 +43,12 @@
               <div class="info">
                 {{ movieDetailService.movie.title_en }}, 
                 {{ movieDetailService.movie.d_day }}, 
-                {{ movieDetailService.movie.nation }},
+                {{ movieDetailService.movie.nation | nationPrint }},
                 <ng-container *ngFor="let genre of movieDetailService.movie.genre">{{ genre.genre }}, </ng-container>
-                {{ movieDetailService.movie.title_en }}세 관람가, 
+                {{ movieDetailService.movie.film_rate | filmRatePrint }},
                 {{ movieDetailService.movie.running_time }}분
               </div>
-              <div class="info">
+              <!-- <div class="info">
                 <div class="star-ui">
                   <span class="on"></span>
                   <span class="on"></span>
@@ -61,8 +61,8 @@
                   <span></span>
                   <span></span>
                 </div>
-                <span class="al-middle">3.1 (604명 참여)</span>
-              </div>
+                <span class="al-middle">3.1 ({{ movieDetailService.movie.movie_checking_data.length }}명 참여)</span>
+              </div> -->
             </div>
             <div class="favorite">
               <span><i class="icon-star"></i> {{ movieDetailService.movie.movie_eval_info.rating_cnt }}</span>
@@ -89,33 +89,26 @@
             <h3 class="title">코멘트 <span class="sub-txt">({{ movieDetailService.movie.movie_checking_data.length }})</span></h3>
             <div class="cont">
               <div class="item" *ngFor="let comment of movieDetailService.movie.movie_checking_data">
-                <div class="photo"><img src="{{ comment.img_profile }}" alt=""></div>
+                <div class="photo"><img src="{{ comment.user.img_profile }}" alt=""></div>
                 <div class="wrap">
+                  <div class="want-movie" *ngIf="comment.user_want_movie">이 영화를 보고싶어요</div>
+                  <div class="want-movie" *ngIf="!comment.user_want_movie">이 영화에 관심없어요</div>
                   <div class="star-ui" [attr.data-value]="comment.rating">
-                    <span class="on"></span>
-                    <span class="on"></span>
-                    <span class="on"></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span *ngFor="let star of movieDetailService.starRate" [attr.data-value]="star" [class.on]="star <= comment.rating"></span>
                   </div>
-                  <div class="name">{{ comment.nickname }}</div>
+                  <div class="name">{{ comment.user.nickname }}</div>
                   <p class="comment">{{ comment.comment }}</p>
                   <div class="btm">
-                    <span class="time"><!-- {{ 2018-04-20T15:48:14.534450+09:00 }} --> 2일 전</span>
-                    <span class="like">좋아요 34</span>
+                    <span class="time">{{ comment.modified_date | modifiedDatePrint }}</span>
+                    <!-- <span class="like">좋아요 34</span>
                     <span class="event">
                       <button>부적절한 표현 신고하기</button>
                       <button>스포일러 신고하기</button>
-                    </span>
+                    </span> -->
                   </div>
                 </div>
               </div>
-              <button class="btn-more">더보기</button>
+              <!-- <button class="btn-more">더보기</button> -->
             </div>
           </section>
 
@@ -132,8 +125,9 @@
             <h3 class="title">예고편</h3>
             <div class="cont">
               <ul class="list-preview">
-                <li><a href="#">영화</a></li>
-                <li><a href="#">영화</a></li>
+                <li *ngFor="let youtube of movieDetailService.movie.trailer_youtube">
+                  <a href="{{ youtube.get_trailer_url }}" target="_blank"><img src="{{ youtube.url_thumbnail }}" alt="{{ youtube.title }}"></a>
+                </li>
               </ul>
             </div>
           </section>
@@ -143,10 +137,12 @@
             <div class="cont">
               <ul class="list-person">
                 <li *ngFor="let member of movieDetailService.movie.movie_member_list | membersFilter: 'director'">
-                  <a (click)="movieDetailDialogService.movieDetail(member.member.id)" [style.background-image]="'url(' + member.member.img_profile + ')'">
+                  <a 
+                    (click)="movieDetailDialogService.movieDetail(member.member.id)"
+                    [style.background-image]="'url(' + member.member.img_profile + ')'">
                     <dl>
                       <dt>{{ member.member.name }}</dt>
-                      <dd>{{ member.member.name }}</dd>
+                      <dd>{{ member.role_name }}</dd>
                     </dl>
                   </a>
                 </li>
@@ -159,10 +155,12 @@
             <div class="cont">
               <ul class="list-person">
                 <li *ngFor="let member of movieDetailService.movie.movie_member_list | membersFilter: 'leadingRole'">
-                  <a (click)="movieDetailDialogService.movieDetail(member.member.id)" [style.background-image]="'url(' + member.member.img_profile + ')'">
+                  <a 
+                    (click)="movieDetailDialogService.movieDetail(member.member.id)"
+                    [style.background-image]="'url(' + member.member.img_profile + ')'">
                     <dl>
                       <dt>{{ member.member.name }}</dt>
-                      <dd>{{ member.member.name }}</dd>
+                      <dd>{{ member.role_name }}</dd>
                     </dl>
                   </a>
                 </li>
@@ -175,10 +173,12 @@
             <div class="cont">
               <ul class="list-person">
                 <li *ngFor="let member of movieDetailService.movie.movie_member_list | membersFilter: 'SupportingRole'">
-                  <a (click)="movieDetailDialogService.movieDetail(member.member.id)" [style.background-image]="'url(' + member.member.img_profile + ')'">
+                  <a 
+                    (click)="movieDetailDialogService.movieDetail(member.member.id)"
+                    [style.background-image]="'url(' + member.member.img_profile + ')'">
                     <dl>
                       <dt>{{ member.member.name }}</dt>
-                      <dd>{{ member.member.name }}</dd>
+                      <dd>{{ member.role_name }}</dd>
                     </dl>
                   </a>
                 </li>

@@ -16,11 +16,19 @@ export class MovieDetailService {
   movie: MovieDetail;
   commetRating: number;
   type: string;
+  starRate: number[] = [];
+  starMin = .5;
+  starMax = 5;
+  starIncrease = .5;
 
   constructor(
     private http: HttpClient,
     private auth: AuthService
-  ) { }
+  ) {
+    for (let i = this.starMin; i <= this.starMax; i += this.starIncrease) {
+      this.starRate = this.starRate.concat(i);
+    }
+  }
 
   movieDetail(id: number) {
     const token = this.auth.getToken();
