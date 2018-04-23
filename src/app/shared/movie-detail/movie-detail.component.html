@@ -142,11 +142,11 @@
             <h3 class="title">감독</h3>
             <div class="cont">
               <ul class="list-person">
-                <li>
-                  <a href="javascript:;" (click)="movieDetailDialogService.movieDetail()" style="background-image: url('../../assets/images/khc.jpg');">
+                <li *ngFor="let member of movieDetailService.movie.movie_member_list | membersFilter: 'director'">
+                  <a (click)="movieDetailDialogService.movieDetail(member.member.id)" [style.background-image]="'url(' + member.member.img_profile + ')'">
                     <dl>
-                      <dt>브래드 페이튼</dt>
-                      <dd>Brad Peyton</dd>
+                      <dt>{{ member.member.name }}</dt>
+                      <dd>{{ member.member.name }}</dd>
                     </dl>
                   </a>
                 </li>
@@ -158,19 +158,11 @@
             <h3 class="title">주연</h3>
             <div class="cont">
               <ul class="list-person">
-                <li>
-                  <a href="#" style="background-image: url('../../assets/images/khc.jpg');">
+                <li *ngFor="let member of movieDetailService.movie.movie_member_list | membersFilter: 'leadingRole'">
+                  <a (click)="movieDetailDialogService.movieDetail(member.member.id)" [style.background-image]="'url(' + member.member.img_profile + ')'">
                     <dl>
-                      <dt>브래드 페이튼</dt>
-                      <dd>Brad Peyton</dd>
-                    </dl>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" style="background-image: url('../../assets/images/khc.jpg');">
-                    <dl>
-                      <dt>브래드 페이튼</dt>
-                      <dd>Brad Peyton</dd>
+                      <dt>{{ member.member.name }}</dt>
+                      <dd>{{ member.member.name }}</dd>
                     </dl>
                   </a>
                 </li>
@@ -182,24 +174,16 @@
             <h3 class="title">조연</h3>
             <div class="cont">
               <ul class="list-person">
-                <li>
-                  <a href="#" style="background-image: url('../../assets/images/khc.jpg');">
+                <li *ngFor="let member of movieDetailService.movie.movie_member_list | membersFilter: 'SupportingRole'">
+                  <a (click)="movieDetailDialogService.movieDetail(member.member.id)" [style.background-image]="'url(' + member.member.img_profile + ')'">
                     <dl>
-                      <dt>브래드 페이튼</dt>
-                      <dd>Brad Peyton</dd>
-                    </dl>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" style="background-image: url('../../assets/images/khc.jpg');">
-                    <dl>
-                      <dt>브래드 페이튼</dt>
-                      <dd>Brad Peyton</dd>
+                      <dt>{{ member.member.name }}</dt>
+                      <dd>{{ member.member.name }}</dd>
                     </dl>
                   </a>
                 </li>
               </ul>
-              <button class="btn-more">더보기</button>
+              <!-- <button class="btn-more">더보기</button> -->
             </div>
           </section>
         </div>

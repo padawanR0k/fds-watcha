@@ -15,6 +15,7 @@ export class MovieDetailService {
   message: string;
   movie: MovieDetail;
   commetRating: number;
+  type: string;
 
   constructor(
     private http: HttpClient,
