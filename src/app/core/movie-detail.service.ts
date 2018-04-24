@@ -2,9 +2,12 @@ import { Injectable, ElementRef, Renderer2 } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
+import { Observable } from 'rxjs/Observable';
+
 import { AuthService } from './auth/services/auth.service';
 
 import { MovieDetail } from '../shared/movie-detail.interface';
+import { BoxofficeMovie } from '../shared/boxoffice-movie.interface';
 
 @Injectable()
 export class MovieDetailService {
@@ -57,11 +60,11 @@ export class MovieDetailService {
     this.renderer.setAttribute(document.body, 'class', null);
   }
 
-  getBoxOfficeDetail() {
+  getBoxOfficeDetail(): Observable<BoxofficeMovie> {
     const token = this.auth.getToken();
     const headers = new HttpHeaders()
       .set('Authorization', `Token ${token}`);
-    return this.http.get(`${this.appUrl}/movie/box-office/`, { headers })
+    return this.http.get<BoxofficeMovie>(`${this.appUrl}/movie/box-office/`, { headers })
       .shareReplay();
   }
 }
