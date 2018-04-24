@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { UserService } from '../../core/auth/services/user.service';
+import { CommnetDialogService } from '../../core/comment-dialog.service';
 
 @Component({
   selector: 'app-comment-dialog',
@@ -6,11 +9,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./comment-dialog.component.scss']
 })
 export class CommentDialogComponent implements OnInit {
-  constructor() {}
-
-  submitComment(comment) {
-    // 유저pk, 영화이름, 코멘트
-    console.log(comment);
-  }
+  constructor(public dialog: CommnetDialogService) {}
   ngOnInit() {}
 }

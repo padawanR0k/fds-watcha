@@ -11,14 +11,13 @@
     [attr.data-rating]="rating"
     [attr.data-chekdId]="checkedId"
     >
-
       {{ moviePoster.rate }}
       <button *ngFor="let rate of rateScore" [attr.data-value]="rate" class="star" [class.star-on]="rate <= rating"
         (click)="rateFilm($event.target, rate, moviePoster.id, userToMovieId)"></button>
     </div>
     <div class="movie-poster-button">
       <a class="add-button want2see-movie" [class.active]="want" (click)="WantMovie(moviePoster.id, userToMovieId ,want)">보고싶어요</a>
-      <a class="add-button comment" [class.active]="comment" (click)="commnetDialogService.openDialog()">코멘트남기기</a>
+      <a class="add-button comment" [class.active]="comment" (click)="openDialog(moviePoster)">코멘트남기기</a>
     </div>
   </div>
 </div>
