@@ -5,24 +5,25 @@
     <div class="my-page">
       <div class="my-head">
         <div class="inner-guide">
-
-          <div *ngFor="let info of userMovieInfo" class="my-movie">
+          <div class="my-movie">
             <div class="my">
               <div class="photo">
-                <!-- <img src="../../assets/images/khc.jpg" alt=""> -->
-                <img src="{{ info.pic }}" alt=""> 
+                <img src="{{ myPageUser.img_profile }}" alt="">
               </div>
-              <!-- <span class="name">강희창</span> -->
-              <span class="name">{{ info.name }}</span>
+              <span class="name">{{ myPageUser.nickname }}</span>
             </div>
             <ul class="my-infor">
-              <li class="total-movies"><span class="count">{{ info.watchedMoviCount }}</span></li>
+              <li class="total-movies">
+                <span class="count">{{ myPageUser.interesting_movie_cnt }}</span>
+              </li>
               <li class="watched-hours">
-                <i class="icon-clock"></i><span class="count">{{ info.watchedMovieHour }}</span>
+                <i class="icon-clock"></i>
+                <span class="count">{{ myPageUser.total_running_time }}</span>
                 <span class="text">영화 본 시간</span>
               </li>
               <li class="received-likes">
-                <i class="icon-thumbs-up"></i> <span class="count">{{ info.like }}</span>
+                <i class="icon-thumbs-up"></i>
+                <span class="count">0</span>
                 <span class="text">받은 좋아요</span>
               </li>
             </ul>
@@ -35,7 +36,7 @@
           <div class="con-left">
             <div class="nav">
               <a routerLink="/mypage/userTaste" routerLinkActive="current">취향통계분석</a>
-              <a routerLink="/mypage/wishlist"  routerLinkActive="current">보고싶어요 0</a>
+              <a routerLink="/mypage/wishlist" routerLinkActive="current">보고싶어요 0</a>
               <a routerLink="/mypage/Watched" routerLinkActive="current">봤어요 0</a>
               <a routerLink="/mypage/comments" routerLinkActive="current">코멘트 0</a>
             </div>
@@ -43,7 +44,8 @@
           <div class="con-right">
             <div class="nav">
               <a href="#">팔로잉</a>
-              <a href="#" class="share"><i class="icon-export"></i> 공유하기</a>
+              <a href="#" class="share">
+                <i class="icon-export"></i> 공유하기</a>
             </div>
           </div>
         </div>

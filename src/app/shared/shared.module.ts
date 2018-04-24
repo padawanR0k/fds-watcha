@@ -22,6 +22,11 @@ import { MovieDetailDialogService } from '../core/movie-detail-dialog.service';
 import { CommnetDialogService } from '../core/comment-dialog.service';
 
 import { MembersFilterPipe } from './members-filter.pipe';
+import { CommasNumbersPipe } from './commas-numbers.pipe';
+import { DDayPrintPipe } from './d-day-print.pipe';
+import { NationPrintPipe } from './nation-print.pipe';
+import { FilmRatePrintPipe } from './film-rate-print.pipe';
+import { ModifiedDatePrintPipe } from './modified-date-print.pipe';
 
 @NgModule({
   imports: [
@@ -48,7 +53,12 @@ import { MembersFilterPipe } from './members-filter.pipe';
     PreloaderComponent,
     CommentDialogComponent,
     MovieDetailDialogComponent,
-    MembersFilterPipe
+    MembersFilterPipe,
+    CommasNumbersPipe,
+    DDayPrintPipe,
+    NationPrintPipe,
+    FilmRatePrintPipe,
+    ModifiedDatePrintPipe
   ],
   providers: [MovieCategoryService, MovieDetailDialogService, CommnetDialogService],
   exports: [
