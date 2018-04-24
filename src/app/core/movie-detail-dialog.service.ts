@@ -13,13 +13,13 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class MovieDetailDialogService {
 
-  // dialog: Element;
   movieMemberDetail: MovieMemberDetail;
   renderer: Renderer2;
   el: ElementRef;
   modal = false;
   moviePosterByDirector;
-  
+  moviePosterByActor;
+
   appUrl = environment.apiUrl;
 
   constructor(
@@ -27,20 +27,19 @@ export class MovieDetailDialogService {
     private auth: AuthService
   ) { }
 
-  movieDetail() {
+  movieDetail(id: number) {
     const headers = new HttpHeaders()
     .set('Authorization', `Token ${this.auth.getToken()}`);
-    this.http.get<MovieMemberDetail>(`${this.appUrl}/movie-members/14/`,
+    this.http.get<MovieMemberDetail>(`${this.appUrl}/movie-members/${id}/`,
     { headers })
     .subscribe(res => {
       this.movieMemberDetail = res;
       this.moviePosterByDirector = this.movieMemberDetail.by_director_movie_list;
-      console.log('res', this.movieMemberDetail);
+      this.moviePosterByActor = this.movieMemberDetail.by_main_actor_movie_list;
+      // console.log('res', this.movieMemberDetail);
 
       this.modal = !this.modal;
       this.renderer.addClass(document.body, 'director-open');
-      // this.dialog = document.querySelector('.director-dialog');
-      // this.renderer.setStyle(this.dialog, 'top', `${window.scrollY}px`);
       });
   }
 
@@ -50,13 +49,13 @@ export class MovieDetailDialogService {
     this.renderer.removeClass(target, 'director-dialog');
   }
 
-  // getDirectedMovieCount(): number {
-  //   return this.movieMemberDetail.by_director_movie_list.length;
-  // }
+  getDirectedMovieCount(): number {
+    return this.movieMemberDetail.by_director_movie_list.length;
+  }
 
-  // getStarringMovieCount(): number {
-  //   return this.movieMemberDetail.by_main_actor_movie_list.length;
-  // }
+  getStarringMovieCount(): number {
+    return this.movieMemberDetail.by_main_actor_movie_list.length;
+  }
 
 }
 
