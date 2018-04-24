@@ -13,18 +13,23 @@
               <span class="name">{{ myPageUser.nickname }}</span>
             </div>
             <ul class="my-infor">
-              <li class="total-movies">
+              <!-- <li class="total-movies">
                 <span class="count">{{ myPageUser.interesting_movie_cnt }}</span>
-              </li>
+              </li> -->
               <li class="watched-hours">
                 <i class="icon-clock"></i>
                 <span class="count">{{ myPageUser.total_running_time }}</span>
                 <span class="text">영화 본 시간</span>
               </li>
-              <li class="received-likes">
+              <!-- <li class="received-likes">
                 <i class="icon-thumbs-up"></i>
                 <span class="count">0</span>
                 <span class="text">받은 좋아요</span>
+              </li> -->
+              <li class="received-likes">
+                <i class="icon-thumbs-up"></i>
+                <span class="count">{{ myPageUser.interesting_movie_cnt }}</span>
+                <span class="text">봤어요</span>
               </li>
             </ul>
           </div>
@@ -37,17 +42,17 @@
             <div class="nav">
               <a routerLink="/mypage/userTaste" routerLinkActive="current">취향통계분석</a>
               <a routerLink="/mypage/wishlist" routerLinkActive="current">보고싶어요 0</a>
-              <a routerLink="/mypage/Watched" routerLinkActive="current">봤어요 0</a>
+              <a routerLink="/mypage/Watched" routerLinkActive="current">봤어요 {{ myPageUser.interesting_movie_cnt }}</a>
               <a routerLink="/mypage/comments" routerLinkActive="current">코멘트 0</a>
             </div>
           </div>
-          <div class="con-right">
+          <!-- <div class="con-right">
             <div class="nav">
               <a href="#">팔로잉</a>
               <a href="#" class="share">
                 <i class="icon-export"></i> 공유하기</a>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="content">
