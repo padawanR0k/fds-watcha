@@ -146,6 +146,6 @@ export class MoviePosterComponent implements OnInit{
   ngOnInit() {
     // console.log(this.userChecked.userWatched, '내가 봤거나 보고싶어요 누른 영화들의 정보');
     // console.log(this.moviePoster , '그려질 영화의 정보');
-    this.isWatched();
+    // this.isWatched();
   }
 }
