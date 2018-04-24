@@ -5,20 +5,19 @@
     <img src="{{ moviePoster.poster_image_s }}" *ngIf="!posterSizeLarge&&posterSmall">
     <img src="{{ moviePoster.poster_image }}" alt="" *ngIf="posterSizeLarge&&!posterSmall">
   </div>
-  <div class="hidden-layer" [class.rated]="rating> 0">
+  <div class="hidden-layer" [class.rated]="rating>0 || want">
     <cite class="movie-name">{{ moviePoster.title_ko }}</cite>
     <div class="rating-star"
     [attr.data-rating]="rating"
     [attr.data-chekdId]="checkedId"
     >
-
       {{ moviePoster.rate }}
       <button *ngFor="let rate of rateScore" [attr.data-value]="rate" class="star" [class.star-on]="rate <= rating"
-        (click)="rateFilm($event.target, rate, moviePoster.id)"></button>
+        (click)="rateFilm($event.target, rate, moviePoster.id, userToMovieId)"></button>
     </div>
     <div class="movie-poster-button">
-      <a class="add-button want2see-movie">보고싶어요</a>
-      <a class="add-button comment" (click)="commnetDialogService.openDialog()">코멘트남기기</a>
+      <a class="add-button want2see-movie" [class.active]="want" (click)="WantMovie(moviePoster.id, userToMovieId ,want)">보고싶어요</a>
+      <a class="add-button comment" [class.active]="comment" (click)="openDialog(moviePoster)">코멘트남기기</a>
     </div>
   </div>
 </div>
