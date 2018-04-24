@@ -1,7 +1,6 @@
 import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 
 import { MovieCategoryService } from '../../shared/movie-category/movie-category.service';
-import { UserCheckedService } from '../../core/user-checked.service';
 
 @Component({
   selector: 'my-movies',
@@ -11,7 +10,6 @@ import { UserCheckedService } from '../../core/user-checked.service';
 export class MyMoviesComponent implements AfterViewInit {
   @Input() page;
   constructor(
-    public userChecked: UserCheckedService,
     public category: MovieCategoryService
   ) {}
   ngAfterViewInit() {

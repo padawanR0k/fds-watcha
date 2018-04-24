@@ -4,7 +4,6 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
 import { PreloaderService } from '../shared/preloader';
 import { ThemeMovies } from './shared/theme-movies.interface';
 import { BoxOfficePagenationService } from './box-office-pagenation.service';
-import { UserCheckedService } from '../core/user-checked.service';
 
 
 @Component({
@@ -28,7 +27,7 @@ export class HomeComponent implements OnInit {
 
   page = 'home';
 
-  constructor(public userChecked: UserCheckedService, private renderer: Renderer2, public boxOfficePage: BoxOfficePagenationService, public preloader: PreloaderService) {
+  constructor(private renderer: Renderer2, public boxOfficePage: BoxOfficePagenationService, public preloader: PreloaderService) {
     this.themeMovieList = [
       { id: 10, link: '', content: '드라마', image: '' },
       { id: 9, link: '', content: '공포', image: '' },
