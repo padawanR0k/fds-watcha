@@ -3,13 +3,15 @@ import { Component, OnInit } from '@angular/core';
 import { BoxOfficePagenationService } from '../home/box-office-pagenation.service';
 import { MovieDetailService } from '../core/movie-detail.service';
 
+import { BoxofficeMovie } from '../shared/boxoffice-movie.interface';
+
 @Component({
   selector: 'app-boxoffice',
   templateUrl: './boxoffice.component.html',
   styleUrls: ['./boxoffice.component.scss']
 })
 export class BoxofficeComponent implements OnInit {
-  movieDetail;
+  movieDetail: BoxofficeMovie;
 
   constructor(
     public boxOfficePage: BoxOfficePagenationService, 
@@ -23,7 +25,6 @@ export class BoxofficeComponent implements OnInit {
       .subscribe(
         movie => {
           this.movieDetail = movie;
-          console.log('[Movie1]', this.movieDetail);
         },
         ({ error }) => {
           console.log('ERROR', error.message);
