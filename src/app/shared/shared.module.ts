@@ -70,7 +70,13 @@ import { ModifiedDatePrintPipe } from './modified-date-print.pipe';
     ModalEditProfile,
     MovieDetailComponent,
     PreloaderComponent,
-    MovieDetailDialogComponent
+    MovieDetailDialogComponent,
+    MembersFilterPipe,
+    CommasNumbersPipe,
+    DDayPrintPipe,
+    NationPrintPipe,
+    FilmRatePrintPipe,
+    ModifiedDatePrintPipe
   ]
 })
 export class SharedModule {}
