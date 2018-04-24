@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 import { AuthService } from './auth/services/auth.service';
+import { MovieDetailDialogService } from './movie-detail-dialog.service';
 
 import { MovieDetail } from '../shared/movie-detail.interface';
 
@@ -23,7 +24,8 @@ export class MovieDetailService {
 
   constructor(
     private http: HttpClient,
-    private auth: AuthService
+    private auth: AuthService,
+    private movieDetailDialogService: MovieDetailDialogService
   ) {
     for (let i = this.starMin; i <= this.starMax; i += this.starIncrease) {
       this.starRate = this.starRate.concat(i);
@@ -39,7 +41,8 @@ export class MovieDetailService {
         (movie) => {
           this.movie = movie;
           console.log('[Movie]', this.movie);
-          this.modal = !this.modal;
+          this.modal = true;
+          this.movieDetailDialogService.modal = false;
           this.renderer.setAttribute(document.body, 'class', 'modal-open');
         },
         ({ error }) => {
