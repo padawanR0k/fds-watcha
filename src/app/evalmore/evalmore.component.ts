@@ -7,7 +7,6 @@ import { User } from '../core/auth/models/user';
 
 import { AuthService } from '../core/auth/services/auth.service';
 import { UserService } from '../core/auth/services/user.service';
-import { UserCheckedService } from '../core/user-checked.service';
 export interface UserWatched {
   count: number;
   next?: null;
@@ -54,7 +53,7 @@ export class EvalmoreComponent implements OnInit {
   appUrl = environment.apiUrl;
 
 
-  constructor(public userChecked: UserCheckedService, public user: UserService, public http: HttpClient, private authService: AuthService) {
+  constructor(public user: UserService, public http: HttpClient, private authService: AuthService) {
      const headers  = new HttpHeaders()
       .set('Authorization', `token ${this.authService.getToken()}`);
     this.user.getUsers().subscribe( userInfo => {
