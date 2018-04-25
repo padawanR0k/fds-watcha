@@ -1,6 +1,5 @@
 <div class="poster-type" [attr.data-id]="moviePoster.id">
   <div class="movie-poster" (click)="movieDetailService.movieDetail(moviePoster.id)">
-
     <img src="{{ moviePoster.poster_image }}" alt="" *ngIf="moviePoster.poster_image ">
     <img src="{{ moviePoster.poster_image_m }}" alt="" *ngIf="moviePoster.poster_image_m&&!moviePoster.poster_image">
     <img src="{{ moviePoster.poster_image_s }}" *ngIf="moviePoster.poster_image_s">
