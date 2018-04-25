@@ -32,32 +32,6 @@
           </div>
         </div>
       </li>
-      <!-- <li style="background-image:url('/assets/images/slider2.jpg');">
-        <div class="inner-guide">
-          <div class="information">
-            <div class="today">오늘의 개봉예정작</div>
-            <dl>
-              <dt><a href="#">퍼시픽 림: 업라이징</a></dt>
-              <dd>평균 별점 : 3.4 , 예매율 : 35.16%
-                <br> 2017, 한국, 로맨스/멜로, 12세 관람가, 2시간 11분
-                <br> 감독 : 이장훈 , 배우 : 소지섭, 손예진
-              </dd>
-            </dl>
-          </div>
-        </div>
-      </li>
-      <li style="background-image:url('/assets/images/slider3.png');">
-        <div class="inner-guide">
-          <div class="information">
-            <dl>
-              <dt>
-                <a href="#">모바일에서도 왓챠!</a>
-              </dt>
-              <dd>모바일에서도 왓챠! 모바일 앱을 다운받으면, 언제 어디서나 왓챠와 함께할 수 있답니다!<br> 주변 극장 상영시간표, 지금 TV에서 방영되는 영화들도 확인 해 보세요.</dd>
-            </dl>
-          </div>
-        </div>
-      </li> -->
     </ul>
     <div class="each">
       <span *ngFor="let movie of sliderItem; let i = index" data-id="{{ i }}" [class.current]="i === 0" (click)="selectMovie(i)"></span>
