@@ -12,13 +12,13 @@
         <li><a routerLinkActive="active" routerLink="/evalmore" class="add-archive">평가늘리기</a></li>
       </ul>
       <div class="search-area">
-        <input type="text" class="search-bar" [(ngModel)]="searchString" (focusin)="resultState=true" (keyup)="moveFocus($event)" (focusout)="closeResult($event)">
+        <input (keyup.enter)="moveToSearch(searchString)" type="text" class="search-bar" [(ngModel)]="searchString" (focusin)="resultState=true" (keyup)="moveFocus($event)" (focusout)="closeResult($event)">
         <div class="search-result" *ngIf="resultState">
           <ul class="search-result-list">
             <li>영화</li>
-            <a href="{{i}}" #searchResult1 *ngFor="let moviePoster of moviePosters; let i = index" (keyup)="moveFocus($event)">{{moviePoster.title_ko}}
+            <a routerLink="/search" (click)="moveToSearch(searchString)"  #searchResult1 *ngFor="let moviePoster of moviePosters; let i = index" (keyup)="moveFocus($event)">{{ searchString }}
               <span class="w100 movie-poster">
-                <img src="{{moviePoster.poster_image}}" alt="">
+                <img src="{{ moviePoster.poster_image }}" alt="">
               </span>
             </a>
             <li><a routerLink="/search" class="more-result">"{{ searchString }}" 검색결과 더보기</a></li>
