@@ -1,5 +1,5 @@
 export interface Mypageuser {
-    pk: string;
+    pk: number;
     email: string;
     nickname: string;
     img_profile: string;
