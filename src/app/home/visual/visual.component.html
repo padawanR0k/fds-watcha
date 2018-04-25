@@ -22,7 +22,11 @@
                   {{ movie.running_time }}분
                 <br>
                   감독 : <ng-container *ngFor="let member of movie.movie_member_list | membersFilter: 'director'">{{ member.member.name }},</ng-container>
-                  배우 : <ng-container *ngFor="let member of movie.movie_member_list | membersFilter: 'leadingRole'">{{ member.member.name }},</ng-container>
+                  배우 :
+                  <ng-container 
+                    *ngFor="let member of movie.movie_member_list | membersFilter: 'leadingRole'; let i = index">
+                    <ng-container *ngIf="i < 5">{{ member.member.name }}</ng-container>
+                  </ng-container>
               </dd>
             </dl>
           </div>
