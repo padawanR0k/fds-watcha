@@ -94,7 +94,11 @@
                   <div class="want-movie" *ngIf="comment.user_want_movie">이 영화를 보고싶어요</div>
                   <div class="want-movie" *ngIf="!comment.user_want_movie">이 영화에 관심없어요</div>
                   <div class="star-ui" [attr.data-value]="comment.rating">
-                    <span *ngFor="let star of movieDetailService.starRate" [attr.data-value]="star" [class.on]="star <= comment.rating"></span>
+                    <span 
+                      *ngFor="let star of movieDetailService.starRate" 
+                      [attr.data-value]="star" 
+                      [class.on]="star <= comment.rating">
+                    </span>
                   </div>
                   <div class="name">{{ comment.user.nickname }}</div>
                   <p class="comment">{{ comment.comment }}</p>

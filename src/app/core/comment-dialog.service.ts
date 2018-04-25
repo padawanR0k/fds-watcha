@@ -61,7 +61,6 @@ export class CommnetDialogService {
     const headers = new HttpHeaders()
     .set('Authorization', `token ${this.authService.getToken()}`)
     .set('Content-Type', 'application/json');
-    console.log(this.userAction);
     this.http.put<UserActionResponse>(`${this.appUrl}/movie/user-checked-movie/${this.userAction.id}/`, this.userAction, { headers })
       .subscribe(res => {
         this.moviePoster.login_user_checked.comment = res.comment;

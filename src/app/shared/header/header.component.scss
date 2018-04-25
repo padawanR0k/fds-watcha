@@ -19,6 +19,9 @@ $header-box-shadow: 0px 0px 5px rgba(98, 98, 98, 0.4);
     .gnb li>a, .user-menu >.name {
       color: #fff;
     }
+    .gnb li>a {
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+    }
     .menu-list a {
       color: rgb(152, 152, 152);
     }
@@ -129,6 +132,8 @@ $header-box-shadow: 0px 0px 5px rgba(98, 98, 98, 0.4);
   float: right;
   .user-avator {
     margin-left: 15px;
+    background: url('../../../assets/images/bg-photo.png') no-repeat;
+    background-size: 100%;
   }
 
   .menu-list {

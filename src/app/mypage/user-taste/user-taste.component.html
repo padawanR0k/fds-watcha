@@ -1,9 +1,9 @@
-<div class="section-wrap">
+<div class="section-wrap" *ngIf="pageShow">
   <section class="statistics rating-graph">
     <h3 class="section-title">영화별점 분포</h3>
     <div class="graph">
       <canvas baseChart width="460" height="200" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
-        [colors]="lineChartColors"  [chartType]="lineChartType" ></canvas>
+        [colors]="lineChartColors"  [chartType]="lineChartType"  chart-dataset-override="datasetOverride"></canvas>
         <ol class="scores">
           <li>1</li>
           <li>2</li>
@@ -18,12 +18,11 @@
         </ol>
     </div>
     <ul class="rating-stat">
-      <li><div class="rating-average">3.5</div>별점 평균</li>
-      <li><div>500</div>별점 수</li>
-      <li><div>4.0</div>많이 준 별점</li>
+      <li><div class="rating-average">{{ratingAvg}}</div>별점 평균</li>
+      <li><div>{{ratingTotal}}</div>별점 수</li>
     </ul>
   </section>
-  <section class="statistics director">
+  <!-- <section class="statistics director">
     <h3 class="section-title">선호감독</h3>
     <ul class="list-type01">
       <li>
@@ -170,14 +169,14 @@
   <section class="statistics best-comment">
     <h3 class="section-title">홍길동 님이 쓴 인기코멘트</h3>
     <div class="movie-bg" style="background: url('http://dhgywazgeek0d.cloudfront.net/watcha/image/upload/v1466142041/sercf69ybtcslkxkpi16.jpg') center center no-repeat">
-      <cite class="movie-name"><a href="">곤지암</a></cite>
+      <cite class="movie-name"><a href="">루비스팍스</a></cite>
     </div>
     <div class="user">
       <div class="rating-star">
         <button *ngFor="let item of rateScore" data-value="{{ item }}" class="star" [class.star-on]="item <= 5" (click)="rateFilm($event.target, i)"></button>
       </div>
       <div class="user-comment">
-        가나다라마바
+        저 타자기를 갖고싶다
       </div>
       <div class="action">
         <div class="btn-action">
@@ -190,68 +189,44 @@
   <section class="statistics tag">
     <h3 class="section-title">영화 선호태그</h3>
     <div class="word-cloud">
-      <div AgWordCloud  [wordData]="wordData" [options]="WordCloudOptions" [width]="460"></div>
+      <div AgWordCloud  [wordData]="wordData" [options]="WordCloudOptions" #word_cloud_chart=ag-word-cloud></div>
     </div>
+  </section> -->
+
+  <section class="statistics nation">
+    <h3 class="section-title">선호국가</h3>
+    <div class="worldmap">
+
+
+    </div>
+    <ul class="list-type02">
+        <li *ngFor="let nation of topNation">
+          <span class="sort">{{nation[0]}}</span>
+          <span class="score">{{nation[1]}}점</span>
+          <span class="count">{{nation[2]}}편</span>
+        </li>
+    </ul>
   </section>
+
   <section class="statistics genre">
     <h3 class="section-title">영화 선호장르</h3>
     <div class="graph">
-<canvas baseChart [data]="doughnutChartData" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" [labels]="doughnutChartLabels"
-  [options]="doughnutChartOptions" [colors]="doughnutChartColors"></canvas>
-
-
+      <canvas baseChart [data]="doughnutChartData" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" [labels]="doughnutChartLabels"
+        [options]="doughnutChartOptions" [colors]="doughnutChartColors"></canvas>
     </div>
     <ul class="list-type02">
-      <li>
-        <span class="sort">SF</span>
-        <span class="score">90점</span>
-        <span class="count">100편</span>
-      </li>
-      <li>
-        <span class="sort">판타지</span>
-        <span class="score">60점</span>
-        <span class="count">120편</span>
-      </li>
-      <li>
-        <span class="sort">스릴러</span>
-        <span class="score">50점</span>
-        <span class="count">10편</span>
+      <li *ngFor="let genre of topGenre">
+        <span class="sort">{{genre[0]}}</span>
+        <span class="score">{{genre[1]}}점</span>
+        <span class="count">{{genre[2]}}편</span>
       </li>
     </ul>
   </section>
-  <section class="statistics nation">
-    <h3 class="section-title">미국 영화를 재밌게 보셧어요</h3>
-    <div class="worldmap">
 
-    </div>
-    <ul class="list-type02">
-      <li>
-        <span class="sort">미국</span>
-        <span class="score">50점</span>
-        <span class="count">666편</span>
-      </li>
-      <li>
-        <span class="sort">미국</span>
-        <span class="score">50점</span>
-        <span class="count">666편</span>
-      </li>
-      <li>
-        <span class="sort">미국</span>
-        <span class="score">50점</span>
-        <span class="count">666편</span>
-      </li>
-      <li>
-        <span class="sort">미국</span>
-        <span class="score">50점</span>
-        <span class="count">666편</span>
-      </li>
-    </ul>
-  </section>
   <section class="statistics time">
     <h3 class="section-title">시청시간</h3>
-    <p class="comment">상위 1%! 영화를 진심으로 사랑하는 시네필</p>
     <div class="time-sum">
-      <div class="circle">1166</div>
+      <div class="circle">{{ totalRuntime }}</div>
     </div>
   </section>
 </div>
