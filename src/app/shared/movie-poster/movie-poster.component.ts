@@ -18,17 +18,20 @@ import { UserActionResponse } from '../userActionResponse.interface';
 export interface ShortMoviePoster {
   id: number;
   title_ko: string;
-  title_en: string;
-  rating_avg: number;
-  nation: string;
-  poster_image: string;
-  genre: [
+  title_en?: string;
+  rating_avg?: number;
+  rate?: string;
+  nation?: string;
+  poster_image?: string;
+  poster_image_m?: string;
+  poster_image_s?: string;
+  genre?: [
     {
       id: number;
       genre: string;
     }
   ];
-  running_time: number;
+  running_time?: number;
   login_user_checked?: {
     id: number;
     user_want_movie: boolean;
