@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormGroup } from '@angular/forms';
 
 import { HeaderComponent, ModalEditProfile } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+import { FooterComponent, ModalPrivate } from './footer/footer.component';
 import { BoxOfficeRankingComponent } from './box-office-ranking/box-office-ranking.component';
 import { MovieCategoryComponent } from './movie-category/movie-category.component';
 import { MoviePosterComponent } from './movie-poster/movie-poster.component';
@@ -40,7 +40,8 @@ import { ModifiedDatePrintPipe } from './modified-date-print.pipe';
   ],
   entryComponents: [
     ModalEditProfile,
-    CommentDialogComponent
+    CommentDialogComponent,
+    ModalPrivate
   ],
   declarations: [
     HeaderComponent,
@@ -53,6 +54,7 @@ import { ModifiedDatePrintPipe } from './modified-date-print.pipe';
     PreloaderComponent,
     CommentDialogComponent,
     MovieDetailDialogComponent,
+    ModalPrivate,
     MembersFilterPipe,
     CommasNumbersPipe,
     DDayPrintPipe,
@@ -76,7 +78,8 @@ import { ModifiedDatePrintPipe } from './modified-date-print.pipe';
     DDayPrintPipe,
     NationPrintPipe,
     FilmRatePrintPipe,
-    ModifiedDatePrintPipe
+    ModifiedDatePrintPipe,
+    ModalPrivate
   ]
 })
 export class SharedModule {}
