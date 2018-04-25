@@ -13,7 +13,7 @@
             <div class="today">오늘의 박스오피스</div>
             <dl>
               <dt>{{ movie.title_ko }}</dt>
-              <dd>평균 별점 : 3.4 , 예매율 : {{ movie.ticketing_rate }}%
+              <dd>평균 별점 : {{ movie.rating_avg }} , 예매율 : {{ movie.ticketing_rate }}%
                 <br>
                   {{ movie.title_en }},
                   {{ movie.nation | nationPrint }}, 
