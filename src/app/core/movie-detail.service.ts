@@ -37,6 +37,15 @@ export class MovieDetailService {
     }
   }
 
+  mainMovie(id: number): Observable<MovieDetail> {
+    const token = this.auth.getToken();
+    const headers = new HttpHeaders()
+      .set('Authorization', `Token ${token}`);
+    return this.http.get<MovieDetail>(`${this.appUrl}/movie/${id}/`, { headers })
+      .shareReplay();
+  }
+
+
   movieDetail(id: number) {
     const token = this.auth.getToken();
     const headers = new HttpHeaders()
