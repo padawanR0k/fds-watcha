@@ -5,7 +5,7 @@
     <img src="{{ moviePoster.poster_image_s }}" *ngIf="moviePoster.poster_image_s">
     <img src="{{ moviePoster.poster_image }}" alt="" *ngIf="moviePoster.poster_image">
   </div>
-  <div class="hidden-layer" [class.rated]="rating>0 || want" *ngIf="moviePoster.rate">
+  <div class="hidden-layer" [class.rated]="rating>0 || want">
     <cite class="movie-name">{{ moviePoster.title_ko }}</cite>
     <div class="rating-star"
     [attr.data-rating]="rating"
