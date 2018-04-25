@@ -73,6 +73,12 @@ import { ModifiedDatePrintPipe } from './modified-date-print.pipe';
     MovieDetailComponent,
     PreloaderComponent,
     MovieDetailDialogComponent,
+    MembersFilterPipe,
+    CommasNumbersPipe,
+    DDayPrintPipe,
+    NationPrintPipe,
+    FilmRatePrintPipe,
+    ModifiedDatePrintPipe,
     ModalPrivate
   ]
 })
