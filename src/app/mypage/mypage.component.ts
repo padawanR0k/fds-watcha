@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { PreloaderService } from '../shared/preloader';
 import { AuthService } from '../core/auth/services/auth.service';
+import { UserService } from '../core/auth/services/user.service';
 
 import { UserInfo } from '../shared/user-info.interface';
 import { Mypageuser } from './mypageuser.interface';
@@ -16,29 +18,37 @@ import { environment } from '../../environments/environment.prod';
 })
 
 export class MypageComponent implements OnInit {
-  userInfo: object;
-  myPageUser: object;
+  userInfo: UserInfo;
+  myPageUser: Mypageuser;
+  pk: number;
   appUrl = environment.apiUrl;
 
   constructor(
     public http: HttpClient,
     private auth: AuthService,
+    private user: UserService,
     public preloader: PreloaderService
   ) { }
 
+  mypageHead(): Observable<Mypageuser> {
+    const token = this.auth.getToken();
+    const headers = new HttpHeaders()
+      .set('Authorization', `Token ${token}`);
+    return this.http.get<Mypageuser>(`${this.appUrl}/members/${this.pk}/mypage-top/`, { headers })
+      .shareReplay();
+  }
+
   ngOnInit() {
     this.preloader.show();
-    this.auth.getToken();
-    this.http.get<UserInfo>(`${this.appUrl}/members/detail`,
-      { headers: { Authorization: `Token ${this.auth.getToken()}` } })
+    this.user.getUsers()
       .subscribe(user => {
-        this.http.get<Mypageuser>(`${this.appUrl}/members/${user.pk}/mypage-top/`,
-          { headers: { Authorization: `Token ${this.auth.getToken()}` } })
-          .subscribe(res => {
-            this.myPageUser = res;
-            this.preloader.hide();
-          });
-      });
+        this.pk = user.pk;
+        this.mypageHead()
+        .subscribe(res => {
+          this.myPageUser = res;
+          this.preloader.hide();
+        });
+      })
   }
 }
 
