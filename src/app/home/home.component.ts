@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit {
     switch (target) {
       case 'today-box-office':
         this.prevBtnShowBoxOffice = this.targetEl.dataset.position === '0' ? false : true;
-        this.nextBtnShowBoxOffice = this.targetEl.dataset.position === '-1920' ? false : true;
+        this.nextBtnShowBoxOffice = this.targetEl.dataset.position === '-960' ? false : true;
         this.boxOfficePage.next();
         break;
       case 'my-movies':

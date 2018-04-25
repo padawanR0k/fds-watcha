@@ -1,9 +1,8 @@
 <div class="poster-type" [attr.data-id]="moviePoster.id">
   <div class="movie-poster" (click)="movieDetailService.movieDetail(moviePoster.id)">
-
-    <img src="{{ moviePoster.poster_image_m }}" alt="" *ngIf="moviePoster.poster_image_m">
+    <img src="{{ moviePoster.poster_image }}" alt="" *ngIf="moviePoster.poster_image ">
+    <img src="{{ moviePoster.poster_image_m }}" alt="" *ngIf="moviePoster.poster_image_m&&!moviePoster.poster_image">
     <img src="{{ moviePoster.poster_image_s }}" *ngIf="moviePoster.poster_image_s">
-    <img src="{{ moviePoster.poster_image }}" alt="" *ngIf="moviePoster.poster_image">
   </div>
   <div class="hidden-layer" [class.rated]="rating>0 || want">
     <cite class="movie-name">{{ moviePoster.title_ko }}</cite>
@@ -11,7 +10,6 @@
     [attr.data-rating]="rating"
     [attr.data-chekdId]="checkedId"
     >
-      {{ moviePoster.rate }}
       <button *ngFor="let rate of rateScore" [attr.data-value]="rate" class="star" [class.star-on]="rate <= rating"
         (click)="rateFilm($event.target, rate, moviePoster.id, userToMovieId)"></button>
     </div>
