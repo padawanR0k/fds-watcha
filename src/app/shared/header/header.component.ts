@@ -1,12 +1,12 @@
 import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 
 import { AuthService } from '../../core/auth/services/auth.service';
 import { UserService } from '../../core/auth/services/user.service';
-// import { SearchService } from '../../core/search.service';
+import { SearchService } from '../../core/search.service';
 
 import { MoviePoster } from '../../shared/movie-poster.interface';
 
@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit {
     public router: Router,
     private auth: AuthService,
     private user: UserService,
-    // private search: SearchService,
+    public search: SearchService,
     public dialog: MatDialog
   ) { }
 
@@ -66,15 +66,19 @@ export class HeaderComponent implements OnInit {
         event.target.nextElementSibling.focus();
       }
     } else {
-      this.auth.getToken();
+      const headers = new HttpHeaders()
+        .set('Authorization', `Token ${this.auth.getToken()}`);
       this.http.get<MoviePoster>(`${this.appUrl}/movie/search/?movie=${this.searchString}`,
-        { headers: { Authorization: `Token ${this.auth.getToken()}` } })
+        { headers })
         .subscribe(res => {
           this.moviePosters = res.results;
           this.data = res;
         });
-      // searchMovie();
     }
+  }
+
+  moveToSearch(movieTitle) {
+    this.search.searchMovie(movieTitle);
   }
 
   closeResult(event) {
@@ -141,7 +145,7 @@ export class ModalEditProfile {
   constructor(
     private auth: AuthService,
     private user: UserService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.user.getUsers()

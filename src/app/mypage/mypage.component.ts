@@ -44,11 +44,10 @@ export class MypageComponent implements OnInit {
       .subscribe(user => {
         this.pk = user.pk;
         this.mypageHead()
-        .subscribe(res => {
-          this.myPageUser = res;
-          this.preloader.hide();
-        });
-      })
+          .subscribe(res => {
+            this.myPageUser = res;
+            this.preloader.hide();
+          });
+      });
   }
 }
-
