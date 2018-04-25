@@ -32,7 +32,6 @@ export class VisualComponent implements OnInit {
         .subscribe(
           movie => {
             this.movies = this.movies.concat(movie);
-            console.log('[Visual]', this.movies);
           },
           ({ error }) => {
             console.log('ERROR', error.message);
