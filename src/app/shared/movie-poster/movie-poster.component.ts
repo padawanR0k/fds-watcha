@@ -194,10 +194,12 @@ export class MoviePosterComponent implements OnInit {
   }
 
   ngOnInit() {
-    const login_user = this.moviePoster.login_user_checked;
-    this.rating = Object.keys(login_user).length === 1 ? 0 : +login_user.rating;
-    this.want = Object.keys(login_user).length === 1 ? false : login_user.user_want_movie;
-    this.comment = login_user.comment === '' ? false : login_user.user_watched_movie;
-    this.userToMovieId = Object.keys(login_user).length === 1 ? 0 : login_user.id;
+    if (this.moviePoster.login_user_checked) {
+      const login_user = this.moviePoster.login_user_checked;
+      this.rating = Object.keys(login_user).length === 1 ? 0 : +login_user.rating;
+      this.want = Object.keys(login_user).length === 1 ? false : login_user.user_want_movie;
+      this.comment = login_user.comment === '' ? false : login_user.user_watched_movie;
+      this.userToMovieId = Object.keys(login_user).length === 1 ? 0 : login_user.id;
+    }
   }
 }
