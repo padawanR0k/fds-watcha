@@ -1,7 +1,49 @@
 # FDS 8기 팀프로젝트
 
-강희창, 하지연, 이유록
+## 작업내용
 
-## Watcha의 핵심 기능을 Angular로 구현
+취향에 맞는 영화를 추천해주는 Watcha의 핵심 기능을 Angular로 구현
 
-2018.04.02 ~
+## 작업기간
+
+2018-04-02 ~ 2018-04-25
+
+## Front-end
+
+- 강희창
+  - 메인 페이지의 전체 그리드 작업과 주요 Carousel 이벤트 구현
+  - 인트로, 로그인, 회원가입 스타일 작업과 기능 개발
+  - 로그인 유저 정보 표시와 닉네임 변경 기능
+  - 영화상세정보 모달 스타일 작업과 데이터 바인딩
+  - 마이페이지 공통영역 스타일 작업과 데이터 바인딩
+  - 팀 작업 분배
+- 하지연
+  - 공통 주요 검색 기능
+- 이유록
+  - 메인 페이지의 컨텐츠 영역 Carousel 이벤트 구현
+
+## Back-end
+
+신동진, 신종민
+
+## IOS
+서재형, 박힘찬, 유한섭
+
+## 기술스택
+### Language
+JS
+
+### Server platform/framework
+Node.js
+
+### DB/No SQL
+postgreSQL
+
+### Web Client
+Angular
+
+### IOS
+Swift
+
+### ETC
+Slack, Trello
