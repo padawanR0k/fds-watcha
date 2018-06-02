@@ -1,5 +1,7 @@
 # FDS 8기 팀프로젝트
 [![Video Label](https://i.ytimg.com/vi_webp/SwEb0BVjsnc/sddefault.webp)](https://youtu.be/SwEb0BVjsnc?t=0s)
+
+[https://watcha-5de92.firebaseapp.com/](fds-watcha)
 ## 작업내용
 
 취향에 맞는 영화를 추천해주는 Watcha의 핵심 기능을 Angular로 구현
