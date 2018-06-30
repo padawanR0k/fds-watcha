@@ -1,7 +1,7 @@
 # FDS 8기 팀프로젝트
 [![Video Label](https://i.ytimg.com/vi_webp/SwEb0BVjsnc/sddefault.webp)](https://youtu.be/SwEb0BVjsnc?t=0s)
 
-[fds-watcha](https://watcha-5de92.firebaseapp.com/)
+[fds-watcha Demo](https://watcha-5de92.firebaseapp.com/)
 ## 작업내용
 
 취향에 맞는 영화를 추천해주는 Watcha의 핵심 기능을 Angular로 구현
@@ -9,7 +9,7 @@
 ## 작업기간
 
 2018-04-02 ~ 2018-04-25
-
+[스크럼 보드](https://docs.google.com/spreadsheets/d/1FIqL38mUCcQQt2XejVt2zTsPz3maKaFDEMTnvNmXCLw/edit#gid=1954898330)
 ## Front-end
 
 - 강희창
